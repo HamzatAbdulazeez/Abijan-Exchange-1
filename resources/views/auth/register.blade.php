@@ -61,7 +61,7 @@
                             </p>
                             <!--Password-->
                             <div class="col-md-12 mb-3">
-                                <button value="LogIn"> <a href="#"> Sign up</a></button>
+                                <button type="submit">Sign up</button>
                             </div>
                         </div>
                         <p class="fine">You have an account? <a href="{{route('login')}}">Login</a> </p>
