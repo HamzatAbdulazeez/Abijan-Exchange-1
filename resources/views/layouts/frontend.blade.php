@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{URL::asset('assets/css/btn.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/party.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    {!! NoCaptcha::renderJs() !!}
     <title> {{config('app.name')}} </title>
     <style type="text/css">
         div.eapps-widget {

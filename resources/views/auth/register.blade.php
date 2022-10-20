@@ -42,6 +42,20 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <label>Captcha</label>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        {!! app('captcha')->display() !!}
+
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                             <p>
                                 By clicking Sign up, you agree to our Terms & Conditions
                             </p>
