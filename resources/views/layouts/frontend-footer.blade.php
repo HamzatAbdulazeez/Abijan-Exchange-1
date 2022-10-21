@@ -4,7 +4,7 @@
         <div class="top">
             <div class="logo-details">
                 <a href="/">
-                    <img src="{{URL::asset('assets/images/logo.png')}}" alt="Hayahg logo">
+                    <img src="{{URL::asset('assets/images/logoo.png')}}" alt="Hayahg logo">
                 </a>
             </div>
             <div class="media-icons">
@@ -67,7 +67,6 @@
                     document.write(new Date().getFullYear())
                 </script> All rights
                 reserved.
-                {{config('app.name')}}
             </p>
         </div>
     </div>
