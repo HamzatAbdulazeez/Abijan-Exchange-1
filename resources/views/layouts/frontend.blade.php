@@ -364,7 +364,7 @@
     <!-- Page-Content Ends -->
 
     <!-- Footer -->
-        @yield('footer');
+        @yield('footer')
     <!-- Footer Ends -->   
 
     <!-- MODAL -->

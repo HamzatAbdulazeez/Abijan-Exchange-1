@@ -88,11 +88,9 @@
         <div class="row">
             <div class="col-lg-7 align-self-center">
                 <div class="hero-content mb-5 mb-lg-0">
-                    <h1 class="fw-bold mb-4">{{config('app.name')}} is the best &amp; most secure place to instantly buy,
-                        sell, pay and store your crypto &amp; E-currency in Nigeria.
+                    <h1 class="fw-bold mb-4">The Best & Most Reliable E-currency Exchange, Operating Since 2012
                     </h1>
-                    <div class="text-dark"> The tools and information you need to buy, sell, trade, invest, and
-                        spend cryptocurrencies</div>
+                    <div class="text-dark">Abijan Exchange gives you the freedom to make instant and easy buy, sell, pay, swap and store your cryptos. We have the most secure platform to manage your crypto & e-currency portfolio in Nigeria.</div>
                     <div class="align-items-center mt-4">
                         <button class="btn btn-primary shadow-none">
                             <a href="/register">
@@ -273,10 +271,10 @@
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <h2 class="fw-bold mb-4">About Us</h2>
-                        <p class="fs-sm">{{config('app.name')}} is a leading cryptocurrency exchange and your most reliable
+                        <p class="fs-sm">Abijan Exchange  is a leading cryptocurrency exchange and your most reliable
                             source for
                             fast e-currency funding, we provide the safest and easy-to-use digital currency trading
-                            platform. {{config('app.name')}} is a Nigeria biggest E-currency Exchange Company sine 2012.
+                            platform. Abijan Exchange  is a Nigeria biggest E-currency Exchange Company sine 2012.
                         </p>
                         <p class="fs-sm">We solve the incessant problem of getting into the crypto market at the
                             right price. We have reduced the unbearable margin between Buying and Selling.</p>
@@ -461,7 +459,7 @@
                             </div>
                             <span class="badge bg-dark py-1 px-3 rounded-custom">
                                 BEST EXCHANGE RATES</span>
-                            <p class="mt-3 mb-0"> You want the best rate? {{config('app.name')}} is the right place. We
+                            <p class="mt-3 mb-0"> You want the best rate? Abijan Exchange  is the right place. We
                                 always provide you with the best exchange rates. </p>
                         </li>
                         <li class="setup-process-item py-4 px-2" data-aos="fade-up">
@@ -477,7 +475,7 @@
                                 <i class="ri-exchange-dollar-fill text-primary ri-3x"></i>
                             </div>
                             <span class="badge bg-dark py-1 px-3 rounded-custom">MORE CURRENCY OPTION</span>
-                            <p class="mt-3 mb-0">At {{config('app.name')}} you have the options to choose from many currency
+                            <p class="mt-3 mb-0">At Abijan Exchange  you have the options to choose from many currency
                                 pairs. Just make a wish, your currency is in your wallet.</p>
                         </li>
                     </ul>
@@ -626,7 +624,7 @@
                                         <div class="mainShape">
                                             <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
                                             <p>
-                                                “{{config('app.name')}} is an amazing e-currency
+                                                “Abijan Exchange  is an amazing e-currency
                                                 exchanger.
                                                 Their
                                                 services is fast and very relaible. Looking
@@ -694,7 +692,7 @@
                                     </div>
                                 </div>
                                 <div class="feedback-comment">
-                                    <p> {{config('app.name')}} is an amazing e-currency exchanger.
+                                    <p> Abijan Exchange  is an amazing e-currency exchanger.
                                         Their
                                         services is fast and very relaible. Looking forward to
                                         doing
@@ -740,7 +738,7 @@
                                 </div>
 
                                 <div class="feedback-comment">
-                                    I have been enjoying {{config('app.name')}} over the years because
+                                    I have been enjoying Abijan Exchange  over the years because
                                     of there
                                     fast funding and they are reliably good.
                                     <p></p>
@@ -829,7 +827,7 @@
                                 </div>
 
                                 <div class="feedback-comment">
-                                    <p> {{config('app.name')}} is an amazing e-currency exchanger.
+                                    <p> Abijan Exchange  is an amazing e-currency exchanger.
                                         Their
                                         services is fast and very relaible. Looking forward to
                                         doing
@@ -873,7 +871,7 @@
                                 </div>
 
                                 <div class="feedback-comment">
-                                    I have been enjoying {{config('app.name')}} over the years because
+                                    I have been enjoying Abijan Exchange  over the years because
                                     of there
                                     fast funding and they are reliably good.
                                     <p></p>
@@ -963,7 +961,7 @@
                                 </div>
 
                                 <div class="feedback-comment">
-                                    <p> {{config('app.name')}} is an amazing e-currency exchanger.
+                                    <p> Abijan Exchange  is an amazing e-currency exchanger.
                                         Their
                                         services is fast and very relaible. Looking forward to
                                         doing
@@ -1009,7 +1007,7 @@
                                 </div>
 
                                 <div class="feedback-comment">
-                                    I have been enjoying {{config('app.name')}} over the years because
+                                    I have been enjoying Abijan Exchange  over the years because
                                     of there
                                     fast funding and they are reliably good.
                                     <p></p>
@@ -1045,7 +1043,7 @@
                                     <div class="accordion-body">The price of Bitcoin and other
                                         digital currencies are determined by supply and demand:
                                         the buyers who want a certain currency and the sellers
-                                        who have that currency. {{config('app.name')}} does not set the
+                                        who have that currency. Abijan Exchange  does not set the
                                         price of Bitcoin or any digital currency.</div>
                                 </div>
                             </div>

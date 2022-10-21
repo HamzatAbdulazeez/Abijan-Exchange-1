@@ -8,8 +8,8 @@
 
         <a href="/" class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4">
 
-            <img class="d-none d-lg-block" src="{{URL::asset('assets/images/logo.png')}}" alt="{{config('app.name')}}" width="250">
-            <img class="d-lg-none" src="{{URL::asset('assets/images/logo.png')}}" alt="{{config('app.name')}}" width="170">
+            <img class="d-none d-lg-block" src="{{URL::asset('assets/images/logoo.png')}}" alt="{{config('app.name')}}" width="250">
+            <img class="d-lg-none" src="{{URL::asset('assets/images/logoo.png')}}" alt="{{config('app.name')}}" width="170">
 
         </a>
 
