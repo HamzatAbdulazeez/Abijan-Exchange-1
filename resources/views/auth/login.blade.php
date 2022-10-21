@@ -56,7 +56,6 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <label>Captcha</label>
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         {!! app('captcha')->display() !!}
