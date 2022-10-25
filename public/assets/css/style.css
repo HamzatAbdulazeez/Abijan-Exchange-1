@@ -4173,6 +4173,18 @@ li.setup-process-item:not(:last-child):before {
     z-index: -2;
     margin-bottom: -60px;
 }
+.testimonial .testimonialBox .shape3{
+    width: 90%;
+    height: 50px;
+    background-color: #fff;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgb(212, 212, 212);
+    border-radius: 30px;
+    position: relative;
+    top: -80px;
+    z-index: -2;
+    margin-bottom: -60px;
+}
 .testimonial .carousel-control-prev{
     margin-left: -20px;
 }

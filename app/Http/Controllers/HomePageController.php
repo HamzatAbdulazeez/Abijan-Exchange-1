@@ -24,7 +24,7 @@ class HomePageController extends Controller
         $this->validate($request, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'g-recaptcha-response' => 'required|captcha',
+            // 'g-recaptcha-response' => 'required|captcha',
         ]);
 
         $user = User::create([
@@ -109,7 +109,7 @@ class HomePageController extends Controller
         $this->validate($request, [
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
-            'g-recaptcha-response' => 'required|captcha',
+            // 'g-recaptcha-response' => 'required|captcha',
         ]);
         
         $input = $request->only(['email', 'password']);

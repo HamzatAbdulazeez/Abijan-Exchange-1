@@ -33,7 +33,6 @@
                 <li><a href="/about">About us</a></li>
                 <li><a href="/contact">Contact us</a></li>
                 <li><a href="/affiliate">Affiliate</a></li>
-                <li><a href="/buy-and-sell">Buy/Sell</a></li>
             </ul>
             <ul class="box">
                 <li class="link_name">Services</li>
@@ -41,6 +40,7 @@
                 <li><a href="">Swap Coins</a></li>
                 <li><a href="">P2P Trading</a></li>
                 <li><a href="">Pay Bills</a></li>
+                <li><a href="/buy-and-sell">Buy/Sell</a></li>
             </ul>
             <ul class="box">
                 <li class="link_name">Account</li>
@@ -63,9 +63,10 @@
     <div class="bottom-details">
         <div class="bottom_text">
             <p class="copyright_text">
+                Copyright
                 <script>
                     document.write(new Date().getFullYear())
-                </script> All rights
+                </script> Abijan Exchange | All rights
                 reserved.
             </p>
         </div>

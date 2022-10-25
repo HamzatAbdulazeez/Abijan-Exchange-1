@@ -581,6 +581,9 @@
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -634,6 +637,88 @@
                                                 ”
                                             </p>
                                             <h5>Sunny Adike</h5>
+                                        </div>
+                                        <div class="shape1"></div>
+                                        <div class="shape2"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center testimonialDiv">
+                                <div class="col-md-1">
+                                    <div class="testimonialImg">
+                                        <img src="{{URL::asset('assets/images/slider-ghana.png')}}" draggable="false">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="testimonialBox">
+                                        <div class="mainShape">
+                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                            <p>
+                                                “I enjoy doing business with you guys, because you don't
+                                                delay
+                                                processing transactions as soon as payments are made.
+                                                Thanks and
+                                                keep it up
+                                                        ”
+                                            </p>
+                                            <h5>Hamzat</h5>
+                                        </div>
+                                        <div class="shape1"></div>
+                                        <div class="shape2"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center testimonialDiv">
+                                <div class="col-md-1">
+                                    <div class="testimonialImg">
+                                        <img src="{{URL::asset('assets/images/slider-kenya.png')}}" draggable="false">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="testimonialBox">
+                                        <div class="mainShape">
+                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                            <p>
+                                                “Trust and integrity are such in your organisation.
+                                                Please keep
+                                                it up. May God bless you all
+                                                        ”
+                                            </p>
+                                            <h5>Abdul</h5>
+                                        </div>
+                                        <div class="shape1"></div>
+                                        <div class="shape2"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center testimonialDiv">
+                                <div class="col-md-1">
+                                    <div class="testimonialImg">
+                                        <img src="{{URL::asset('assets/images/slider-nigeria.png')}}" draggable="false">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="testimonialBox">
+                                        <div class="mainShape">
+                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                            <p>
+                                                “ Abijan Exchange  is an amazing e-currency exchanger.
+                                                Their
+                                                services is fast and very relaible. Looking forward to
+                                                doing
+                                                more business with you guys.
+                                                        ”
+                                            </p>
+                                            <h5>Adeleke</h5>
                                         </div>
                                         <div class="shape1"></div>
                                         <div class="shape2"></div>
