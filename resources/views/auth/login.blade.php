@@ -7,7 +7,7 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="sign">
-                    <form class="sign-div" method="POST" action="{{ route('user.login') }}">
+                    <form class="sign-div" method="POST" action="{{ route('login') }}">
                         @csrf
                         <a href="/">
                             <img src="{{URL::asset('assets/images/logo.png')}}" draggable="false" alt="">
@@ -48,7 +48,7 @@
                                     <div class="col-md-9"></div>
                                     <div class="col-md-3">
                                         <p>
-                                            <a href="{{route('forget')}}" style="color: #212536;font-size: 12px;">
+                                            <a href="{{route('password.request')}}" style="color: #212536;font-size: 12px;">
                                                 Forgot-Password
                                             </a>
                                         </p>

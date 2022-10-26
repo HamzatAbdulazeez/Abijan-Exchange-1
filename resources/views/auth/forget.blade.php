@@ -1,20 +1,21 @@
 @extends('layouts.frontend')
 
 @section('page-content')
+@include('sweetalert::alert')
 <section class="logIn">
     <div class="container">
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="sign">
-                    <form class="sign-div" method="POST" action="{{ route('user.forget.password')}}">
+                    <form class="sign-div" method="POST" action="{{ route('password.email')}}">
                         @csrf
                         <a href="/">
                             <img src="{{URL::asset('assets/images/logo.png')}}" draggable="false" alt="">
                         </a>
-                        
+
                         @includeIf('layouts.error_template')
-                        
+
                         <div class="mt-4">
                             <h4 class="mb-0 mt-2">Forgot Password?</h4>
                             <p class="pt-1 opacity-50">Please type in the email address linked to your {{config('app.name')}} account to reset your password.</p>

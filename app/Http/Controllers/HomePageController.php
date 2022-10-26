@@ -19,7 +19,7 @@ class HomePageController extends Controller
         return view('auth.register');
     }
 
-    public function post_register(Request $request) 
+    public function post_register(Request $request)
     {
         $this->validate($request, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -42,8 +42,8 @@ class HomePageController extends Controller
         // Send email to user
         $user->notify(new SendVerificationCode($user));
 
-        return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!'); 
-    
+        return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
+
     }
 
     public function verify_account($email)
@@ -111,9 +111,9 @@ class HomePageController extends Controller
             'password' => ['required', 'string', 'min:8'],
             // 'g-recaptcha-response' => 'required|captcha',
         ]);
-        
+
         $input = $request->only(['email', 'password']);
-        
+
         $user = User::query()->where('email', $request->email)->first();
 
         if ($user && !Hash::check($request->password, $user->password)){
@@ -131,13 +131,13 @@ class HomePageController extends Controller
                 // Send email to user
                 $user->notify(new SendVerificationCode($user));
 
-                return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!'); 
+                return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
             }
 
             if($user->user_type == 'Client'){
                 return redirect()->route('home');
             }
-            
+
             Auth::logout();
 
             return back()->with('failure_report', 'You are not a Client User.');
@@ -177,7 +177,7 @@ class HomePageController extends Controller
         return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
     }
 
-    public function password_reset_email() 
+    public function password_reset_email()
     {
         return view('auth.reset_password');
     }
@@ -200,7 +200,7 @@ class HomePageController extends Controller
                 return back()->with('failure_report', 'Password reset code expired');
             }
 
-            // find user's email 
+            // find user's email
             $user = User::firstWhere('email', $passwordReset->email);
 
             // update user password
@@ -208,7 +208,7 @@ class HomePageController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
-            // delete current code 
+            // delete current code
             $passwordReset->delete();
 
             return redirect()->route('login')->with('success_report', 'Password has been successfully reset, Please login');
@@ -229,9 +229,9 @@ class HomePageController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
         ]);
-        
+
         $input = $request->only(['email', 'password']);
-        
+
         $user = User::query()->where('email', $request->email)->first();
 
         if ($user && !Hash::check($request->password, $user->password)){
@@ -247,9 +247,9 @@ class HomePageController extends Controller
             if($user->user_type == 'Administrator'){
                 return redirect()->route('admin.dashboard');
             }
-           
+
             return back()->with('failure_report', 'You are not an Administrator');
-                    
+
         } else {
             return back()->with('failure_report', 'User authentication failed.');
         }

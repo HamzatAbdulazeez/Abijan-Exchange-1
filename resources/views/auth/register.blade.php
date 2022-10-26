@@ -7,20 +7,25 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="sign">
-                    <form class="sign-div" method="POST" action="{{ route('post.register') }}" enctype="multipart/form-data">
+                    <form class="sign-div" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         <a href="/">
                             <img src="{{URL::asset('assets/images/logo.png')}}" draggable="false" alt="">
                         </a>
-                        
+
                         @includeIf('layouts.error_template')
-                        
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <label>Email</label>
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <input type="email" placeholder="Enter Your Email" name="email" class="input" required>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                {{$message}}
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -30,6 +35,11 @@
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <input type="password" placeholder="Enter your Password" name="password" class="input" required>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                {{$message}}
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

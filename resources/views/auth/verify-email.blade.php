@@ -39,7 +39,7 @@
                             <h4 class="mb-0 mt-2">Verify Your Account</h4>
                             <p class="pt-1 opacity-50">Before proceeding, please check your email for a verification.</p>
                         </div>
-                        <form class="form-div" method="POST" action="{{ route('email.verify.resend', Crypt::encrypt($user->email)) }}">
+                        <form class="form-div" method="POST" action="{{ route('verification.send') }}">
                             @csrf
                             <div class="login-input continue">
                                 {{ __('If you did not receive the email') }},
