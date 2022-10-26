@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{URL::asset('assets/css/btn.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/party.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-c59500cb-d1db-4ed8-a5ab-4a3d80fd542b"></div>
     {!! NoCaptcha::renderJs() !!}
     <title> {{config('app.name')}} </title>
     <style type="text/css">
