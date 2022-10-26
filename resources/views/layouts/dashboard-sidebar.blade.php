@@ -35,7 +35,7 @@
                 </ul>
             </li>
             <li>
-                <a href="buynsell" aria-expanded="false" class="cbuynsell">
+                <a href="{{route('buynsell')}}" aria-expanded="false" class="cbuynsell">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/3_002.svg')}}" alt="">
                     </div>

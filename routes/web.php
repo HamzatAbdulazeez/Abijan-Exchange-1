@@ -62,7 +62,8 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/naira', [App\Http\Controllers\HomeController::class, 'naira'])->name('naira');
     Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
     Route::get('/transaction', [App\Http\Controllers\HomeController::class, 'transaction'])->name('transaction');
-    Route::get('/kyc', [App\Http\Controllers\HomeController::class, 'kyc'])->name('kyc');
-    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
-    Route::get('/referral', [App\Http\Controllers\HomeController::class, 'referral'])->name('referral');
+    Route::get('/buynsell', [App\Http\Controllers\HomeController::class, 'buynsell'])->name('buynsell');
+    // Route::get('/kyc', [App\Http\Controllers\HomeController::class, 'kyc'])->name('kyc');
+    // Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+    // Route::get('/referral', [App\Http\Controllers\HomeController::class, 'referral'])->name('referral');
 });

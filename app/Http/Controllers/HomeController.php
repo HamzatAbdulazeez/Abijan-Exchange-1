@@ -56,6 +56,11 @@ class HomeController extends Controller
         return view('dashboard.transaction');
     }
 
+    public function buynsell()
+    {
+        return view('dashboard.buy-and-sell');
+    }
+
     public function kyc()
     {
         return view('dashboard.kyc');
