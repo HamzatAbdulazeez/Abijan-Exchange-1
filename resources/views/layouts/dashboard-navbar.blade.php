@@ -1,72 +1,74 @@
 <!-- [ Layout navbar ( Header ) ] Start -->
-<nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-dark container-p-x" id="layout-navbar">
-    <!-- Brand demo (see assets/css/demo/demo.css) -->
-    <a href="/" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
-        <span class="app-brand-logo demo">
-            <img src="{{URL::asset('dash/assets/img/logo.png')}}" alt="Brand Logo" class="img-fluid">
-        </span>
-    </a>
+<div class="container-fluid no-gutters">
+            <div class="row">
+                <div class="col-lg-12 p-0 ">
+                    <div class="header_iner d-flex justify-content-between align-items-center">
+                        <div class="sidebar_icon d-lg-none">
+                            <i class="ti-menu"></i>
+                        </div>
+                        <div class="line_icon open_miniSide d-none d-lg-block">
+                            <img src="{{URL::asset('dash/libraries/line_img.png')}}" alt="">
+                        </div>
+                        <div class="header_right d-flex justify-content-between align-items-center">
+                            <div class="header_notification_warp d-flex align-items-center">
+                                <li>
+                                    <a class="CHATBOX_open nav-link-notify1" href="javascript: void(0)">
+                                        <img src="{{URL::asset('dash/libraries/msg.svg')}}" title="You have no unread messages">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bell_notification_clicker nav-link-notify1" href="javascript: void(0)">
+                                        <img src="{{URL::asset('dash/libraries/bell.svg')}}" class="clickimage"
+                                            title="You have no unread notifications">
+                                        <!-- <span>2</span> -->
+                                    </a>
+                                    <!-- Menu_NOtification_Wrap  -->
+                                    <div class="Menu_NOtification_Wrap">
+                                        <div class="notification_Header">
+                                            <h4>Notifications</h4>
+                                        </div>
+                                        <div class="Notification_body">
+                                            <style>
+                                                .Menu_NOtification_Wrap .Notification_body {
+                                                    height: auto;
+                                                }
+                                            </style>
+                                            <div class="single_notify d-flex align-items-center">
 
-    <!-- Sidenav toggle (see assets/css/demo/demo.css) -->
-    <div class="layout-sidenav-toggle navbar-nav d-lg-none align-items-lg-center mr-auto">
-        <a class="nav-item nav-link px-0 mr-lg-4" href="javascript:">
-            <i class="ion ion-md-menu text-large align-middle"></i>
-        </a>
-    </div>
+                                                <div class="notify_content">
+                                                    <!-- <a href="#"><h5>Cool Marketing </h5></a> -->
+                                                    <p>You have no unread notifications</p>
+                                                </div>
+                                            </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#layout-navbar-collapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="navbar-collapse collapse" id="layout-navbar-collapse">
-        <!-- Divider -->
-        <hr class="d-lg-none w-100 my-2">
+                                        </div>
+                                    </div>
+                                    <!--/ Menu_NOtification_Wrap  -->
+                                </li>
 
-        <div class="navbar-nav align-items-lg-center ml-auto">
-            <div class="demo-navbar-notifications nav-item dropdown mr-lg-3">
-                <a class="nav-link dropdown-toggle hide-arrow" href="#" data-toggle="dropdown">
-                    <i class="feather icon-bell navbar-icon align-middle"></i>
-                    <span class="badge badge-danger badge-dot indicator"></span>
-                    <span class="d-lg-none align-middle">&nbsp; Notifications</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <div class="bg-primary text-center text-white font-weight-bold p-3">
-                        4 New Notifications
-                    </div>
-                    <div class="list-group list-group-flush">
-                        <a href="javascript:" class="list-group-item list-group-item-action media d-flex align-items-center">
-                            <div class="ui-icon ui-icon-sm feather icon-home bg-secondary border-0 text-white"></div>
-                            <div class="media-body line-height-condenced ml-3">
-                                <div class="text-dark">Login from 192.168.1.1</div>
-                                <div class="text-light small mt-1">
-                                    Aliquam ex eros, imperdiet vulputate hendrerit et.
-                                </div>
-                                <div class="text-light small mt-1">12h ago</div>
                             </div>
-                        </a>
+                            <div class="profile_info d-flex align-items-center">
+                                <div class="profile_thumb mr_20">
+                                    <img src="{{URL::asset('dash/libraries/sample_pic.png')}}" alt="#">
+                                </div>
+                                <div class="author_name">
+                                    <h4 class="f_s_15 f_w_500 mb-0">Hamzat Abdulazeez Adeleke</h4>
+                                    <p class="f_s_12 f_w_400">Not Verified</p>
+                                </div>
+                                <div class="profile_info_iner">
+                                    <div class="profile_author_name">
+                                        <h5>Hamzat Abdulazeez Adeleke</h5>
+                                    </div>
+                                    <div class="profile_info_details">
+                                        <a href="verify_me">Verify Me</a> <a href="profile">My Profile</a>
+                                        <a href="logout">Log Out </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <a href="javascript:" class="d-block text-center text-light small p-2 my-1">Show all notifications</a>
-                </div>
-            </div>
-
-            <!-- Divider -->
-            <div class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
-            <div class="demo-navbar-user nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-                        <img src="{{URL::asset('assets/img/avatars/1.png')}}" alt class="d-block ui-w-30 rounded-circle">
-                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">Hello {{Auth::user()->first_name}}</span>
-                    </span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a href="{{route('profile')}}" class="dropdown-item">
-                        <i class="feather icon-user text-muted"></i> &nbsp; My profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="{{route('logout')}}" class="dropdown-item">
-                        <i class="feather icon-power text-danger"></i> &nbsp; Log Out</a>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
 <!-- [ Layout navbar ( Header ) ] End -->

@@ -40,11 +40,27 @@ class HomeController extends Controller
     {
         return view('dashboard.dashboard');
     }
+    
+    public function naira()
+    {
+        return view('dashboard.naira');
+    }
+    
+    public function deposit()
+    {
+        return view('dashboard.naira-deposit');
+    }
+
+    public function transaction()
+    {
+        return view('dashboard.transaction');
+    }
 
     public function kyc()
     {
         return view('dashboard.kyc');
     }
+
 
     public function profile()
     {

@@ -981,7 +981,6 @@ table.dataTable tbody td {
 /* line 607, G:/admin_project/10 admin/cryptocurrency/scss/_reset.scss */
 
 .switch {
-    -webkit-appearance: none;
     background-color: gray;
     border-radius: 43px;
     position: relative;
@@ -1088,7 +1087,6 @@ table.dataTable tbody td {
 /* line 669, G:/admin_project/10 admin/cryptocurrency/scss/_reset.scss */
 
 .check_box_item .single_check_box .switch {
-    -webkit-appearance: none;
     background-color: transparent;
     padding: 14px 27px !important;
     margin-right: 0;
@@ -4976,7 +4974,7 @@ table.dataTable {
 
 .sidebar .logo {
     margin: 0px;
-    background: #EFEFEF;
+    background: rgba(0, 0, 0, 0.871);
     padding: 24px;
     margin-bottom: 0px;
 }
@@ -12003,7 +12001,6 @@ canvas#highlights {
     background: 0;
     cursor: pointer;
     overflow: visible;
-    -webkit-appearance: none;
     display: block;
     border: 0;
     padding: 0;
@@ -15512,7 +15509,7 @@ table.lms_table_active3.dataTable thead .sorting_desc::after {
     white-space: nowrap;
     padding-left: 18px;
     color: #8F91AA;
-    width: 194px;
+    width: 19px;
     padding-left: 20px !important;
 }
 
@@ -15525,7 +15522,6 @@ table.lms_table_active3.dataTable thead .sorting_desc::after {
 /* line 84, G:/admin_project/10 admin/cryptocurrency/scss/_mini_menu.scss */
 
 .sidebar.mini_sidebar #sidebar_menu>li>a {
-    background: #0F1A34;
     padding-left: 0px;
     display: grid;
     grid-template-columns: 44px auto !important;
@@ -15633,7 +15629,8 @@ table.lms_table_active3.dataTable thead .sorting_desc::after {
 /* line 148, G:/admin_project/10 admin/cryptocurrency/scss/_mini_menu.scss */
 
 .sidebar.mini_sidebar #sidebar_menu>li.mm-active>a {
-    background: #091023;
+    background: #000;
+    color: #fff;
 }
 
 /* line 151, G:/admin_project/10 admin/cryptocurrency/scss/_mini_menu.scss */
@@ -17460,3 +17457,4 @@ table.lms_table_active3.dataTable thead .sorting_desc::after {
         display: none;
     }
 }
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
