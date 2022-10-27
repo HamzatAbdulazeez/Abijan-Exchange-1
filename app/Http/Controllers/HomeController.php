@@ -95,6 +95,30 @@ class HomeController extends Controller
         return view('dashboard.profile');
     }
 
+    public function edit_profile()
+    {
+        return view('dashboard.edit-profile');
+    }
+
+    public function typebirth()
+    {
+        return view('dashboard.type-birth');
+    }
+
+    public function typequestion()
+    {
+        return view('dashboard.type-question');
+    }
+
+    public function typegender()
+    {
+        return view('dashboard.type-gender');
+    }
+    public function typepassword()
+    {
+        return view('dashboard.type-password');
+    }
+    
     public function referral()
     {
         return view('dashboard.referral');

@@ -70,7 +70,7 @@
                 </a>
             </li>
             <li>
-                <a href="profile" aria-expanded="false" class="cprofile">
+                <a href="{{route('updateprofile')}}" aria-expanded="false" class="cprofile">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/General.svg')}}" alt="">
                     </div>

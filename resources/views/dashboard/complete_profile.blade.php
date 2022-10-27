@@ -28,7 +28,7 @@
                                                         Name</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="naira_deposit"> Back to My profile</a>
+                                                    <a class="nav-link" href="{{route('updateprofile')}}"> Back to My profile</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -134,7 +134,7 @@
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                             data-parent="#accordion_ex">
                                             <div class="card-body">
-                                                <p>When withdrawing from your Nairadirect wallet to your bank account, a
+                                                <p>When withdrawing from your Abijan Exchange wallet to your bank account, a
                                                     transfer fee is reserved and deducted from your naira wallet balance.
                                                 </p>
 

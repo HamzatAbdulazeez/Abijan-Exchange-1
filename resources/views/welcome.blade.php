@@ -130,11 +130,11 @@
                                                     <b class="caret"></b>
                                                 </div>
                                                 <ul class="dropdown-menu" id="options">
-                                                    <li data-value="BTC"><a href="javascript:void(0)"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt=""> BTC </a></li>
-                                                    <li data-value="ETH"><a href="javascript:void(0)"><img src="https://nairadirect.com/images/eth.png" alt="">
+                                                    <li data-value="BTC"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/coin-icon/bitcoin.png" alt=""> BTC </a></li>
+                                                    <li data-value="ETH"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/eth.png" alt="">
                                                             ETH</a></li>
                                                     <li data-value="TRON"><a href="javascript:void(0)"><img src="https://cdn.freebiesupply.com/logos/large/2x/tron-logo-png-transparent.png" alt=""> TRON</a></li>
-                                                    <li data-value="PM"><a href="javascript:void(0)"><img src="https://nairadirect.com/images/pm.png" alt="">
+                                                    <li data-value="PM"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/pm.png" alt="">
                                                             PM</a></li>
                                                     <li data-value="USDT"><a href="javascript:void(0)"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt=""> TRC20</a></li>
                                                     <li data-value="BTC Cash"><a href="javascript:void(0)"> <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png" alt=""> BCH</a></li>
@@ -152,7 +152,7 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
-                                                <img src="https://nairadirect.com/images/coin-icon/nigeria.png">
+                                                <img src="https://Abijan Exchange.com/images/coin-icon/nigeria.png">
                                                 <input type="text" class="form-control" placeholder="NGN" readonly="">
                                             </div>
                                         </div>
@@ -167,7 +167,7 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
-                                                <img src="https://nairadirect.com/images/coin-icon/united%20states.png">
+                                                <img src="https://Abijan Exchange.com/images/coin-icon/united%20states.png">
                                                 <input type="text" class="form-control" placeholder="USD" readonly="">
                                             </div>
                                         </div>
@@ -198,11 +198,11 @@
                                                     <b class="caret"></b>
                                                 </div>
                                                 <ul class="dropdown-menu" id="sell_option">
-                                                    <li data-value="BTC"><a href="javascript:void(0)"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt=""> BTC </a></li>
-                                                    <li data-value="ETH"><a href="javascript:void(0)"><img src="https://nairadirect.com/images/eth.png" alt="">
+                                                    <li data-value="BTC"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/coin-icon/bitcoin.png" alt=""> BTC </a></li>
+                                                    <li data-value="ETH"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/eth.png" alt="">
                                                             ETH</a></li>
                                                     <li data-value="TRON"><a href="javascript:void(0)"><img src="https://cdn.freebiesupply.com/logos/large/2x/tron-logo-png-transparent.png" alt=""> TRON</a></li>
-                                                    <li data-value="PM"><a href="javascript:void(0)"><img src="https://nairadirect.com/images/pm.png" alt="">
+                                                    <li data-value="PM"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/pm.png" alt="">
                                                             PM</a></li>
                                                     <li data-value="USDT"><a href="javascript:void(0)"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt=""> USDT</a></li>
                                                     <li data-value="BTC Cash"><a href="javascript:void(0)"> <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png" alt=""> BTC Cash</a></li>
@@ -220,7 +220,7 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
-                                                <img src="https://nairadirect.com/images/coin-icon/nigeria.png">
+                                                <img src="https://Abijan Exchange.com/images/coin-icon/nigeria.png">
                                                 <input type="text" class="form-control" placeholder="NGN" readonly="">
                                             </div>
                                         </div>
@@ -235,7 +235,7 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
-                                                <img src="https://nairadirect.com/images/coin-icon/united%20states.png">
+                                                <img src="https://Abijan Exchange.com/images/coin-icon/united%20states.png">
                                                 <input type="text" class="form-control" placeholder="USD" readonly="">
                                             </div>
                                         </div>
