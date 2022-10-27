@@ -103,7 +103,7 @@
 
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion_ex">
                                     <div class="card-body">
-                                        <p>Your email address on Naira Direct can be changed anytime, but you need to verify the email anytime you make the change.</p>
+                                        <p>Your email address on Abijan Exchange can be changed anytime, but you need to verify the email anytime you make the change.</p>
                                     </div>
                                 </div>
                             </div>
@@ -111,13 +111,13 @@
                                 <div class="card-header" id="headingTwo">
                                     <h2 class="mb-0">
                                         <a href="#" class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Can I use someone else's details on my Naira Direct account?
+                                            Can I use someone else's details on my Abijan Exchange account?
                                         </a>
                                     </h2>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion_ex">
                                     <div class="card-body">
-                                        <p>No, you can't link personal information that isn't yours to your own Naira Direct account.</p>
+                                        <p>No, you can't link personal information that isn't yours to your own Abijan Exchange account.</p>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion_ex">
                                     <div class="card-body">
-                                        <p>Once your identity has been verified on Naira Direct, your main phone number can't be removed except the phone number changed on your BVN record.</p>
+                                        <p>Once your identity has been verified on Abijan Exchange, your main phone number can't be removed except the phone number changed on your BVN record.</p>
                                     </div>
                                 </div>
                             </div>
