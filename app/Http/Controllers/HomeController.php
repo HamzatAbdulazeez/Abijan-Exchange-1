@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use App\Models\UserProfile;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -40,12 +42,33 @@ class HomeController extends Controller
     {
         return view('dashboard.dashboard');
     }
-    
+
     public function naira()
     {
         return view('dashboard.naira');
     }
-    
+
+    public function settings(Request $request)
+    {
+        $type = $request->query('type');
+        if ($type == 'name') {
+            return view('dashboard.complete_profile');
+        }
+
+    }
+
+    public function updateProfile(Request $request){
+        $user = new UserProfile();
+        $user->user_id = Auth::user()->id;
+        $user->firstname = $request->firstname;
+        $user->middlename = $request->middlename;
+        $user->surname = $request->surname;
+        if($user->save()){
+            Alert::success('Success', 'Profile Updated Successfully');
+            return redirect()->route('home');
+        }
+    }
+
     public function deposit()
     {
         return view('dashboard.naira-deposit');
@@ -72,6 +95,30 @@ class HomeController extends Controller
         return view('dashboard.profile');
     }
 
+    public function edit_profile()
+    {
+        return view('dashboard.edit-profile');
+    }
+
+    public function typebirth()
+    {
+        return view('dashboard.type-birth');
+    }
+
+    public function typequestion()
+    {
+        return view('dashboard.type-question');
+    }
+
+    public function typegender()
+    {
+        return view('dashboard.type-gender');
+    }
+    public function typepassword()
+    {
+        return view('dashboard.type-password');
+    }
+    
     public function referral()
     {
         return view('dashboard.referral');

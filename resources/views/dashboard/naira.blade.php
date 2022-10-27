@@ -129,7 +129,7 @@
                                     </div>
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion_ex">
                                         <div class="card-body">
-                                            <p>When withdrawing from your Nairadirect wallet to your bank account, a transfer fee is reserved and deducted from your naira wallet balance.</p>
+                                            <p>When withdrawing from your Abijan Exchange wallet to your bank account, a transfer fee is reserved and deducted from your naira wallet balance.</p>
     
     <p>Current transfer fee: 0.2% of your withdrawal amount</p>
                                         </div>

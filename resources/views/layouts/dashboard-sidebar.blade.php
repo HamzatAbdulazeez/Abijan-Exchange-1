@@ -70,7 +70,7 @@
                 </a>
             </li>
             <li>
-                <a href="profile" aria-expanded="false" class="cprofile">
+                <a href="{{route('updateprofile')}}" aria-expanded="false" class="cprofile">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/General.svg')}}" alt="">
                     </div>
@@ -96,12 +96,16 @@
                 </ul>
             </li>
             <li>
-                <a href="logout" aria-expanded="false">
+                <a href="#" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/17.png')}}" alt="">
                     </div>
                     <div class="nav_title">
                         <span>Log Out</span>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                        </form>
                     </div>
                 </a>
             </li>

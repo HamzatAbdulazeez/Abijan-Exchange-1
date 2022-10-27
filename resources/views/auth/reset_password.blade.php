@@ -1,14 +1,16 @@
 @extends('layouts.frontend')
 
 @section('page-content')
+@include('sweetalert::alert')
 <section class="logIn">
     <div class="container">
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="sign">
-                    <form class="sign-div" method="POST" action="{{ route('user.update.password')}}">
+                    <form class="sign-div" method="POST" action="{{ route('password.update', request()->token)}}">
                         @csrf
+                        <input type="text" value="{{ request()->token }}" placeholder="Enter Email"  name="token" class="input" hidden>
                         <a href="/">
                             <img src="{{URL::asset('assets/images/logo.png')}}" draggable="false" alt="">
                         </a>
@@ -21,10 +23,10 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <label>Code</label>
+                                <label>Email</label>
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <input type="text" placeholder="Enter Code" name="code" class="input" required>
+                                        <input type="text" placeholder="Enter Email" name="email" class="input" required>
                                     </div>
                                 </div>
                             </div>

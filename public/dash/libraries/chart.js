@@ -215,7 +215,7 @@ href = "css/custom.css?v=2196" >
         since
         2013 <
         /h1> <
-        p class = "lead text-dark" > Sell bitcoin in Nigeria quickly with easy steps at Naira Direct,
+        p class = "lead text-dark" > Sell bitcoin in Nigeria quickly with easy steps at Abijan Exchange,
         which is the safest & secure place to instantly Buy,
         Sell &
         Manage your
@@ -544,7 +544,7 @@ href = "css/custom.css?v=2196" >
         div class = "feature-desc" >
         <
         h4 > Instant Buy & amp;Sell < /h4> <
-        p > Your Naira Direct account is credited instantly when you buy and sell coins < /p> <
+        p > Your Abijan Exchange account is credited instantly when you buy and sell coins < /p> <
         /div> <
         /div> <
         div class = "feature-item"
@@ -696,7 +696,7 @@ href = "css/custom.css?v=2196" >
         div class = "opinion-desc" >
         <
         p class = "opinion-p" >
-        Naira Direct deserves 6 stars
+        Abijan Exchange deserves 6 stars
         if possible.It has all the qualities to
         be Nigeria 's No.1. <
         /p> <
@@ -772,7 +772,7 @@ href = "css/custom.css?v=2196" >
         h4 class = "faq-h4" > How is the price calculated ? < /h4> <
         p class = "faq-p" >
         The price of Bitcoin and other digital currencies are determined by supply and demand : the
-        buyers who want a certain currency and the sellers who have that currency.Naira Direct does not set the price of Bitcoin or any digital currency. <
+        buyers who want a certain currency and the sellers who have that currency.Abijan Exchange does not set the price of Bitcoin or any digital currency. <
             /p> <
             /div> <
             div class = "question" >
@@ -1021,7 +1021,7 @@ href = "css/custom.css?v=2196" >
         <
         div class = "footer__widget resources" >
         <
-        h4 > Naira Direct < /h4> <
+        h4 > Abijan Exchange < /h4> <
         div class = "footer__inner" >
         <
         ul >
@@ -1042,7 +1042,7 @@ href = "css/custom.css?v=2196" >
         <
         li > < a href = "https://twitter.com/DirectNaira" > Twitter < /a></li >
         <
-        li > < a href = "https://facebook.com/nairadirect" > Facebook < /a></li >
+        li > < a href = "https://facebook.com/Abijan Exchange" > Facebook < /a></li >
         <
         /ul> <
         /div> <
@@ -1064,7 +1064,7 @@ href = "css/custom.css?v=2196" >
         <
         div class = "copyright__inner" >
         <
-        p > Copyright© 2022 NairaDirect.All Right Reserved < /p> <
+        p > Copyright© 2022 Abijan Exchange.All Right Reserved < /p> <
         /div> <
         /div> <
         div class = "col-lg-6 col-sm-6 col-12" >

@@ -480,4 +480,8 @@
     <!-- [ Layout content ] Start -->
 </div>
 <!-- [ Layout container ] End -->
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> master

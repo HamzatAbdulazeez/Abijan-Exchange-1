@@ -59,7 +59,7 @@
                                             </div>
                                         </div>
                                         <p class="formText verifyText"><a href="verify_me?type=identity"><b>Click here</b></a><b> to verify your identity to be able to deposit Naira.</b></p>
-                                        <p class="formText">After verification, you can transfer money to Naira Direct bank account number and get funds in your naira wallet instantly.</p>
+                                        <p class="formText">After verification, you can transfer money to Abijan Exchange bank account number and get funds in your naira wallet instantly.</p>
                                     </div>
                                 </div>
 
@@ -86,7 +86,7 @@
 
                                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion_ex">
                                         <div class="card-body">
-                                            <p>Deposit from your own bank accounts to your Nairadirect wallet normally take about 10 to 30 minutes after your payment has been received, occasionally it can take a few hours depending on the interbank network.</p>
+                                            <p>Deposit from your own bank accounts to your Abijan Exchange wallet normally take about 10 to 30 minutes after your payment has been received, occasionally it can take a few hours depending on the interbank network.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -129,11 +129,11 @@
                                     </div>
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion_ex">
                                         <div class="card-body">
-                                            <p>When depositing to your Naira Direct wallet from your bank account, a deposit fee is reserved and deducted from your deposit amount.</p>
+                                            <p>When depositing to your Abijan Exchange wallet from your bank account, a deposit fee is reserved and deducted from your deposit amount.</p>
 
                                             <p>Current deposit fee: ₦100</p>
 
-                                            <!-- <p>When making a deposit with your credit or debit Card via Paystack to your Nairadirect wallet, a deposit fee is charged.</p>
+                                            <!-- <p>When making a deposit with your credit or debit Card via Paystack to your Abijan Exchange wallet, a deposit fee is charged.</p>
     
     <p>The Current Paystack deposit fee is 1.6% + N100.</p> -->
                                         </div>
