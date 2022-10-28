@@ -65,7 +65,7 @@ class HomeController extends Controller
         $user->surname = $request->surname;
         if($user->save()){
             Alert::success('Success', 'Profile Updated Successfully');
-            return redirect()->route('home');
+            return redirect()->route('updateprofile');
         }
     }
 
@@ -118,7 +118,7 @@ class HomeController extends Controller
     {
         return view('dashboard.type-password');
     }
-    
+
     public function referral()
     {
         return view('dashboard.referral');
