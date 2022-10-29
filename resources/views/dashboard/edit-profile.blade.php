@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page_title_left mb_30">
-                            <h3 class="m-0">Welcome, HAMZAT ADELEKE</h3>
+                            <h3 class="m-0">Welcome, {{Auth::user()->profile->firstname}} {{Auth::user()->profile->surname}}</h3>
                             <p>Manage your info and security to make Abijan Exchange work better for you.</p>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                                             Full Name:
                                                         </td>
                                                         <td>
-                                                            <p>Hamzat Abdulazeez Adeleke</p>
+                                                            <p>{{Auth::user()->profile->firstname}} {{Auth::user()->profile->middlename}} {{Auth::user()->profile->surname}}</p>
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=name"><i class="far fa-edit"></i></a>
@@ -112,7 +112,7 @@
                                                             Email:
                                                         </td>
                                                         <td>
-                                                            <p>hmztadeleke@gmail.com</p>
+                                                            <p>{{Auth::user()->email}}</p>
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=email"><i class="far fa-edit"></i></a>
