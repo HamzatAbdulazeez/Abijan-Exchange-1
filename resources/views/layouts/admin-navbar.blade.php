@@ -1,114 +1,110 @@
-<!-- [ Layout sidenav ] Start -->
-<nav class="sidebar ">
-        <!-- <nav class="sidebar dark_sidebar"> -->
-        <div class="logo d-flex justify-content-between">
-            <a class="large_logo" href="{{route('admin_welcome')}}"><img src="{{URL::asset('admin/libraries/logoo.png')}}" alt=""></a>
-            <a class="small_logo" href="{{route('admin_welcome')}}"><img src="{{URL::asset('admin/libraries/logo.png')}}" alt=""></a>
-            <div class="sidebar_close_icon d-lg-none">
-                <i class="ti-close"></i>
+<!-- [ Layout navbar ( Header ) ] Start -->
+<div class="container-fluid no-gutters">
+            <div class="row">
+                <div class="col-lg-12 p-0 ">
+                    <div class="header_iner d-flex justify-content-between align-items-center">
+                        <div class="sidebar_icon d-lg-none">
+                            <i class="ti-menu"></i>
+                        </div>
+                        <div class="line_icon open_miniSide d-none d-lg-block">
+                            <img src="{{URL::asset('admin/libraries/line_img.png')}}" alt="">
+                        </div>
+                        <div class="header_right d-flex justify-content-between align-items-center">
+                            <div class="header_notification_warp d-flex align-items-center">
+                                <li>
+                                    <a class="CHATBOX_open nav-link-notify1" href="javascript: void(0)">
+                                        <img src="{{URL::asset('admin/libraries/msg.svg')}}" title="You have no unread messages">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bell_notification_clicker nav-link-notify1" href="javascript: void(0)">
+                                        <img src="{{URL::asset('admin/libraries/bell.svg')}}" class="clickimage"
+                                            title="You have no unread notifications">
+                                        <!-- <span>2</span> -->
+                                    </a>
+                                    <!-- Menu_NOtification_Wrap  -->
+                                    <div class="Menu_NOtification_Wrap">
+                                        <div class="notification_Header">
+                                            <h4>Notifications</h4>
+                                        </div>
+                                        <div class="Notification_body">
+                                            <style>
+                                                .Menu_NOtification_Wrap .Notification_body {
+                                                    height: auto;
+                                                }
+                                            </style>
+                                            <div class="single_notify d-flex align-items-center">
+
+                                                <div class="notify_content">
+                                                    <!-- <a href="#"><h5>Cool Marketing </h5></a> -->
+                                                    <p>You have no unread notifications</p>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <!--/ Menu_NOtification_Wrap  -->
+                                </li>
+
+                            </div>
+                            <div class="profile_info d-flex align-items-center">
+                                <div class="profile_thumb mr_20">
+                                    <img src="{{URL::asset('admin/libraries/sample_pic.png')}}" alt="#">
+                                </div>
+                                @php
+                                    $user = \App\Models\UserProfile::where('user_id', Auth::user()->id)->first();
+                                    if($user == null){
+                                        $verify = false;
+                                    }
+                                    else{
+                                        if($user->firstname == null || $user->middlename == null || $user->surname == null){
+                                            $verify = false;
+                                        }
+                                        else{
+                                            $verify = true;
+                                            $fullname = $user->firstname.' '.$user->middlename.' '.$user->surname;
+                                        }
+                                    }
+                                @endphp
+                                @if ($verify == false)
+                                    <div class="author_name">
+                                        <p class="f_s_12 f_w_400">Not Verified</p>
+                                    </div>
+                                    <div class="profile_info_iner">
+                                        <div class="profile_info_details">
+                                            <a href="#">Verify Me</a>
+                                            <a href="profile">My Profile</a>
+                                            <a onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();" href="#">Log Out </a>
+                                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="author_name">
+                                        <h4 class="f_s_15 f_w_500 mb-0">{{$fullname}}</h4>
+                                        <p class="f_s_12 f_w_400">Verified</p>
+                                    </div>
+                                    <div class="profile_info_iner">
+                                        <div class="profile_author_name">
+                                            <h5>{{$fullname}}</h5>
+                                        </div>
+                                        <div class="profile_info_details">
+                                            <a href="verify_me">Verify Me</a> <a href="profile">My Profile</a>
+                                            <a onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();" href="#">Log Out </a>
+                                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <ul id="sidebar_menu">
-            <li>
-                <a href="{{route('admin_welcome')}}" class="chome" aria-expanded="false">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/1_003.svg')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>Dashboard </span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a aria-expanded="false" class="has-arrow cngnwallet">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/2_002.svg')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>Naira Wallet</span>
-                    </div>
-                </a>
-                <ul>
-                    <li><a href="">Withdraw Request</a></li>
-                    <li><a href="">Deposit Request</a></li>
-                    <li><a href="">Transactions</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="" aria-expanded="false" class="cbuynsell">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/3_002.svg')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>Buy &amp; Sell</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/6.svg')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>Bitcoin Wallet</span>
-                    </div>
-                </a>
-                <ul>
-                    <li><a href="wallet">Send BTC</a></li>
-                    <li><a href="wallet_receive">Receive BTC</a></li>
-                    <li><a href="wallet_transactions">Transactions</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="referrals" class="creferral" aria-expanded="false">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/5.svg')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>Referrals</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('updateprofile')}}" aria-expanded="false" class="cprofile">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/General.svg')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>My Profile</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a class="has-arrow cmailbox" href="#" aria-expanded="false">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/Mail_Box.svg')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>Message Center </span>
-                    </div>
-                </a>
-                <ul>
-                    <li><a href="mailbox">Inbox</a></li>
-                    <li><a href="mailbox_sent">Sent Mails</a></li>
-                    <li><a href="mailbox_trash">Trash</a></li>
-                    <li><a href="mailbox_archive">Archived Mails</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();" aria-expanded="false">
-                    <div class="nav_icon_small">
-                        <img src="{{URL::asset('admin/libraries/17.png')}}" alt="">
-                    </div>
-                    <div class="nav_title">
-                        <span>Log Out</span>
-                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                            @csrf
-                        </form>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </nav>
-<!-- [ Layout sidenav ] End -->
+<!-- [ Layout navbar ( Header ) ] End -->

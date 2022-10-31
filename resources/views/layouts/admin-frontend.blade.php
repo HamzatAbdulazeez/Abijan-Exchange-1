@@ -10,6 +10,7 @@
 
 
     <!-- css files -->
+    <script src="https://kit.fontawesome.com/997b229808.js" crossorigin="anonymous"></script>
     <link rel="icon" href="{{URL::asset('admin/libraries/fav.png')}}" type="image/png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/bootstrap.css')}}">
@@ -161,6 +162,7 @@
     <script src="{{URL::asset('admin/apex/js/vendors.js')}}"></script>
 
     <script src="{{URL::asset('admin/apex/js/app.js')}}"></script>
+    <script src="{{URL::asset('admin/apex/js/bootstrap.min.js')}}"></script>
 
 </body>
 

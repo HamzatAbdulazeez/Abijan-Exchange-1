@@ -140,4 +140,12 @@ class HomeController extends Controller
     {
         return view('admin.admin-welcome');
     }
+    public function Wrequest()
+    {
+        return view('admin.withdraw');
+    }
+    public function Drequest()
+    {
+        return view('admin.deposit');
+    }
 }
