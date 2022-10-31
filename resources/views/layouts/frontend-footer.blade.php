@@ -38,7 +38,7 @@
                 <li class="link_name">Services</li>
                 <li><a href="">Wallet</a></li>
                 <li><a href="">Swap Coins</a></li>
-                <li><a href="">P2P Trading</a></li>
+                <li><a href="">P2P Exchange</a></li>
                 <li><a href="">Pay Bills</a></li>
                 <li><a href="/buy-and-sell">Buy/Sell</a></li>
             </ul>

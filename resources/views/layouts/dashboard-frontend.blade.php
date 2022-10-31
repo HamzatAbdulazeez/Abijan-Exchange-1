@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="{{URL::asset('dash/libraries/metisMenu.css')}}">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{URL::asset('dash/libraries/style.css')}}">
+    
     <!-- <link rel="stylesheet" href="libraries/default.css" id="colorSkinCSS"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -146,7 +147,7 @@
             return answer;
         }
     </script>
-    <script src="{{URL::asset('dash/libraries/custom.js?v=1666701143')}}"></script>
+    <script src="{{URL::asset('dash/libraries/custom.js')}}"></script>
 
 </body>
 

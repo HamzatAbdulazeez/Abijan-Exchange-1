@@ -74,3 +74,7 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     //Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
     Route::get('/referral', [App\Http\Controllers\HomeController::class, 'referral'])->name('referral');
 });
+
+// Admin 
+
+Route::get('/adminwelcome', [App\Http\Controllers\HomeController::class, 'admin_welcome'])->name('admin_welcome');

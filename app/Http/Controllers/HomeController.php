@@ -135,4 +135,9 @@ class HomeController extends Controller
     {
         return view('dashboard.referral');
     }
+    // Admin
+    public function admin_welcome()
+    {
+        return view('admin.admin-welcome');
+    }
 }

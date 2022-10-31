@@ -2,8 +2,8 @@
 <nav class="sidebar ">
         <!-- <nav class="sidebar dark_sidebar"> -->
         <div class="logo d-flex justify-content-between">
-            <a class="large_logo" href="index.html"><img src="{{URL::asset('dash/libraries/logoo.png')}}" alt=""></a>
-            <a class="small_logo" href="index.html"><img src="{{URL::asset('dash/libraries/logo.png')}}" alt=""></a>
+            <a class="large_logo" href="{{route('home')}}"><img src="{{URL::asset('dash/libraries/logoo.png')}}" alt=""></a>
+            <a class="small_logo" href="{{route('home')}}"><img src="{{URL::asset('dash/libraries/logo.png')}}" alt=""></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
