@@ -38,8 +38,7 @@
                                 <div class="tab-content">
                                     <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                         <div class="exchange_widget">
-                                            <form name="mySettform" id="mySettform" onsubmit="event.preventDefault();"
-                                                class="currency_validate" autocomplete="off">
+                                            <form id="mySellform" class="currency_validate">
                                                 <div class="form-group">
                                                     <label>Date of Birth</label>
                                                     <div class="input-group ">

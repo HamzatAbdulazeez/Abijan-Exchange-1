@@ -187,14 +187,14 @@ header .btn-primary {
 /* NAVBAR */
 
 header {
-    background-color: rgba(0, 0, 0, 0.796) !important;
+    background-color:#03063891 !important;
     /* background-color: rgba(0, 0, 0, 0.59); */
 }
 
 .fixed {
     margin: auto;
     text-align: center !important;
-    background-color: #000 !important;
+    background-color: #030638 !important;
     left: auto;
     right: 0;
     background-color: rgba(255, 255, 255, 0.937);
@@ -4211,7 +4211,7 @@ li.setup-process-item:not(:last-child):before {
 }
 /* main Section */
 main{
-    background: #000 !important;
+    background: #030638 !important;
     width: 100%;
 }
 .btn a{
@@ -4326,6 +4326,7 @@ main .content .link-boxes .box{
     color: #000;
     font-size: 13px;
 }
+
 .link-boxes .input-box input[type="button"]{
     background: linear-gradient(90deg, #F7A600 0%, #EA5B0C 76.07%) !important;
     color: #fff;
@@ -4342,7 +4343,7 @@ main .content .link-boxes .box{
 }
 main .bottom-details{
     width: 100%;
-    background: #000;
+    background: #030638;
     padding: 20px 40px 5px 20px;
 }
 .bottom-details .bottom_text p, .bottom-details .bottom_text a{

@@ -41,6 +41,7 @@ Route::get('/privacy-policy', function () {
     return view('privacy-policy');
 });
 
+Route::get('/admin', [App\Http\Controllers\HomePageController::class, 'admin'])->name('admin');
 /* Route::get('/register', [App\Http\Controllers\HomePageController::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\HomePageController::class, 'post_register'])->name('post.register');
 Route::get('/verify/account/{email}', [App\Http\Controllers\HomePageController::class, 'verify_account'])->name('verify.account');

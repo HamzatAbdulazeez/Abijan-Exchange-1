@@ -254,4 +254,9 @@ class HomePageController extends Controller
             return back()->with('failure_report', 'User authentication failed.');
         }
     }
+    public function admin()
+    {
+        return view('auth.admin');
+    }
+
 }
