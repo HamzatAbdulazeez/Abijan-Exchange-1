@@ -58,7 +58,7 @@
                                                             <p>-</p>
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="{{route('typebirth')}}"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="settings?type=birth"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -69,7 +69,7 @@
                                                             <p>-</p>
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="{{route('typegender')}}"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="settings?type=gender"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -80,7 +80,7 @@
                                                             <p>******** </p>
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="{{route('typepassword')}}"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="settings?type=password"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>

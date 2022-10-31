@@ -54,6 +54,18 @@ class HomeController extends Controller
         if ($type == 'name') {
             return view('dashboard.complete_profile');
         }
+        if ($type == 'password') {
+            return view('dashboard.type-password');
+        }
+        if ($type == 'gender') {
+            return view('dashboard.type-gender');
+        }
+        if ($type == 'birth') {
+            return view('dashboard.type-birth');
+        }
+        if ($type == 'question') {
+            return view('dashboard.type-question');
+        }
 
     }
 
@@ -97,7 +109,7 @@ class HomeController extends Controller
 
     public function edit_profile()
     {
-        return view('dashboard.edit-profile');
+        return view('dashboard.profilePage');
     }
 
     public function typebirth()

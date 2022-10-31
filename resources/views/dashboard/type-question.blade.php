@@ -41,7 +41,7 @@
                                             <div class="form-group">
                                                 <label>Secret Question 1</label>
                                                 <div class="input-group ">
-                                                    <select name="question1_sett" id="question1_sett" class="form-control nice_Select" style="display: none;">
+                                                    <select name="question1_sett" id="" class="form-control nice_Select" style="display: none;">
                                                         <option value="">Please select</option>
                                                         <option value="What is the name of your favourite pet?">What is the name of your favourite pet?</option>
                                                         <option value="In what city were you born?">In what city were you born?</option>
