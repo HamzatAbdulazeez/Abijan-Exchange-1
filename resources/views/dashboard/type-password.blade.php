@@ -31,15 +31,15 @@
                                         </li>
                                       </ul>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="tab-content">
                         <div class="white_card_body tab-pane fade active show" id="nairadiv">
                             <div class="exchange_widget">
                         <form name="mySettform" id="mySettform" onsubmit="event.preventDefault();" class="currency_validate" autocomplete="off">
-                                                                                 
-                             
+
+
                                                                                                                                                                                 <div class="form-group">
                                         <label>Current Password</label>
                                             <input type="password" name="curr_password_sett" autocomplete="off" class="form-control" id="curr_password_sett">
@@ -68,18 +68,18 @@
 										    </div>
                                         </div>
                                     </div>
-                                  
+
                                                                                                                                                                                                                                     <div class="form-group " id="securityquesion">
                                         <div class="d-flex justify-content-between mt-3">
                                             <p class="mb-0 questions">Secret Question:</p>
-                                            <p class="mb-0 answers"><a href="{{route('typequestion')}}" alt="Set Question" title="Set Security Questions">Set your Secret Question</a></p>
+                                            <p class="mb-0 answers"><a href="settings?type=question" alt="Set Question" title="Set Security Questions">Set your Secret Question</a></p>
                                         </div>
                                                                             </div>
                                                                     <button type="button" name="sett_submit" id="sett_submit" class="btn_1 w-100 ">Update Password <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="password">
                                 </form>
                             </div>
                         </div>
-                        
+
                     </div>
                     </div>
                 </div>

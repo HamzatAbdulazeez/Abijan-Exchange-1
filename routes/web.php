@@ -65,12 +65,12 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
     Route::get('/buynsell', [App\Http\Controllers\HomeController::class, 'buynsell'])->name('buynsell');
     Route::get('/transaction', [App\Http\Controllers\HomeController::class, 'transaction'])->name('transaction');
-    Route::get('/updateprofile', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('updateprofile');
-    Route::get('/typebirth', [App\Http\Controllers\HomeController::class, 'typebirth'])->name('typebirth');
+    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('updateprofile');
+   /*  Route::get('/typebirth', [App\Http\Controllers\HomeController::class, 'typebirth'])->name('typebirth');
     Route::get('/typequestion', [App\Http\Controllers\HomeController::class, 'typequestion'])->name('typequestion');
     Route::get('/typegender', [App\Http\Controllers\HomeController::class, 'typegender'])->name('typegender');
-    Route::get('/typepassword', [App\Http\Controllers\HomeController::class, 'typepassword'])->name('typepassword');
+    Route::get('/typepassword', [App\Http\Controllers\HomeController::class, 'typepassword'])->name('typepassword'); */
     Route::get('/kyc', [App\Http\Controllers\HomeController::class, 'kyc'])->name('kyc');
-    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+    //Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
     Route::get('/referral', [App\Http\Controllers\HomeController::class, 'referral'])->name('referral');
 });

@@ -331,7 +331,7 @@
                                             <div class="form-group " id="securityquesion">
                                                 <div class="d-flex justify-content-between mt-3">
                                                     <p class="mb-0 questions">Secret Question:</p>
-                                                    <p class="mb-0 answers"><a href="{{route('typequestion')}}" alt="Set Question" title="Set Security Questions">Set your Secret Question</a></p>
+                                                    <p class="mb-0 answers"><a href="settings?type=question" alt="Set Question" title="Set Security Questions">Set your Secret Question</a></p>
                                                 </div>
                                             </div>
                                             <button type="button" name="sett_submit" id="sett_submit" class="btn_1 w-100 ">Update Date of Birth <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="dob">
