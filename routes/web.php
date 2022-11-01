@@ -41,7 +41,9 @@ Route::get('/privacy-policy', function () {
     return view('privacy-policy');
 });
 
-Route::get('/admin', [App\Http\Controllers\HomePageController::class, 'admin'])->name('admin');
+//Route::get('/admin', [App\Http\Controllers\HomePageController::class, 'admin'])->name('admin');
+Route::get('/admin/login', [App\Http\Controllers\HomePageController::class, 'admin_login'])->name('admin.login');
+Route::post('/admin/login', [App\Http\Controllers\HomePageController::class, 'post_admin_login'])->name('admin.post.login');
 /* Route::get('/register', [App\Http\Controllers\HomePageController::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\HomePageController::class, 'post_register'])->name('post.register');
 Route::get('/verify/account/{email}', [App\Http\Controllers\HomePageController::class, 'verify_account'])->name('verify.account');
@@ -76,7 +78,9 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::get('/referral', [App\Http\Controllers\HomeController::class, 'referral'])->name('referral');
 });
 
-// Admin 
-Route::get('/adminwelcome', [App\Http\Controllers\HomeController::class, 'admin_welcome'])->name('admin_welcome');
-Route::get('/Wrequest', [App\Http\Controllers\HomeController::class, 'Wrequest'])->name('Wrequest');
-Route::get('/Drequest', [App\Http\Controllers\HomeController::class, 'Drequest'])->name('Drequest');
+// Admin
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::get('/adminwelcome', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_welcome');
+    Route::get('/withdraw_request', [App\Http\Controllers\AdminController::class, 'withdraw_request'])->name('Wrequest');
+    Route::get('/deposit_request', [App\Http\Controllers\AdminController::class, 'deposit_request'])->name('Drequest');
+});

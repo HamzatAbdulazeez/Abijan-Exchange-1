@@ -1,13 +1,14 @@
 @extends('layouts.frontend')
 
 @section('page-content')
+@include('sweetalert::alert')
 <section class="logIn">
     <div class="container">
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="sign">
-                    <form class="sign-div" method="POST" action="{{ route('login') }}">
+                    <form class="sign-div" method="POST" action="{{ route('admin.post.login') }}">
                         @csrf
                         <a href="/">
                             <img src="{{URL::asset('assets/images/logo.png')}}" draggable="false" alt="">

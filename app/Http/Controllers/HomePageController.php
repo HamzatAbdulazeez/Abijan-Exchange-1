@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomePageController extends Controller
 {
@@ -244,19 +245,19 @@ class HomePageController extends Controller
 
         // authentication attempt
         if (auth()->attempt($input)) {
-            if($user->user_type == 'Administrator'){
-                return redirect()->route('admin.dashboard');
+            if($user->is_admin == 1){
+                return redirect()->route('admin_welcome');
             }
-
+            Alert::error('Error', 'You are not an Administrator');
             return back()->with('failure_report', 'You are not an Administrator');
 
         } else {
             return back()->with('failure_report', 'User authentication failed.');
         }
     }
-    public function admin()
+    /* public function admin()
     {
         return view('auth.admin');
-    }
+    } */
 
 }
