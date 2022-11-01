@@ -56,8 +56,66 @@
                 <ul>
                     <li><a href="wallet">Send BTC</a></li>
                     <li><a href="wallet_receive">Receive BTC</a></li>
-                    <li><a href="wallet_transactions">Transactions</a></li>
+                    <!-- <li><a href="wallet_transactions">Transactions</a></li> -->
                 </ul>
+            </li>
+            <li>
+                <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
+                    </div>
+                    <div class="nav_title">
+                        <span>Ethereum Wallet</span>
+                    </div>
+                </a>
+                <ul>
+                    <li><a href="wallet">Send Eth</a></li>
+                    <li><a href="wallet_receive">Receive Eth</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
+                    </div>
+                    <div class="nav_title">
+                        <span>USDT Wallet</span>
+                    </div>
+                </a>
+                <ul>
+                    <li><a href="wallet">Send USDT </a></li>
+                    <li><a href="wallet_receive">Receive USDT </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" aria-expanded="false" class="cbuynsell">
+                    <div class="nav_icon_small">
+                        <img src="{{URL::asset('dash/libraries/swap.png')}}" alt="">
+                    </div>
+                    <div class="nav_title">
+                        <span>Swap</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" aria-expanded="false" class="cbuynsell">
+                    <div class="nav_icon_small">
+                        <img src="{{URL::asset('dash/libraries/lend.png')}}" alt="">
+                    </div>
+                    <div class="nav_title">
+                        <span>P2P</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" aria-expanded="false" class="cbuynsell">
+                    <div class="nav_icon_small">
+                        <img src="{{URL::asset('dash/libraries/bill (1).png')}}" alt="">
+                    </div>
+                    <div class="nav_title">
+                        <span>Utility Bill</span>
+                    </div>
+                </a>
             </li>
             <li>
                 <a href="referrals" class="creferral" aria-expanded="false">
@@ -70,7 +128,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('updateprofile')}}" aria-expanded="false" class="cprofile">
+                <a href="" aria-expanded="false" class="cprofile">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/General.svg')}}" alt="">
                     </div>

@@ -27,6 +27,33 @@ class AdminController extends Controller
         return view('admin.deposit-request');
     }
 
+    public function send_request(){
+        return view('admin.send-request');
+    }
+
+    public function receive_request(){
+        return view('admin.receive-request');
+    }
+
+    public function swap_request(){
+        return view('admin.send-swap');
+    }
+    
+    public function adminprofile()
+    {
+        return view('admin.profile');
+    }
+
+    public function view_referral()
+    {
+        return view('admin.view-referral');
+    }
+
+    public function  buy_sell()
+    {
+        return view('admin.buy-sell');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

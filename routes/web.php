@@ -68,7 +68,7 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
     Route::get('/buynsell', [App\Http\Controllers\HomeController::class, 'buynsell'])->name('buynsell');
     Route::get('/transaction', [App\Http\Controllers\HomeController::class, 'transaction'])->name('transaction');
-    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('updateprofile');
+    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('edit_profile');
    /*  Route::get('/typebirth', [App\Http\Controllers\HomeController::class, 'typebirth'])->name('typebirth');
     Route::get('/typequestion', [App\Http\Controllers\HomeController::class, 'typequestion'])->name('typequestion');
     Route::get('/typegender', [App\Http\Controllers\HomeController::class, 'typegender'])->name('typegender');
@@ -83,4 +83,10 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/adminwelcome', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_welcome');
     Route::get('/withdraw_request', [App\Http\Controllers\AdminController::class, 'withdraw_request'])->name('Wrequest');
     Route::get('/deposit_request', [App\Http\Controllers\AdminController::class, 'deposit_request'])->name('Drequest');
+    Route::get('/send_request', [App\Http\Controllers\AdminController::class, 'send_request'])->name('send_request');
+    Route::get('/receive_request', [App\Http\Controllers\AdminController::class, 'receive_request'])->name('receive_request');
+    Route::get('/swap_request', [App\Http\Controllers\AdminController::class, 'swap_request'])->name('swap_request');
+    Route::get('/profile', [App\Http\Controllers\AdminController::class, 'adminprofile'])->name('adminprofile');
+    Route::get('/view_referral', [App\Http\Controllers\AdminController::class, 'view_referral'])->name('view_referral');
+    Route::get('/buy_sell', [App\Http\Controllers\AdminController::class, 'buy_sell'])->name('buy_sell');
 });

@@ -57,6 +57,11 @@
     <!--  -->
     <link rel="stylesheet" href="{{URL::asset('admin/apex/css/vendors.css')}}">
 
+    <!-- fontawesome Icon -->
+    <script src="https://kit.fontawesome.com/997b229808.js" crossorigin="anonymous"></script>
+        <!-- bootstrap-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
     <!-- Java -->
 
     <!-- <link rel="stylesheet" href="libraries/default.css" id="colorSkinCSS"> -->

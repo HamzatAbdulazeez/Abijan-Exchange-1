@@ -90,7 +90,56 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-6 mb-30">
+                    <div class="col-12 col-lg-12">
+                        <div class="card card-statistics">
+                            <div class="card-header">
+                                <div class="card-heading">
+                                    <h4 class="card-title">View all users</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">S/N</th>
+                                                <th scope="col">Full Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Phone Number</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if ($users->count() > 0)
+                                                @foreach ($users as $item)
+                                                    <tr>
+                                                        <th scope="row">#</th>
+                                                        <td>{{$item->profile->firstname}} {{$item->profile->surname}}</td>
+                                                        <td>{{$item->email}}</td>
+                                                        <td>{{$item->profile->phone_no}}</td>
+                                                        <td>
+                                                            @if ($item->profile->phone_no)
+                                                                Verified
+                                                            @else
+                                                                <span style="font-size: 11px; background: red;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Not Verified</span>
+                                                            @endif
+                                                        </td>
+                                                        <td>Edit</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td style="white-space:nowrap">No Data yet</td>
+                                                </tr>
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-12 mb-30">
                         <div class="card card-statistics h-100 mb-0">
                             <div class="card-header d-flex justify-content-between">
                                 <div class="card-heading">
@@ -206,55 +255,6 @@
                                             </table>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-12">
-                        <div class="card card-statistics">
-                            <div class="card-header">
-                                <div class="card-heading">
-                                    <h4 class="card-title">View all users</h4>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">S/N</th>
-                                                <th scope="col">Full Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Phone Number</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if ($users->count() > 0)
-                                                @foreach ($users as $item)
-                                                    <tr>
-                                                        <th scope="row">#</th>
-                                                        <td>{{$item->profile->firstname}} {{$item->profile->surname}}</td>
-                                                        <td>{{$item->email}}</td>
-                                                        <td>{{$item->profile->phone_no}}</td>
-                                                        <td>
-                                                            @if ($item->profile->phone_no)
-                                                                Verified
-                                                            @else
-                                                                <span style="font-size: 11px; background: red;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Not Verified</span>
-                                                            @endif
-                                                        </td>
-                                                        <td>Edit</td>
-                                                    </tr>
-                                                @endforeach
-                                            @else
-                                                <tr>
-                                                    <td style="white-space:nowrap">No Data yet</td>
-                                                </tr>
-                                            @endif
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
