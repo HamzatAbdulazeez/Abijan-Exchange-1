@@ -25,13 +25,13 @@
                         <img src="{{URL::asset('admin/libraries/2_002.svg')}}" alt="">
                     </div>
                     <div class="nav_title">
-                        <span>Naira Wallet</span>
+                        <span>Requests</span>
                     </div>
                 </a>
                 <ul>
                     <li><a href="{{route('Wrequest')}}">Withdraw Request</a></li>
                     <li><a href="{{route('Drequest')}}">Deposit Request</a></li>
-                    <li><a href="">Transactions</a></li>
+                    {{-- <li><a href="">Transactions</a></li> --}}
                 </ul>
             </li>
             <li>

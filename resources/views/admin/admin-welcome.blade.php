@@ -50,7 +50,7 @@
                                             Total No. of Users
                                         </h1>
                                         <h6>
-                                            2000
+                                            {{$users->count()}}
                                         </h6>
                                         <p>
                                             Users
@@ -210,36 +210,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card card-statistics">
-                            <div class="card-header">
-                                <div class="card-heading">
-                                    <h4 class="card-title">Users Performance</h4>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="apexchart-wrapper">
-                                    <div id="apexdemo8"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="card card-statistics">
-                            <div class="card-header">
-                                <div class="card-heading">
-                                    <h4 class="card-title">Ripple Live Chart
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="c3chart-wrapper">
-                                    <div id="c3demo1"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-12">
                         <div class="card card-statistics">
                             <div class="card-header">
                                 <div class="card-heading">
@@ -255,35 +226,33 @@
                                                 <th scope="col">Full Name</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Phone Number</th>
-                                                <th scope="col">Service Type</th>
+                                                <th scope="col">Status</th>
                                                 <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Hamzat</td>
-                                                <td>greenmousetest@gmail.com</td>
-                                                <td>0123456789</td>
-                                                <td>Bitcoin Trade</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Promise</td>
-                                                <td>greenmousetest@gmail.com</td>
-                                                <td>0123456789</td>
-                                                <td>Bitcoin Trade</td>
-                                                <td>Edit</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Moshood</td>
-                                                <td>greenmousetest@gmail.com</td>
-                                                <td>0123456789</td>
-                                                <td>Naira Trade</td>
-                                                <td>Edit</td>
-                                            </tr>
+                                            @if ($users->count() > 0)
+                                                @foreach ($users as $item)
+                                                    <tr>
+                                                        <th scope="row">#</th>
+                                                        <td>{{$item->profile->firstname}} {{$item->profile->surname}}</td>
+                                                        <td>{{$item->email}}</td>
+                                                        <td>{{$item->profile->phone_no}}</td>
+                                                        <td>
+                                                            @if ($item->profile->phone_no)
+                                                                Verified
+                                                            @else
+                                                                <span style="font-size: 11px; background: red;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Not Verified</span>
+                                                            @endif
+                                                        </td>
+                                                        <td>Edit</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td style="white-space:nowrap">No Data yet</td>
+                                                </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>

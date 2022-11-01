@@ -21,7 +21,10 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (request()->isAdmin()) {
+            config(['fortify.domain' => adminUrl()]);
+            config(['fortify.guard' => 'admin']);
+        }
     }
 
     /**
@@ -46,6 +49,9 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
         Fortify::loginView(function () {
+            if (request()->isAdmin()) {
+                return view('admin.auth.login');
+            }
             return view('auth.login');
         });
         Fortify::resetPasswordView(function () {
