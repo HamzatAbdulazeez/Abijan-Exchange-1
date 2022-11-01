@@ -21,7 +21,8 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="page_title_left mb_30">
-                                    <h3> Admin Support Mailbox</h3>
+                                    <h3> Support Mailbox</h3>
+                                    <p>Manage communications with Nairadirect Customer Support.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -33,20 +34,20 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="email-sidebar white_box">
-                        <button data-toggle="modal" data-target="#messageModalCenter" class="btn_1 w-100 mb-2 btn-lg email-gradient gradient-9-hover email__btn waves-effect"><i class="ti-plus"></i>COMPOSE</button>
-                        <ul class="text-left mt-2">
-                            <li class="active"><a href="{{('message_center')}}"><i class="ti-user"></i> <span> <span>Inbox</span> </span> </a></li>
-                                        
-                            <li><a href="{{route('message_center')}}"><i class="ti-announcement"></i> <span> <span>Sent Mails</span></span> </a></li>
+                        <div class="email-sidebar white_box">
+                            <button data-toggle="modal" data-target="#messageModalCenter" class="btn_1 w-100 mb-2 btn-lg email-gradient gradient-9-hover email__btn waves-effect"><i class="ti-plus"></i>COMPOSE</button>
+                            <ul class="text-left mt-2">
+                                <li class="active"><a href="{{('message_center')}}"><i class="ti-user"></i> <span> <span>Inbox</span> </span> </a></li>
 
-                           <li><a href="{{route(mailbox_trash')}}"><i class="ti-trash"></i> <span> <span>Trash</span>  </span> </a></li>
+                                <li><a href="{{route('message_center')}}"><i class="ti-announcement"></i> <span> <span>Sent Mails</span></span> </a></li>
 
-                            <li><a href="mailbox_archive"><i class="ti-briefcase"></i> <span> <span>Archive</span>  </span> </a></li>
-                            
-                        </ul>
+                                <li><a href="{{route(mailbox_trash')}}"><i class="ti-trash"></i> <span> <span>Trash</span> </span> </a></li>
+
+                                <li><a href="mailbox_archive"><i class="ti-briefcase"></i> <span> <span>Archive</span> </span> </a></li>
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
                 <div class="col-md-9">
                     <div class="white_box QA_section mb_30">
                         <div class="white_box_tittle list_header">
@@ -67,7 +68,7 @@
 
                         <div class="QA_table">
                             <!-- table-responsive -->
-                            <a href="javascript: void(0)" class="deletTop inbox" title="Delete message"><p class=""> <i class="ti-trash"></i> Delete</p></a><a href="javascript: void(0)" class="restoreTop inbox" title="Archive message"><p class="">  <i class="ti-briefcase"></i> Archive</p></a><div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label><i class="ti-search"></i><input type="search" class="" placeholder="Quick Search" aria-controls="DataTables_Table_0"></style='display:none'></label></div><table class="table lms_table_active31 readMsgTable dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 835px;">
+                            <a href="javascript: void(0)" class="deletTop inbox" title="Delete message"><p class=""> <i class="ti-trash"></i> Delete</p></a><a href="javascript: void(0)" class="restoreTop inbox" title="Archive message"><p class="">  <i class="ti-briefcase"></i> Archive</p></a><div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label><i class="ti-search"></i><style='display:none'><input type="search" class="" placeholder="Quick Search" aria-controls="DataTables_Table_0"></style='display:none'></label></div><table class="table lms_table_active31 readMsgTable dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 835px;">
                                 <thead>
                                             
                                             
