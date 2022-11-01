@@ -86,6 +86,9 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/send_request', [App\Http\Controllers\AdminController::class, 'send_request'])->name('send_request');
     Route::get('/receive_request', [App\Http\Controllers\AdminController::class, 'receive_request'])->name('receive_request');
     Route::get('/swap_request', [App\Http\Controllers\AdminController::class, 'swap_request'])->name('swap_request');
+    Route::get('/message-center', [App\Http\Controllers\AdminController::class, 'message_center'])->name('message_center');
+    Route::get('/sent-mails', [App\Http\Controllers\AdminController::class, 'sent_mails'])->name('sent_mails');
+    Route::get('/mailbox_trash', [App\Http\Controllers\AdminController::class, 'mailbox_trash'])->name('mailbox_trash');
     Route::get('/profile', [App\Http\Controllers\AdminController::class, 'adminprofile'])->name('adminprofile');
     Route::get('/view_referral', [App\Http\Controllers\AdminController::class, 'view_referral'])->name('view_referral');
     Route::get('/buy_sell', [App\Http\Controllers\AdminController::class, 'buy_sell'])->name('buy_sell');

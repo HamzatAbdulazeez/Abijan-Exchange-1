@@ -14,9 +14,11 @@
     <link rel="icon" href="{{URL::asset('admin/libraries/fav.png')}}" type="image/png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/bootstrap.css')}}">
+    
 
     <!-- themefy CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/themify-icons.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <!-- select2 CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/nice-select.css')}}">
     <!-- owl carousel CSS -->

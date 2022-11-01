@@ -74,7 +74,7 @@
             </ul>
         </li>
         <li>
-            <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
+            <a href="#" aria-expanded="false">
                 <div class="nav_icon_small">
                     <img src="{{URL::asset('admin/libraries/2_002.svg')}}" alt="">
                 </div>
@@ -82,11 +82,6 @@
                     <span>P2P Request</span>
                 </div>
             </a>
-            <ul>
-                <li><a href="{{route('send_request')}}">Send P2P Request</a></li>
-                <li><a href="{{route('receive_request')}}">Receive P2P Request</a></li>
-                <!-- <li><a href="wallet_transactions">Transactions</a></li> -->
-            </ul>
         </li>
         <li>
             <a href="#" aria-expanded="false">
@@ -128,8 +123,8 @@
                 </div>
             </a>
             <ul>
-                <li><a href="mailbox">Inbox</a></li>
-                <li><a href="mailbox_sent">Sent Mails</a></li>
+                <li><a href="{{route('message_center')}}">Inbox</a></li>
+                <li><a href="{{route('sent_mails')}}">Sent Mails</a></li>
                 <li><a href="mailbox_trash">Trash</a></li>
                 <li><a href="mailbox_archive">Archived Mails</a></li>
             </ul>

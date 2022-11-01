@@ -54,6 +54,21 @@ class AdminController extends Controller
         return view('admin.buy-sell');
     }
 
+    public function  message_center()
+    {
+        return view('admin.message-center');
+    }
+
+    public function sent_mails()
+    {
+        return view('admin.sent-mail');
+    }
+
+    public function  mailbox_trash()
+    {
+        return view('admin. mailbox-trash');
+    }
+   
     /**
      * Show the form for creating a new resource.
      *
