@@ -38,12 +38,13 @@
                                 <div class="tab-content">
                                     <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                         <div class="exchange_widget">
-                                            <form id="mySellform" class="currency_validate">
+                                            <form id="mySellform" method="post" action="{{route('user.update.birth')}}" class="currency_validate">
+                                                @csrf
                                                 <div class="form-group">
                                                     <label>Date of Birth</label>
                                                     <div class="input-group ">
                                                         <select name="day_sett" id="day_sett"
-                                                            class="form-control nice_Select" style="display: none;">
+                                                            class="form-control nice_Select" style="display: block !important;">
                                                             <option value="">Day</option>
                                                             <option value="01">1</option>
                                                             <option value="02">2</option>
@@ -77,48 +78,8 @@
                                                             <option value="30">30</option>
                                                             <option value="31">31</option>
                                                         </select>
-                                                        <div class="nice-select form-control nice_Select" tabindex="0">
-                                                            <span class="current">Day</span>
-                                                            <div class="nice-select-search-box"><input type="text"
-                                                                    class="nice-select-search" placeholder="Search...">
-                                                            </div>
-                                                            <ul class="list">
-                                                                <li data-value="" class="option selected">Day</li>
-                                                                <li data-value="01" class="option">1</li>
-                                                                <li data-value="02" class="option">2</li>
-                                                                <li data-value="03" class="option">3</li>
-                                                                <li data-value="04" class="option">4</li>
-                                                                <li data-value="05" class="option">5</li>
-                                                                <li data-value="06" class="option">6</li>
-                                                                <li data-value="07" class="option">7</li>
-                                                                <li data-value="08" class="option">8</li>
-                                                                <li data-value="09" class="option">9</li>
-                                                                <li data-value="10" class="option">10</li>
-                                                                <li data-value="11" class="option">11</li>
-                                                                <li data-value="12" class="option">12</li>
-                                                                <li data-value="13" class="option">13</li>
-                                                                <li data-value="14" class="option">14</li>
-                                                                <li data-value="15" class="option">15</li>
-                                                                <li data-value="16" class="option">16</li>
-                                                                <li data-value="17" class="option">17</li>
-                                                                <li data-value="18" class="option">18</li>
-                                                                <li data-value="19" class="option">19</li>
-                                                                <li data-value="20" class="option">20</li>
-                                                                <li data-value="21" class="option">21</li>
-                                                                <li data-value="22" class="option">22</li>
-                                                                <li data-value="23" class="option">23</li>
-                                                                <li data-value="24" class="option">24</li>
-                                                                <li data-value="25" class="option">25</li>
-                                                                <li data-value="26" class="option">26</li>
-                                                                <li data-value="27" class="option">27</li>
-                                                                <li data-value="28" class="option">28</li>
-                                                                <li data-value="29" class="option">29</li>
-                                                                <li data-value="30" class="option">30</li>
-                                                                <li data-value="31" class="option">31</li>
-                                                            </ul>
-                                                        </div>
                                                         <select name="month_sett" id="month_sett"
-                                                            class="form-control nice_Select" style="display: none;">
+                                                            class="form-control nice_Select" style="display: block !important;">
                                                             <option value="">Month</option>
                                                             <option value="01">January</option>
                                                             <option value="02">February</option>
@@ -133,27 +94,6 @@
                                                             <option value="11">November</option>
                                                             <option value="12">December</option>
                                                         </select>
-                                                        <div class="nice-select form-control nice_Select" tabindex="0">
-                                                            <span class="current">Month</span>
-                                                            <div class="nice-select-search-box"><input type="text"
-                                                                    class="nice-select-search" placeholder="Search...">
-                                                            </div>
-                                                            <ul class="list">
-                                                                <li data-value="" class="option selected">Month</li>
-                                                                <li data-value="01" class="option">January</li>
-                                                                <li data-value="02" class="option">February</li>
-                                                                <li data-value="03" class="option">March</li>
-                                                                <li data-value="04" class="option">April</li>
-                                                                <li data-value="05" class="option">May</li>
-                                                                <li data-value="06" class="option">June</li>
-                                                                <li data-value="07" class="option">July</li>
-                                                                <li data-value="08" class="option">August</li>
-                                                                <li data-value="09" class="option">September</li>
-                                                                <li data-value="10" class="option">October</li>
-                                                                <li data-value="11" class="option">November</li>
-                                                                <li data-value="12" class="option">December</li>
-                                                            </ul>
-                                                        </div>
                                                         <select name="year_sett" id="year_sett"
                                                             class="form-control nice_Select" style="display: none;">
                                                             <option value="">Year</option>
@@ -242,123 +182,42 @@
                                                             <option value="1923">1923</option>
                                                             <option value="1922">1922</option>
                                                         </select>
-                                                        <div class="nice-select form-control nice_Select" tabindex="0">
-                                                            <span class="current">Year</span>
-                                                            <div class="nice-select-search-box"><input type="text"
-                                                                    class="nice-select-search" placeholder="Search...">
-                                                            </div>
-                                                            <ul class="list">
-                                                                <li data-value="" class="option selected">Year</li>
-                                                                <li data-value="2005" class="option">2005</li>
-                                                                <li data-value="2004" class="option">2004</li>
-                                                                <li data-value="2003" class="option">2003</li>
-                                                                <li data-value="2002" class="option">2002</li>
-                                                                <li data-value="2001" class="option">2001</li>
-                                                                <li data-value="2000" class="option">2000</li>
-                                                                <li data-value="1999" class="option">1999</li>
-                                                                <li data-value="1998" class="option">1998</li>
-                                                                <li data-value="1997" class="option">1997</li>
-                                                                <li data-value="1996" class="option">1996</li>
-                                                                <li data-value="1995" class="option">1995</li>
-                                                                <li data-value="1994" class="option">1994</li>
-                                                                <li data-value="1993" class="option">1993</li>
-                                                                <li data-value="1992" class="option">1992</li>
-                                                                <li data-value="1991" class="option">1991</li>
-                                                                <li data-value="1990" class="option">1990</li>
-                                                                <li data-value="1989" class="option">1989</li>
-                                                                <li data-value="1988" class="option">1988</li>
-                                                                <li data-value="1987" class="option">1987</li>
-                                                                <li data-value="1986" class="option">1986</li>
-                                                                <li data-value="1985" class="option">1985</li>
-                                                                <li data-value="1984" class="option">1984</li>
-                                                                <li data-value="1983" class="option">1983</li>
-                                                                <li data-value="1982" class="option">1982</li>
-                                                                <li data-value="1981" class="option">1981</li>
-                                                                <li data-value="1980" class="option">1980</li>
-                                                                <li data-value="1979" class="option">1979</li>
-                                                                <li data-value="1978" class="option">1978</li>
-                                                                <li data-value="1977" class="option">1977</li>
-                                                                <li data-value="1976" class="option">1976</li>
-                                                                <li data-value="1975" class="option">1975</li>
-                                                                <li data-value="1974" class="option">1974</li>
-                                                                <li data-value="1973" class="option">1973</li>
-                                                                <li data-value="1972" class="option">1972</li>
-                                                                <li data-value="1971" class="option">1971</li>
-                                                                <li data-value="1970" class="option">1970</li>
-                                                                <li data-value="1969" class="option">1969</li>
-                                                                <li data-value="1968" class="option">1968</li>
-                                                                <li data-value="1967" class="option">1967</li>
-                                                                <li data-value="1966" class="option">1966</li>
-                                                                <li data-value="1965" class="option">1965</li>
-                                                                <li data-value="1964" class="option">1964</li>
-                                                                <li data-value="1963" class="option">1963</li>
-                                                                <li data-value="1962" class="option">1962</li>
-                                                                <li data-value="1961" class="option">1961</li>
-                                                                <li data-value="1960" class="option">1960</li>
-                                                                <li data-value="1959" class="option">1959</li>
-                                                                <li data-value="1958" class="option">1958</li>
-                                                                <li data-value="1957" class="option">1957</li>
-                                                                <li data-value="1956" class="option">1956</li>
-                                                                <li data-value="1955" class="option">1955</li>
-                                                                <li data-value="1954" class="option">1954</li>
-                                                                <li data-value="1953" class="option">1953</li>
-                                                                <li data-value="1952" class="option">1952</li>
-                                                                <li data-value="1951" class="option">1951</li>
-                                                                <li data-value="1950" class="option">1950</li>
-                                                                <li data-value="1949" class="option">1949</li>
-                                                                <li data-value="1948" class="option">1948</li>
-                                                                <li data-value="1947" class="option">1947</li>
-                                                                <li data-value="1946" class="option">1946</li>
-                                                                <li data-value="1945" class="option">1945</li>
-                                                                <li data-value="1944" class="option">1944</li>
-                                                                <li data-value="1943" class="option">1943</li>
-                                                                <li data-value="1942" class="option">1942</li>
-                                                                <li data-value="1941" class="option">1941</li>
-                                                                <li data-value="1940" class="option">1940</li>
-                                                                <li data-value="1939" class="option">1939</li>
-                                                                <li data-value="1938" class="option">1938</li>
-                                                                <li data-value="1937" class="option">1937</li>
-                                                                <li data-value="1936" class="option">1936</li>
-                                                                <li data-value="1935" class="option">1935</li>
-                                                                <li data-value="1934" class="option">1934</li>
-                                                                <li data-value="1933" class="option">1933</li>
-                                                                <li data-value="1932" class="option">1932</li>
-                                                                <li data-value="1931" class="option">1931</li>
-                                                                <li data-value="1930" class="option">1930</li>
-                                                                <li data-value="1929" class="option">1929</li>
-                                                                <li data-value="1928" class="option">1928</li>
-                                                                <li data-value="1927" class="option">1927</li>
-                                                                <li data-value="1926" class="option">1926</li>
-                                                                <li data-value="1925" class="option">1925</li>
-                                                                <li data-value="1924" class="option">1924</li>
-                                                                <li data-value="1923" class="option">1923</li>
-                                                                <li data-value="1922" class="option">1922</li>
-                                                            </ul>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group " id="securityquesion">
                                                     <div class="d-flex justify-content-between mt-3">
-                                                        @php
-                                                            $question = \App\Models\UserSecurityQuestion::where('user_id', Auth::user()->id)->first();
-                                                            //dd($question);
-                                                            if($question == null){
-                                                                $typeQ = true;
-                                                            }
-                                                            else{
-                                                                $typeQ = false;
-                                                            }
-                                                        @endphp
-                                                        @if ($typeQ == true)
+                                                @php
+                                                    $question = \App\Models\UserSecurityQuestion::where('user_id', Auth::user()->id)->first();
+                                                    //dd($question);
+                                                    if($question == null){
+                                                        $typeQ = true;
+                                                    }
+                                                    else{
+                                                        $typeQ = false;
+                                                    }
+                                                @endphp
+                                                @if ($typeQ == true)
+                                                    <p class="mb-0 questions">Secret Question:</p>
+                                                    <p class="mb-0 answers"><a href="settings?type=question"
+                                                    alt="Set Question" title="Set Security Questions">Set your
+                                                    Secret Question</a></p>
+                                                @else
+                                                    <div class="form-group " id="securityquesion">
+                                                        <div class="d-flex justify-content-between mt-3">
                                                             <p class="mb-0 questions">Secret Question:</p>
-                                                            <p class="mb-0 answers"><a href="settings?type=question"
-                                                            alt="Set Question" title="Set Security Questions">Set your
-                                                            Secret Question</a></p>
-
-                                                        @endif
+                                                            <p class="mb-0 answers">{{$question->question}}</p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between mt-3">
+                                                            <p class="mb-0 questions">Secret Answer:</p>
+                                                            <input type="hidden" name="question_id" value="{{$question->id}}">
+                                                            <h6 class="mb-0 ngnbal_upto balspan"><input type="text"
+                                                                    name="answer1" class="form-control" id="answer1"></h6>
+                                                        </div>
+                                                    </div>
+                                                @endif
                                                     </div>
                                                 </div>
-                                                <button type="button" name="sett_submit" id="sett_submit"
+                                                <button type="submit" name="sett_submit" id="sett_submit"
                                                     class="btn_1 w-100 ">Update Date of Birth <span
                                                         class="loadingText fa fa-spinner fa-spin fa-2x"
                                                         style="display:none;float:right;"

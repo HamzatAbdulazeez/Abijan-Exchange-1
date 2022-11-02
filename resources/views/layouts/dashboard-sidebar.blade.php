@@ -128,7 +128,7 @@
                 </a>
             </li>
             <li>
-                <a href="" aria-expanded="false" class="cprofile">
+                <a href="{{route('edit_profile')}}" aria-expanded="false" class="cprofile">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/General.svg')}}" alt="">
                     </div>
@@ -147,10 +147,10 @@
                     </div>
                 </a>
                 <ul>
-                    <li><a href="mailbox">Inbox</a></li>
-                    <li><a href="mailbox_sent">Sent Mails</a></li>
-                    <li><a href="mailbox_trash">Trash</a></li>
-                    <li><a href="mailbox_archive">Archived Mails</a></li>
+                    <li><a href="{{route('mailbox.inbox')}}">Inbox</a></li>
+                    <li><a href="{{route('mailbox.sent')}}">Sent Mails</a></li>
+                    <li><a href="{{route('mailbox.trash')}}">Trash</a></li>
+                    <li><a href="{{route('mailbox.archive')}}">Archived Mails</a></li>
                 </ul>
             </li>
             <li>

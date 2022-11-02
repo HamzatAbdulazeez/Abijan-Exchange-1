@@ -1,7 +1,6 @@
 @extends('layouts.dashboard-frontend')
 
 @section('page-content')
-@include('sweetalert::alert')
 <!-- [ Layout container ] Start -->
 <div class="layout-container">
     <!-- [ Layout navbar ( Header ) ] Start -->

@@ -47,7 +47,7 @@
                                                             <p>{{Auth::user()->profile->firstname}} {{Auth::user()->profile->middlename}} {{Auth::user()->profile->surname}}</p>
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="settings?type=name"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="settings?type=update_name"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -55,7 +55,7 @@
                                                             Date of Birth:
                                                         </td>
                                                         <td>
-                                                            <p>-</p>
+                                                            <p>{{Auth::user()->profile->dob ?? '-'}}</}}</p>
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=birth"><i class="far fa-edit"></i></a>
@@ -66,7 +66,7 @@
                                                             Gender:
                                                         </td>
                                                         <td>
-                                                            <p>-</p>
+                                                            <p>{{Auth::user()->profile->gender ?? '-'}}</p>
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=gender"><i class="far fa-edit"></i></a>
@@ -123,7 +123,7 @@
                                                             Phone:
                                                         </td>
                                                         <td>
-                                                            <p>-</p>
+                                                            <p>{{Auth::user()->profile->phone_no ?? '-'}}</p>
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=phone"><i class="far fa-edit"></i></a>
@@ -134,7 +134,7 @@
                                                             Username:
                                                         </td>
                                                         <td>
-                                                            <p>-</p>
+                                                            <p>{{Auth::user()->profile->username ?? '-'}}</p>
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=username"><i class="far fa-edit"></i></a>
@@ -215,11 +215,30 @@
                                                             Secret Questions:
                                                         </td>
                                                         <td>
-                                                            <p>None</p>
+                                                            @php
+                                                            $question = \App\Models\UserSecurityQuestion::where('user_id', Auth::user()->id)->first();
+                                                            //dd($question);
+                                                            if($question == null){
+                                                                $typeQ = true;
+                                                            }
+                                                            else{
+                                                                $typeQ = false;
+                                                            }
+                                                        @endphp
+                                                        @if ($typeQ == true)
+                                                        <p>None</p>
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="settings?type=questions"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="settings?type=question"><i class="far fa-edit"></i></a>
                                                         </td>
+                                                        @else
+                                                        <p>Yes</p>
+                                                        </td>
+                                                        <td>
+                                                            <a class="action_btn" href="settings?type=question"><i class="far fa-edit"></i></a>
+                                                        </td>
+                                                        @endif
+
                                                     </tr>
                                                     <tr>
                                                         <td scope="row">
