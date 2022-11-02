@@ -196,7 +196,7 @@
                         <div class="white_card_body">
                             <div class="QA_section">
                                 <div class="QA_table mb_30">
-                                    <!-- table-responsive -->
+                                    <!-- table-responsive-->
                                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label><i class="ti-search"></i><input type="search" class="" placeholder="Quick Search" aria-controls="DataTables_Table_0"></style='display:none'></label></div><table class="table lms_table_active3 dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 0px;">
                                         <thead>
                                             <tr role="row"><th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;"></th><th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">Time</th><th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">Description</th><th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">Status</th><th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">Amount (NGN)</th></tr>
