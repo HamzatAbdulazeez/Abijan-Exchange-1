@@ -383,6 +383,17 @@ class HomeController extends Controller
     {
         return view('dashboard.ethereum');
     }
+
+    public function receive_eth()
+    {
+        return view('dashboard.receive-eth');
+    }
+
+    public function referrals()
+    {
+        return view('dashboard.referrals');
+    }
+    
     
     // // Admin
     // public function admin_welcome()

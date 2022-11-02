@@ -22,10 +22,10 @@
                                 <div class="white_box_tittle list_header mb-0">
                                     <ul class="nav nav-pills custom_bootstrap_nav">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="wallet">Send BTC</a>
+                                            <a class="nav-link" href="{{route('sendbtn')}}">Send BTC</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="wallet_receive"> Receive BTC</a>
+                                            <a class="nav-link" href="{{route('wallet_receive')}}"> Receive BTC</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" href="#" data-toggle="tab"> Transactions</a>
