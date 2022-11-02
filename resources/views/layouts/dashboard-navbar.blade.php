@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="profile_info_iner">
                                         <div class="profile_info_details">
-                                            <a href="#">Verify Me</a>
+                                            <a href="settings?type=verify_me">Verify Me</a>
                                             <a href="profile">My Profile</a>
                                             <a onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();" href="#">Log Out </a>
@@ -83,16 +83,24 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="author_name">
-                                        <h4 class="f_s_15 f_w_500 mb-0">{{$fullname}}</h4>
-                                        <p class="f_s_12 f_w_400">Verified</p>
-                                    </div>
+                                    @if (Auth::user()->bank->bvn != null)
+                                        <div class="author_name">
+                                            <h4 class="f_s_15 f_w_500 mb-0">{{$fullname}}</h4>
+                                            <p class="f_s_12 f_w_400">Verified</p>
+                                        </div>
+                                    @else
+                                        <div class="author_name">
+                                            <h4 class="f_s_15 f_w_500 mb-0">{{$fullname}}</h4>
+                                            <p class="f_s_12 f_w_400">Not Verified</p>
+                                        </div>
+                                    @endif
+
                                     <div class="profile_info_iner">
                                         <div class="profile_author_name">
                                             <h5>{{$fullname}}</h5>
                                         </div>
                                         <div class="profile_info_details">
-                                            <a href="verify_me">Verify Me</a> <a href="profile">My Profile</a>
+                                            <a href="settings?type=verify_me">Verify Me</a> <a href="profile">My Profile</a>
                                             <a onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();" href="#">Log Out </a>
                                             <form id="logout-form" method="POST" action="{{ route('logout') }}">

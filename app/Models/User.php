@@ -48,4 +48,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(UserProfile::class);
     }
+    public function bank()
+    {
+        return $this->hasOne(UserBank::class);
+    }
+    public function wallet()
+    {
+        return $this->hasOne(UserWallet::class);
+    }
 }

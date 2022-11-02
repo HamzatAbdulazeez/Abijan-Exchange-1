@@ -60,7 +60,7 @@
                 </ul>
             </li>
             <li>
-                <a  href="{{route('ethereum')}}" aria-expanded="false">
+                <a  href="#" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
                     </div>
