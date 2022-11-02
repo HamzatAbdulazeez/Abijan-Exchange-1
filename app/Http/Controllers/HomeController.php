@@ -376,4 +376,14 @@ class HomeController extends Controller
     {
         return view('admin.deposit');
     }
+    public function sendbtn()
+    {
+        return view('admin.send-btn');
+    }
+    
+    public function wallet_receive()
+    {
+        return view('admin.wallet_receive');
+    }
+    
 }

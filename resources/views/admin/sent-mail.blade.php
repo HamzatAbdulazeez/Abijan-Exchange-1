@@ -33,20 +33,35 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="email-sidebar white_box">
-                        <button data-toggle="modal" data-target="#messageModalCenter" class="btn_1 w-100 mb-2 btn-lg email-gradient gradient-9-hover email__btn waves-effect"><i class="ti-plus"></i>COMPOSE</button>
-                        <ul class="text-left mt-2">
-                            <li><a href="{{route('message_center')}}"><i class="ti-user"></i> <span> <span>Inbox</span> </span> </a></li>
-                                        
-                            <li class="active"><a href=""><i class="ti-announcement"></i> <span> <span>Sent Mails</span></span> </a></li>
+                        <div class="email-sidebar white_box">
+                            <button data-toggle="modal" data-target="#messageModalCenter" class="btn_1 w-100 mb-2 btn-lg email-gradient gradient-9-hover email__btn waves-effect"><i class="ti-plus"></i>COMPOSE</button>
+                            <ul class="text-left mt-2">
+                                <li>
+                                    <a href="{{('message_center')}}">
+                                        <i class="ti-user"></i> <span> <span>Inbox</span> </span>
+                                    </a>
+                                </li>
 
-                           <li><a href="{{route('mailbox_trash')}}"><i class="ti-trash"></i> <span> <span>Trash</span>  </span> </a></li>
+                                <li>
+                                    <a href="{{('sent_mails')}}">
+                                        <i class="ti-announcement"></i> <span> <span>Sent Mails</span></span>
+                                    </a>
+                                </li>
 
-                            <li><a href="mailbox_archive"><i class="ti-briefcase"></i> <span> <span>Archive</span>  </span> </a></li>
-                            
-                        </ul>
+                                <li class="active">
+                                    <a href="{{('mailbox_trash')}}">
+                                        <i class="ti-trash"></i> <span> <span>Trash</span> </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{('mailbox_archive')}}">
+                                        <i class="ti-briefcase"></i> <span> <span>Archive</span> </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
                 <div class="col-md-9">
                     <div class="white_box QA_section mb_30">
                         <div class="white_box_tittle list_header">

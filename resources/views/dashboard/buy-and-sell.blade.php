@@ -289,7 +289,7 @@
                                         <!-- table-responsive -->
                                         <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
                                             <div id="DataTables_Table_0_filter" class="dataTables_filter"><label><i class="ti-search"></i>
-                                                    <style='display:none'><input type="search" class="" placeholder="Quick Search" aria-controls="DataTables_Table_0"></style='display:none'>
+                                                   <input type="search" class="" placeholder="Quick Search" aria-controls="DataTables_Table_0"></style='display:none'>
                                                 </label></div>
                                             <table class="table lms_table_active3 dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 0px;">
                                                 <thead>

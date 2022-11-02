@@ -68,6 +68,8 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
     Route::get('/buynsell', [App\Http\Controllers\HomeController::class, 'buynsell'])->name('buynsell');
     Route::get('/transaction', [App\Http\Controllers\HomeController::class, 'transaction'])->name('transaction');
+    Route::get('/sendbtn', [App\Http\Controllers\HomeController::class, 'sendbtn'])->name('sendbtn');
+    Route::get('/wallet_receive', [App\Http\Controllers\HomeController::class, 'wallet_receive'])->name('wallet_receive');
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('edit_profile');
     Route::post('/question/update', [App\Http\Controllers\HomeController::class, 'updateQuesstion'])->middleware(['verified', 'auth'])->name('user.update.question');
     Route::post('/birth/update', [App\Http\Controllers\HomeController::class, 'updateBirth'])->middleware(['verified', 'auth'])->name('user.update.birth');
@@ -105,6 +107,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/message-center', [App\Http\Controllers\AdminController::class, 'message_center'])->name('message_center');
     Route::get('/sent-mails', [App\Http\Controllers\AdminController::class, 'sent_mails'])->name('sent_mails');
     Route::get('/mailbox_trash', [App\Http\Controllers\AdminController::class, 'mailbox_trash'])->name('mailbox_trash');
+    Route::get('/ mailbox_archive', [App\Http\Controllers\AdminController::class, ' mailbox_archive'])->name(' mailbox_archive');
     Route::get('/profile', [App\Http\Controllers\AdminController::class, 'adminprofile'])->name('adminprofile');
     Route::get('/view_referral', [App\Http\Controllers\AdminController::class, 'view_referral'])->name('view_referral');
     Route::get('/buy_sell', [App\Http\Controllers\AdminController::class, 'buy_sell'])->name('buy_sell');
