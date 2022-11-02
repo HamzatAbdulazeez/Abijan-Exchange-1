@@ -65,7 +65,7 @@
                         <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
                     </div>
                     <div class="nav_title">
-                        <span>Ethereum Wallet</span>
+                        <span>Ethereum</span>
                     </div>
                 </a>
             </li>
@@ -75,7 +75,7 @@
                         <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
                     </div>
                     <div class="nav_title">
-                        <span>USDT Wallet</span>
+                        <span>USDT</span>
                     </div>
                 </a>
             </li>
