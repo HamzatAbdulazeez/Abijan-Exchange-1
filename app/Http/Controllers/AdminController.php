@@ -68,6 +68,11 @@ class AdminController extends Controller
     {
         return view('admin. mailbox-trash');
     }
+
+    public function   mailbox_archive()
+    {
+        return view('admin.mailbox_archive');
+    }
    
     /**
      * Show the form for creating a new resource.

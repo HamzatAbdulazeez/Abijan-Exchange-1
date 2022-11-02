@@ -125,8 +125,8 @@
             <ul>
                 <li><a href="{{route('message_center')}}">Inbox</a></li>
                 <li><a href="{{route('sent_mails')}}">Sent Mails</a></li>
-                <li><a href="mailbox_trash">Trash</a></li>
-                <li><a href="mailbox_archive">Archived Mails</a></li>
+                <li><a href="{{route('mailbox_trash')}}">Trash</a></li>
+                <li><a href="{{route('mailbox_archive')}}">Archived Mails</a></li>
             </ul>
         </li>
         <li>
