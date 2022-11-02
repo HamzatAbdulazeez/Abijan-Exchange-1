@@ -60,7 +60,7 @@
                 </ul>
             </li>
             <li>
-                <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
+                <a  href="#" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
                     </div>
@@ -68,13 +68,9 @@
                         <span>Ethereum Wallet</span>
                     </div>
                 </a>
-                <ul>
-                    <li><a href="wallet">Send Eth</a></li>
-                    <li><a href="wallet_receive">Receive Eth</a></li>
-                </ul>
             </li>
             <li>
-                <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
+                <a href="#" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
                     </div>
@@ -82,10 +78,6 @@
                         <span>USDT Wallet</span>
                     </div>
                 </a>
-                <ul>
-                    <li><a href="wallet">Send USDT </a></li>
-                    <li><a href="wallet_receive">Receive USDT </a></li>
-                </ul>
             </li>
             <li>
                 <a href="" aria-expanded="false" class="cbuynsell">
