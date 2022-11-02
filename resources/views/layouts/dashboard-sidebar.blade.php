@@ -56,11 +56,11 @@
                 <ul>
                     <li><a href="{{route('sendbtn')}}">Send BTC</a></li>
                     <li><a href="{{route('wallet_receive')}}">Receive BTC</a></li>
-                    <!-- <li><a href="wallet_transactions">Transactions</a></li> -->
+                    <li><a href="{{route('wallet_transactions')}}">Transactions</a></li>
                 </ul>
             </li>
             <li>
-                <a  href="#" aria-expanded="false">
+                <a  href="{{route('ethereum')}}" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
                     </div>

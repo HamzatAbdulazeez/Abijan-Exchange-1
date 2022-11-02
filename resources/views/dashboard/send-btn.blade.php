@@ -25,10 +25,10 @@
                                                 <a class="nav-link active" href="#bitdiv" data-toggle="tab">Send BTC</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="wallet_receive"> Receive BTC</a>
+                                                <a class="nav-link" href="{{route('wallet_receive')}}"> Receive BTC</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="wallet_transactions"> Transactions</a>
+                                                <a class="nav-link" href="{{route('wallet_transactions')}}"> Transactions</a>
                                             </li>
                                         </ul>
                                     </div>

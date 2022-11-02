@@ -42,7 +42,7 @@
                                     <div class="form-group" id="walletdiv">
                                         
                                         
-                                        <span>Give out the bitcoin address below to receive bitcoins.</span>
+                                        <span>Give out the bitcoin address below to receive Ethereum.</span>
 
                                         <div class="bitcoin-address-container" data-bc-address="1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz">
 
@@ -114,7 +114,7 @@
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion_ex">
                                     <div class="card-body">
-                                        <p>The bar code displayed on this page is the QR code for your receiving address. It is possible to send bitcoins to you from mobile wallets by scanning this code.</p>
+                                        <p>The bar code displayed on this page is the QR code for your receiving address. It is possible to send Ethereum to you from mobile wallets by scanning this code.</p>
 
                                     </div>
                                 </div>

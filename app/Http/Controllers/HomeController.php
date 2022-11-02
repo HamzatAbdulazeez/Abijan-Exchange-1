@@ -135,27 +135,34 @@ class HomeController extends Controller
     {
         return view('dashboard.referral');
     }
-    // Admin
-    public function admin_welcome()
-    {
-        return view('admin.admin-welcome');
-    }
-    public function Wrequest()
-    {
-        return view('admin.withdraw');
-    }
-    public function Drequest()
-    {
-        return view('admin.deposit');
-    }
+
     public function sendbtn()
     {
-        return view('admin.send-btn');
+        return view('dashboard.send-btn');
     }
     
     public function wallet_receive()
     {
-        return view('admin.wallet_receive');
+        return view('dashboard.wallet_receive');
     }
+
+    public function wallet_transactions()
+    {
+        return view('dashboard.wallet_transactions');
+    }
+    
+    // // Admin
+    // public function admin_welcome()
+    // {
+    //     return view('admin.admin-welcome');
+    // }
+    // public function Wrequest()
+    // {
+    //     return view('admin.withdraw');
+    // }
+    // public function Drequest()
+    // {
+    //     return view('admin.deposit');
+    // }
     
 }

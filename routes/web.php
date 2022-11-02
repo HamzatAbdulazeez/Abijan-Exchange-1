@@ -70,6 +70,7 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::get('/transaction', [App\Http\Controllers\HomeController::class, 'transaction'])->name('transaction');
     Route::get('/sendbtn', [App\Http\Controllers\HomeController::class, 'sendbtn'])->name('sendbtn');
     Route::get('/wallet_receive', [App\Http\Controllers\HomeController::class, 'wallet_receive'])->name('wallet_receive');
+    Route::get('/wallet_transactions', [App\Http\Controllers\HomeController::class, 'wallet_transactions'])->name('wallet_transactions');
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('edit_profile');
    /*  Route::get('/typebirth', [App\Http\Controllers\HomeController::class, 'typebirth'])->name('typebirth');
     Route::get('/typequestion', [App\Http\Controllers\HomeController::class, 'typequestion'])->name('typequestion');
