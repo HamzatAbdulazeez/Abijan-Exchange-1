@@ -60,14 +60,19 @@
                 </ul>
             </li>
             <li>
-                <a  href="#" aria-expanded="false">
+                <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
                     <div class="nav_icon_small">
-                        <img src="{{URL::asset('dash/libraries/2_002.svg')}}" alt="">
+                        <img src="{{URL::asset('dash/libraries/ethereum.png')}}" alt="">
                     </div>
                     <div class="nav_title">
                         <span>Ethereum</span>
                     </div>
                 </a>
+                <ul>
+                    <li><a href="{{route('ethereum')}}">Send Eth</a></li>
+                    <li><a href="{{route('receive_eth')}}">Receive Eth</a></li>
+                    <!-- <li><a href="{{route('wallet_transactions')}}">Transactions</a></li> -->
+                </ul>
             </li>
             <li>
                 <a href="#" aria-expanded="false">
@@ -80,7 +85,7 @@
                 </a>
             </li>
             <li>
-                <a href="" aria-expanded="false" class="cbuynsell">
+                <a href="#" aria-expanded="false" class="cbuynsell">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/swap.png')}}" alt="">
                     </div>
@@ -90,9 +95,9 @@
                 </a>
             </li>
             <li>
-                <a href="" aria-expanded="false" class="cbuynsell">
+                <a href="#" aria-expanded="false" class="cbuynsell">
                     <div class="nav_icon_small">
-                        <img src="{{URL::asset('dash/libraries/lend.png')}}" alt="">
+                        <img src="{{URL::asset('dash/libraries/peer-to-peer.png')}}" alt="">
                     </div>
                     <div class="nav_title">
                         <span>P2P</span>
@@ -110,7 +115,7 @@
                 </a>
             </li>
             <li>
-                <a href="referrals" class="creferral" aria-expanded="false">
+                <a href="{{route('referrals')}}" class="creferral" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/5.svg')}}" alt="">
                     </div>

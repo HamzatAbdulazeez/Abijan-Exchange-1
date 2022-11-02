@@ -469,6 +469,22 @@ class HomeController extends Controller
         return view('dashboard.wallet_transactions', compact('trans'));
     }
 
+    public function ethereum()
+    {
+        return view('dashboard.ethereum');
+    }
+
+    public function receive_eth()
+    {
+        return view('dashboard.receive-eth');
+    }
+
+    public function referrals()
+    {
+        return view('dashboard.referrals');
+    }
+
+
     // // Admin
     // public function admin_welcome()
     // {
