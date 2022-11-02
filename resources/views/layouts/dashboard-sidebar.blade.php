@@ -54,8 +54,8 @@
                     </div>
                 </a>
                 <ul>
-                    <li><a href="wallet">Send BTC</a></li>
-                    <li><a href="wallet_receive">Receive BTC</a></li>
+                    <li><a href="{{route('sendbtn')}}">Send BTC</a></li>
+                    <li><a href="{{route('wallet_receive')}}">Receive BTC</a></li>
                     <!-- <li><a href="wallet_transactions">Transactions</a></li> -->
                 </ul>
             </li>
