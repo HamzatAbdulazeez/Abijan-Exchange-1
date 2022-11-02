@@ -72,6 +72,22 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::get('/wallet_receive', [App\Http\Controllers\HomeController::class, 'wallet_receive'])->name('wallet_receive');
     Route::get('/wallet_transactions', [App\Http\Controllers\HomeController::class, 'wallet_transactions'])->name('wallet_transactions');
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('edit_profile');
+    Route::post('/question/update', [App\Http\Controllers\HomeController::class, 'updateQuesstion'])->middleware(['verified', 'auth'])->name('user.update.question');
+    Route::post('/birth/update', [App\Http\Controllers\HomeController::class, 'updateBirth'])->middleware(['verified', 'auth'])->name('user.update.birth');
+    Route::post('/gender/update', [App\Http\Controllers\HomeController::class, 'updateGender'])->middleware(['verified', 'auth'])->name('user.update.gender');
+    Route::post('/password/update', [App\Http\Controllers\HomeController::class, 'updatePassword'])->middleware(['verified', 'auth'])->name('user.update.password');
+    Route::post('/name/update', [App\Http\Controllers\HomeController::class, 'updateProfileName'])->middleware(['verified', 'auth'])->name('user.update.profile_name');
+    Route::get('/mail/trash', [App\Http\Controllers\HomeController::class, 'Trash'])->middleware(['verified', 'auth'])->name('mailbox.trash');
+    Route::get('/mail/sent', [App\Http\Controllers\HomeController::class, 'Sent'])->middleware(['verified', 'auth'])->name('mailbox.sent');
+    Route::get('/mail/inbox', [App\Http\Controllers\HomeController::class, 'Inbox'])->middleware(['verified', 'auth'])->name('mailbox.inbox');
+    Route::get('/mail/archive', [App\Http\Controllers\HomeController::class, 'Archive'])->middleware(['verified', 'auth'])->name('mailbox.archive');
+    Route::post('/bvn/validate', [App\Http\Controllers\HomeController::class, 'validateBvn'])->middleware(['verified', 'auth'])->name('validateBvn');
+    Route::post('/mail/send', [App\Http\Controllers\HomeController::class, 'sendMail'])->middleware(['verified', 'auth'])->name('send.mail');
+    Route::post('/mail/delete', [App\Http\Controllers\HomeController::class, 'moveTrash'])->middleware(['verified', 'auth'])->name('mail.moveTrash');
+    Route::post('/mail/deleteOne', [App\Http\Controllers\HomeController::class, 'deleteOne'])->middleware(['verified', 'auth'])->name('mail.deleteOne');
+    Route::post('/mail/restoreMail', [App\Http\Controllers\HomeController::class, 'restoreMail'])->middleware(['verified', 'auth'])->name('mail.restoreMail');
+    Route::post('/mail/achiveMail', [App\Http\Controllers\HomeController::class, 'achiveMail'])->middleware(['verified', 'auth'])->name('mail.achiveMail');
+    Route::post('/mail/readMail', [App\Http\Controllers\HomeController::class, 'readMail'])->middleware(['verified', 'auth'])->name('mail.readMail');
    /*  Route::get('/typebirth', [App\Http\Controllers\HomeController::class, 'typebirth'])->name('typebirth');
     Route::get('/typequestion', [App\Http\Controllers\HomeController::class, 'typequestion'])->name('typequestion');
     Route::get('/typegender', [App\Http\Controllers\HomeController::class, 'typegender'])->name('typegender');
@@ -82,7 +98,7 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
 });
 
 // Admin
-Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/adminwelcome', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_welcome');
     Route::get('/withdraw_request', [App\Http\Controllers\AdminController::class, 'withdraw_request'])->name('Wrequest');
     Route::get('/deposit_request', [App\Http\Controllers\AdminController::class, 'deposit_request'])->name('Drequest');

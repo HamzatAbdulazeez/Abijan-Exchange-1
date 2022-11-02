@@ -38,29 +38,60 @@
                                 <div class="tab-content">
                                     <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                         <div class="exchange_widget">
-                                            <form name="" method="POST" action="{{route('user.update.profile')}}" id="" class="currency_validate">
+                                            <form name="" method="POST" action="{{route('user.update.profile_name')}}" id="" class="currency_validate">
                                                 @csrf
                                                 <div class="form-group">
                                                     <label>First Name</label>
                                                     <div class="input-group">
-                                                        <input type="text" name="firstname" class="form-control"
+                                                        <input type="text" name="firstname" value="{{Auth::user()->profile->firstname ?? ''}}" class="form-control"
                                                              required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Middle Name</label>
                                                     <div class="input-group">
-                                                        <input type="text" name="middlename" class="form-control"
+                                                        <input type="text" name="middlename" value="{{Auth::user()->profile->middlename ?? ''}}" class="form-control"
                                                              required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Surname</label>
                                                     <div class="input-group">
-                                                        <input type="text" name="surname" class="form-control"
+                                                        <input type="text" name="surname" value="{{Auth::user()->profile->surname ?? ''}}" class="form-control"
                                                              required>
                                                     </div>
                                                 </div>
+                                                <div class="d-flex justify-content-between mt-3">
+                                                    @php
+                                                        $question = \App\Models\UserSecurityQuestion::where('user_id', Auth::user()->id)->first();
+                                                        //dd($question);
+                                                        if($question == null){
+                                                            $typeQ = true;
+                                                        }
+                                                        else{
+                                                            $typeQ = false;
+                                                        }
+                                                    @endphp
+                                                    @if ($typeQ == true)
+                                                        <p class="mb-0 questions">Secret Question:</p>
+                                                        <p class="mb-0 answers"><a href="settings?type=question"
+                                                        alt="Set Question" title="Set Security Questions">Set your
+                                                        Secret Question</a></p>
+                                                    @else
+                                                        <div class="form-group " id="securityquesion">
+                                                            <div class="d-flex justify-content-between mt-3">
+                                                                <p class="mb-0 questions">Secret Question:</p>
+                                                                <p class="mb-0 answers">{{$question->question}}</p>
+                                                            </div>
+                                                            <div class="d-flex justify-content-between mt-3">
+                                                                <p class="mb-0 questions">Secret Answer:</p>
+                                                                <input type="hidden" name="question_id" value="{{$question->id}}">
+                                                                <h6 class="mb-0 ngnbal_upto balspan"><input type="text"
+                                                                        name="answer1" required class="form-control" id="answer1"></h6>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                            </div>
                                                 <button type="submit" name="with_submit" id=""
                                                     class="btn_1 w-100">Update Name <span
                                                         class="loadingText fa fa-spinner fa-spin fa-2x"

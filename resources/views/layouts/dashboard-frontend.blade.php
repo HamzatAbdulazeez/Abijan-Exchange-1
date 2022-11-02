@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <!-- Required meta tags -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dashboard - Fastest and easiest way to buy and sell bitcoins - Abijan Exchange</title>
@@ -49,7 +50,7 @@
     <link rel="stylesheet" href="{{URL::asset('dash/libraries/metisMenu.css')}}">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{URL::asset('dash/libraries/style.css')}}">
-    
+
     <!-- <link rel="stylesheet" href="libraries/default.css" id="colorSkinCSS"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -59,6 +60,7 @@
     <!-- [ Layout wrapper ] Start -->
     <!-- Side-Nav -->
     @includeIf('layouts.dashboard-sidebar')
+    @include('sweetalert::alert')
             <!-- Side-Nav Ends -->
     <section class="main_content dashboard_part large_header_bg">
         @yield('page-content')
@@ -107,7 +109,51 @@
 
     <!-- custom js -->
     <script src="{{URL::asset('dash/libraries/dashboard_init.js')}}"></script>
+    <script>
+        $(function() {
+            $('#ContinueCompose').click(function(){
+                var category = $('#category').val();
+        var subject = $('#subject').val();
+        var memo = $('#memo').val();
+        //var composetype = $('#msgtyperead').val();
 
+        if (memo != "") {
+
+            $('.spincompose').show();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{route('send.mail')}}",
+                data: {
+                    category: category,
+                    subject: subject,
+                    message: memo,
+                },
+                success: function(result) {
+                    $('.spincompose').hide();
+                    if (result != "") {
+                        $('#messageModalCenter').modal('hide');
+                        $('#msgtyperead').val('compose');
+                        $('#idread').val('');
+                        $('#category').val('');
+                        $('#memo').val('');
+                        swal({
+                            title: "Message sent",
+                            text: 'Your Message has been sent successfully to Support.',
+                            type: 'success',
+                            icon: "success",
+                        });
+                    }
+                }
+            });
+        }
+            })
+        })
+    </script>
     <script>
         var txn_ngn = "0.00";
         var txn_usd = "0.00";

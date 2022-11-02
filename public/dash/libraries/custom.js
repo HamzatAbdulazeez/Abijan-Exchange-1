@@ -10,12 +10,12 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2
 });
 
-(function($) {
+$(function() {
     "use strict";
 
-    // metisMenu 
+    // metisMenu
     $("#sidebar_menu").metisMenu();
-    // metisMenu 
+    // metisMenu
     $("#admin_profile_active").metisMenu();
 
     $(".open_miniSide").click(function() {
@@ -32,7 +32,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
         }
     });
 
-    // back to top 
+    // back to top
     $('#back-top a').on("click", function() {
         $('body,html').animate({
             scrollTop: 0
@@ -41,7 +41,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
     });
 
 
-    // PAGE ACTIVE 
+    // PAGE ACTIVE
     $("#sidebar_menu").find("a").removeClass("active");
     $("#sidebar_menu").find("li").removeClass("mm-active");
     $("#sidebar_menu").find("li ul").removeClass("mm-show");
@@ -59,7 +59,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
         // }
     });
 
-    // #NOTIFICATION_ 
+    // #NOTIFICATION_
     // for MENU notification
     $('.bell_notification_clicker').on('click', function() {
         $('.Menu_NOtification_Wrap').toggleClass('active');
@@ -70,7 +70,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
             $("body").find(".Menu_NOtification_Wrap").removeClass("active");
         }
     });
-    // CHAT_MENU_OPEN 
+    // CHAT_MENU_OPEN
     $('.CHATBOX_open').on('click', function() {
         $('.CHAT_MESSAGE_POPUPBOX').toggleClass('active');
     });
@@ -83,7 +83,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
         }
     });
 
-    // CHAT_MENU_OPEN 
+    // CHAT_MENU_OPEN
     $('.serach_button').on('click', function() {
         $('.serach_field-area ').addClass('active');
     });
@@ -168,7 +168,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
 
 
 
-    // data table 
+    // data table
 
 
     //niceselect select jquery
@@ -177,7 +177,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
     // $('.nice_Select2').niceSelect();
     // $('.default_sel').niceSelect();
 
-    // niceSelect 
+    // niceSelect
     var niceSelect = $('.nice_Select');
     if (niceSelect.length) {
         niceSelect.niceSelect();
@@ -194,7 +194,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
     };
 
 
-    // datepicker 
+    // datepicker
     $(document).ready(function() {
         var date_picker = $('#start_datepicker');
         if (date_picker.length) {
@@ -330,7 +330,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
         });
     });
 
-    // meta_keywords 
+    // meta_keywords
     var bootstrapTag = $("#meta_keywords");
     if (bootstrapTag.length) {
         bootstrapTag.tagsinput();
@@ -404,7 +404,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
 
         });
     }
-    if ($('.readMsgTable').length) {
+    if($('.readMsgTable').length) {
         $('.readMsgTable').DataTable({
             bLengthChange: false,
             "bDestroy": false,
@@ -570,8 +570,8 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
 
 
 
-    // switcher menu 
-    // anly for side switcher menu 
+    // switcher menu
+    // anly for side switcher menu
     $('.switcher_wrap li.Horizontal').click(function() {
         $('.sidebar').addClass('hide_vertical_menu');
         $('.main_content ').addClass('main_content_padding_hide');
@@ -588,8 +588,8 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
         $('.footer_part').removeClass('pl-0');
     });
 
-    // switcher_wrap 
-    // anly for side switcher menu 
+    // switcher_wrap
+    // anly for side switcher menu
 
     $('.switcher_wrap li').click(function() {
         $('li').removeClass("active");
@@ -603,7 +603,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
 
 
     $('.spin_icon_clicker').on('click', function(e) {
-        $('.switcher_slide_wrapper').toggleClass("swith_show"); //you can list several class names 
+        $('.switcher_slide_wrapper').toggleClass("swith_show"); //you can list several class names
         e.preventDefault();
     });
 
@@ -679,7 +679,7 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
     }
 
 
-    //   color skin 
+    //   color skin
     $(document).ready(function() {
         $(function() {
             "use strict";
@@ -714,25 +714,29 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
                 $('.loadingModalCenter').modal('hide');
             }, 1000);
             //Get msg from the database and place it into the modal
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "readnotice",
+                url: "/dashboard/mail/readMail",
                 data: {
                     msg: prett
                 },
                 dataType: 'json',
                 success: function(result) {
-
-                    var msgid = result.msgid.trim();
-                    var msgbody = result.msgbody.trim();
-                    var msgtime = result.msgtime.trim();
-                    var msgdate = result.msgdate.trim();
-                    var msgcategory = result.msgcategory.trim();
-                    var msgsubject = result.msgsubject.trim();
-                    var msgcount = result.msgcount.trim();
-                    var msgtype = result.msgtype.trim();
-                    var msgoriginal = result.msgoriginalFolder.trim();
+                    console.log(result.success.id)
+                    var msgid = result.success.id;
+                    var msgbody = result.success.message;
+                    var msgtime = result.success.created_at_date;
+                    var msgdate = result.success.created_at_time;
+                    var msgcategory = result.success.category;
+                    var msgsubject = result.success.subject;
+                    var msgcount = result.success.status;
+                    var msgtype = result.success.type;
+                    var msgoriginal = result.success;
 
                     if (msgid != "") {
                         $('#datereadMsg').html(msgdate);
@@ -825,9 +829,14 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
 
         //Open the loading modal
         $('.loadingModalCenter').modal('toggle');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             type: "POST",
-            url: "readnotice",
+            url: "/dashboard/mail/deleteOne",
             data: {
                 delete: msgid
             },
@@ -869,12 +878,16 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
                 var msgAll = someObj.fruitsGranted;
                 //Open the loading modal
                 $('.loadingModalCenter').modal('toggle');
-
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 $.ajax({
                     type: "POST",
-                    url: "readnotice",
+                    url: "/dashboard/mail/delete",
                     data: {
-                        deleteselected: msgAll,
+                        mail: msgAll,
                         countmsg: noChecked
                     },
                     success: function(result) {
@@ -929,10 +942,78 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
             var msgAll = someObj.fruitsGranted;
             //Open the loading modal
             $('.loadingModalCenter').modal('toggle');
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "readnotice",
+                url: "/dashboard/mail/restoreMail",
+                data: {
+                    archiveselected: msgAll,
+                    countmsg: noChecked,
+                    archivetype: swalMsg
+                },
+                success: function(result) {
+                    if (result) {
+                        if (noChecked == countmsg) {
+                            $('#checkboxAll').prop('checked', false);
+                        }
+                        $('input[class="checkboxmsg"]:checked').prop('checked', false);
+                        location.reload();
+                    }
+
+                }
+            });
+        }
+    });
+
+    $('.achieveMail').click(function() {
+        var countmsg = $('#countmsg').val();
+        var isChecked = $('input[id="checkboxAll"]:checked').length;
+        var noChecked = $('input[class="checkboxmsg"]:checked').length;
+
+        //Inbox and sent mails page - sent to the archive folder
+        if ($(this).hasClass('inbox')) {
+            var swalMsg = "archive";
+        }
+        //Archive or trash page - sent to the original folder
+        if ($(this).hasClass('archive')) {
+            var swalMsg = "restore";
+        }
+        if (noChecked == 0) {
+            swal({
+                title: "Oops :(",
+                text: 'Please select the message you want to ' + swalMsg,
+                type: 'error',
+                icon: "error",
+            });
+        } else {
+            var someObj = {};
+            someObj.fruitsGranted = [];
+            someObj.fruitsDenied = [];
+
+            $('input[class="checkboxmsg"]:checked').each(function() {
+                var $this = $(this);
+
+                if ($this.is(":checked")) {
+                    someObj.fruitsGranted.push($this.attr("id"));
+                } else {
+                    someObj.fruitsDenied.push($this.attr("id"));
+                }
+            });
+            var msgAll = someObj.fruitsGranted;
+            //Open the loading modal
+            $('.loadingModalCenter').modal('toggle');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "/dashboard/mail/achiveMail",
                 data: {
                     archiveselected: msgAll,
                     countmsg: noChecked,
@@ -995,24 +1076,28 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
     });
 
     $('#ContinueCompose').click(function() {
-        var idread = $('#idread').val();
+        //var idread = $('#idread').val();
+        console.log('hello');
         var category = $('#category').val();
         var subject = $('#subject').val();
         var memo = $('#memo').val();
-        var composetype = $('#msgtyperead').val();
+        //var composetype = $('#msgtyperead').val();
 
         if (memo != "") {
 
             $('.spincompose').show();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "readnotice",
+                url: "{{route('send.mail')}}",
                 data: {
-                    compose: idread,
-                    composeCat: category,
+                    category: category,
                     subject: subject,
-                    composeMem: memo,
-                    composetype: composetype
+                    message: memo,
                 },
                 success: function(result) {
                     $('.spincompose').hide();
@@ -2075,14 +2160,14 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
         });
     });
 
-    /** 
+    /**
     $("#bit_amount").on('keyup', function (){
         checkDec(this);
         var s = $(this).val();
         var u = this.value.substring(0,this.value.length - 1);
         $("#passdiv_send").hide();
         var wallet = $("#trf_wallet").val();
-        
+
         if(s > 0){
             if(s.length > 10){
 				$(this).val(u);
@@ -3669,4 +3754,4 @@ const formatter_usd = new Intl.NumberFormat('en-US', {
             });
         }
     });
-}(jQuery));
+});

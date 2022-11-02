@@ -13,4 +13,28 @@ if (! function_exists('adminUrl')) {
     }
 }
 
+if (!function_exists("getCurrentBtcNaira")) {
+    function getCurrentBtcNaira() {
+        //
+        $url='https://bitpay.com/api/rates';
+        $json=json_decode( file_get_contents( $url ) );
+        $btc=0;
+
+        foreach( $json as $obj ){
+            if( $obj->code=='USD' )$btc=$obj->rate;
+        }
+
+        return $btc;
+    }
+}
+
+if (!function_exists("settings")) {
+    function settings() {
+        //
+        $settings = \App\Models\Setting::where('id', 1)->first();
+
+        return $settings;
+    }
+}
+
 ?>

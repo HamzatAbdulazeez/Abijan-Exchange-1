@@ -27,7 +27,7 @@
                                                 <a class="nav-link active" href="#nairadiv" data-toggle="tab">Change Questions</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{route('updateprofile')}}"> Back to my Profile</a>
+                                                <a class="nav-link" href="{{route('edit_profile')}}"> Back to my Profile</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -37,29 +37,18 @@
                             <div class="tab-content">
                                 <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                     <div class="exchange_widget">
-                                        <form name="mySettform" id="mySettform" onsubmit="event.preventDefault();" class="currency_validate" autocomplete="off">
+                                        <form name="mySettform" id="mySettform" method="POST" action="{{route('user.update.question')}}"  autocomplete="off">
+                                            @csrf
                                             <div class="form-group">
                                                 <label>Secret Question 1</label>
                                                 <div class="input-group ">
-                                                    <select name="question1_sett" id="" class="form-control nice_Select" style="display: none;">
+                                                    <select name="question1_sett" id="" class="form-control nice_Select" style="display: block !important;">
                                                         <option value="">Please select</option>
-                                                        <option value="What is the name of your favourite pet?">What is the name of your favourite pet?</option>
-                                                        <option value="In what city were you born?">In what city were you born?</option>
-                                                        <option value="What high school did you attend?">What high school did you attend?</option>
-                                                        <option value="What is the name of your first school?">What is the name of your first school?</option>
-                                                        <option value="What is your favourite movie?">What is your favourite movie?</option>
+                                                        @foreach ($questions as $item)
+                                                            <option value="{{$item->question}}">{{$item->question}}</option>
+                                                        @endforeach
+
                                                     </select>
-                                                    <div class="nice-select form-control nice_Select" tabindex="0"><span class="current">Please select</span>
-                                                        <div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div>
-                                                        <ul class="list">
-                                                            <li data-value="" class="option selected">Please select</li>
-                                                            <li data-value="What is the name of your favourite pet?" class="option">What is the name of your favourite pet?</li>
-                                                            <li data-value="In what city were you born?" class="option">In what city were you born?</li>
-                                                            <li data-value="What high school did you attend?" class="option">What high school did you attend?</li>
-                                                            <li data-value="What is the name of your first school?" class="option">What is the name of your first school?</li>
-                                                            <li data-value="What is your favourite movie?" class="option">What is your favourite movie?</li>
-                                                        </ul>
-                                                    </div>
 
                                                 </div>
                                             </div>
@@ -70,25 +59,12 @@
                                             <div class="form-group">
                                                 <label>Secret Question 2</label>
                                                 <div class="input-group ">
-                                                    <select name="question2_sett" id="question2_sett" class="form-control nice_Select" style="display: none;">
+                                                    <select name="question2_sett" id="question2_sett" class="form-control nice_Select" style="display: block !important;">
                                                         <option value="">Please select</option>
-                                                        <option value="What is your favourite colour?">What is your favourite colour?</option>
-                                                        <option value="What is your mother's middle name?">What is your mother's middle name?</option>
-                                                        <option value="What is your grandfather's first name?">What is your grandfather's first name?</option>
-                                                        <option value="Where did you meet your spouse?">Where did you meet your spouse?</option>
-                                                        <option value="Which phone number do you remember most from your childhood?">Which phone number do you remember most from your childhood?</option>
+                                                        @foreach ($questions as $item)
+                                                            <option value="{{$item->question}}">{{$item->question}}</option>
+                                                        @endforeach
                                                     </select>
-                                                    <div class="nice-select form-control nice_Select" tabindex="0"><span class="current">Please select</span>
-                                                        <div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div>
-                                                        <ul class="list">
-                                                            <li data-value="" class="option selected">Please select</li>
-                                                            <li data-value="What is your favourite colour?" class="option">What is your favourite colour?</li>
-                                                            <li data-value="What is your mother's middle name?" class="option">What is your mother's middle name?</li>
-                                                            <li data-value="What is your grandfather's first name?" class="option">What is your grandfather's first name?</li>
-                                                            <li data-value="Where did you meet your spouse?" class="option">Where did you meet your spouse?</li>
-                                                            <li data-value="Which phone number do you remember most from your childhood?" class="option">Which phone number do you remember most from your childhood?</li>
-                                                        </ul>
-                                                    </div>
 
                                                 </div>
                                             </div>
@@ -99,26 +75,12 @@
                                             <div class="form-group">
                                                 <label>Secret Question 3</label>
                                                 <div class="input-group ">
-                                                    <select name="question3_sett" id="question3_sett" class="form-control nice_Select" style="display: none;">
+                                                    <select name="question3_sett" id="question3_sett" class="form-control nice_Select" style="display: block !important;">
                                                         <option value="">Please select</option>
-                                                        <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
-                                                        <option value="What street did you grow up on?">What street did you grow up on?</option>
-                                                        <option value="What was the make of your first car?">What was the make of your first car?</option>
-                                                        <option value="What is your father's middle name?">What is your father's middle name?</option>
-                                                        <option value="What is your father's favourite food?">What is your father's favourite food?</option>
+                                                        @foreach ($questions as $item)
+                                                            <option value="{{$item->question}}">{{$item->question}}</option>
+                                                        @endforeach
                                                     </select>
-                                                    <div class="nice-select form-control nice_Select" tabindex="0"><span class="current">Please select</span>
-                                                        <div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div>
-                                                        <ul class="list">
-                                                            <li data-value="" class="option selected">Please select</li>
-                                                            <li data-value="What is your mother's maiden name?" class="option">What is your mother's maiden name?</li>
-                                                            <li data-value="What street did you grow up on?" class="option">What street did you grow up on?</li>
-                                                            <li data-value="What was the make of your first car?" class="option">What was the make of your first car?</li>
-                                                            <li data-value="What is your father's middle name?" class="option">What is your father's middle name?</li>
-                                                            <li data-value="What is your father's favourite food?" class="option">What is your father's favourite food?</li>
-                                                        </ul>
-                                                    </div>
-
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -128,7 +90,7 @@
 
 
 
-                                            <button type="button" name="sett_submit" id="sett_submit" class="btn_1 w-100 ">Update Questions <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="questions">
+                                            <button type="submit" name="" id="" class="btn_1 w-100 ">Update Questions <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="questions">
                                         </form>
                                     </div>
                                 </div>
