@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use \Flutterwavev3\library\Bvn;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Models\UserProfile;
+use App\Models\UserBank;
 use App\Models\SecurityQuestion;
+use App\Models\BtcTrans;
 use App\Models\User;
 use Response;
 use App\Models\MailBox;
@@ -47,7 +49,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $trans = BtcTrans::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->take(7)->get();
+        return view('dashboard.dashboard', compact('trans'));
     }
 
     public function naira()
@@ -63,7 +66,15 @@ class HomeController extends Controller
             return view('dashboard.complete_profile', compact('question'));
         }
         if ($type == 'verify_me') {
-            return view('dashboard.verify_me');
+            if (Auth::user()->bank->bvn != null) {
+                Alert::success('Success', 'Your Account has already been verified');
+                return redirect()->route('edit_profile');
+            } else {
+                # code...
+                return view('dashboard.verify_me');
+            }
+
+
         }
         if ($type == 'password') {
             $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->inRandomOrder()->first();
@@ -89,6 +100,14 @@ class HomeController extends Controller
         if ($type == 'update_name') {
             $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->inRandomOrder()->first();
             return view('dashboard.update_name', compact('question'));
+        }
+        if ($type == 'phone') {
+            $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->inRandomOrder()->first();
+            return view('dashboard.type-phone_no', compact('question'));
+        }
+        if ($type == 'username') {
+            $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->inRandomOrder()->first();
+            return view('dashboard.type-username', compact('question'));
         }
 
 
@@ -148,7 +167,39 @@ class HomeController extends Controller
             $user = UserProfile::findOrFail(Auth::user()->profile->id);
             $user->gender = $request->gender;
             if($user->save()){
-                Alert::success('Success', 'Date of Birth Updated Successfully');
+                Alert::success('Success', 'Gender Updated Successfully');
+                return redirect()->route('edit_profile');
+            }
+        }
+        else{
+            Alert::error('Error', 'Security question answer does not match your security answer');
+            return back();
+        }
+    }
+
+    public function updateUsername(Request $request){
+        $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->where('id', $request->question_id)->first();
+        if($question->answer == $request->answer1){
+            $user = UserProfile::findOrFail(Auth::user()->profile->id);
+            $user->username = $request->username;
+            if($user->save()){
+                Alert::success('Success', 'Username Updated Successfully');
+                return redirect()->route('edit_profile');
+            }
+        }
+        else{
+            Alert::error('Error', 'Security question answer does not match your security answer');
+            return back();
+        }
+    }
+
+    public function updatePhone(Request $request){
+        $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->where('id', $request->question_id)->first();
+        if($question->answer == $request->answer1){
+            $user = UserProfile::findOrFail(Auth::user()->profile->id);
+            $user->phone_no = $request->phone_ver;
+            if($user->save()){
+                Alert::success('Success', 'Phone Number Updated Successfully');
                 return redirect()->route('edit_profile');
             }
         }
@@ -207,10 +258,48 @@ class HomeController extends Controller
     }
 
     public function validateBVN(Request $request){
-        $bvn_number = "123456789";
-        $bvn = new Bvn();
-        $result = $bvn->verifyBVN($bvn_number);
-        dd($result);
+        $firstname = $request->first_name_ver;
+        $middlename = $request->middle_name_ver;
+        $surname = $request->surname_ver;
+        $dob = $request->day_ver.'/'.$request->month_ver.'/'.$request->year_ver;
+        $bank_name = $request->bank_name_ver;
+        $acct_num = $request->acct_no_ver;
+        $bvn = $request->bvn_ver;
+        $phone = $request->phone_ver;
+        $alt_phone = $request->alt_phone_ver;
+        $gender = $request->gender_ver;
+        $firstname = $request->first_name_ver;
+        $firstname = $request->first_name_ver;
+        $response = Http::post('https://agsmeis-v2-api.azurewebsites.net/api/EcoAuthentication/verifyBVN', [
+            "firstName" => $firstname,
+            "otherNames" => $surname,
+            "bvn" => $bvn,
+            "role" => "applicant"
+        ]);
+        //$result = $bvn->verifyBVN($bvn_number);
+        $res = $response->object();
+        //dd($res->message);
+        if($res->message == 'BVN Verified Successfully'){
+            $user = UserProfile::findOrFail(Auth::user()->profile->id);
+            $user->firstname = $firstname;
+            $user->middlename = $middlename;
+            $user->surname = $surname;
+            $user->dob = $surname;
+            $user->gender = $gender;
+            $user->phone_no = $phone_no;
+            $user->save();
+            $bank = new UserBank();
+            $bank->bank_name = $bank_name;
+            $bank->account_num = $acct_num;
+            $bank->user_id = Auth::user()->id;
+            $bank->bvn = '*****'.substr($bvn, 8);
+            $bank->save();
+            Alert::success('Success', 'Your profile is now fully verified!');
+            return redirect()->route('edit_profile');
+        }
+        else{
+            Alert::error('Error', 'Your Name and Bvn does not correspond, please check your name and bvn correctly');
+        }
     }
 
     public function sendMail(Request $request){
@@ -368,7 +457,7 @@ class HomeController extends Controller
     {
         return view('dashboard.send-btn');
     }
-    
+
     public function wallet_receive()
     {
         return view('dashboard.wallet_receive');
@@ -376,9 +465,10 @@ class HomeController extends Controller
 
     public function wallet_transactions()
     {
-        return view('dashboard.wallet_transactions');
+        $trans = BtcTrans::where('user_id', Auth::user()->id)->get();
+        return view('dashboard.wallet_transactions', compact('trans'));
     }
-    
+
     public function ethereum()
     {
         return view('dashboard.ethereum');
@@ -393,8 +483,8 @@ class HomeController extends Controller
     {
         return view('dashboard.referrals');
     }
-    
-    
+
+
     // // Admin
     // public function admin_welcome()
     // {
@@ -408,5 +498,5 @@ class HomeController extends Controller
     // {
     //     return view('admin.deposit');
     // }
-    
+
 }

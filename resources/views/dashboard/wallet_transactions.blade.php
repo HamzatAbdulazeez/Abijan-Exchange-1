@@ -62,22 +62,62 @@
                                                     <tr role="row">
                                                         <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 67px;"></th>
                                                         <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 173px;">Time</th>
-                                                        <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 308px;">Description</th>
+                                                        <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 308px;">Address</th>
                                                         <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 200px;">Status</th>
                                                         <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 240px;">Amount</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="odd">
-                                                        <td valign="top" colspan="5" class="dataTables_empty">No data available in table</td>
-                                                    </tr>
+                                                    @if ($trans->count() > 0)
+                                                        @foreach ($trans as $item)
+                                                            <tr>
+                                                                <tr class="odd">
+                                                                    <td>#</td>
+                                                                    <td>
+                                                                        <p class="" style="cursor: pointer;"">{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="media align-items-center">
+                                                                        <div class="media-body">
+                                                                            <p>{{$item->trf_wallet}}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="" style="cursor: pointer;"">
+                                                                            @if ($item->status == 0)
+                                                                                <span>pending</span>
+                                                                            @endif
+                                                                            @if ($item->status == 1)
+                                                                                <span>approved</span>
+                                                                            @endif
+                                                                            @if ($item->status == 3)
+                                                                                <span>rejected</span>
+                                                                            @endif
+                                                                        </p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p>  {{$item->btc_amount}}</p>
+                                                                    </td>
+                                                                </tr>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
+                                                        <tr class="odd">
+                                                            <td valign="top" colspan="5" class="dataTables_empty">No data available in table</td>
+                                                        </tr>
+                                                    @endif
+
+
+
                                                 </tbody>
                                             </table>
-                                            <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div>
+                                            {{-- <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div>
                                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                                                 <a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous"><i class="ti-arrow-left"></i></a><span></span>
                                                 <a class="paginate_button next disabled" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" id="DataTables_Table_0_next"><i class="ti-arrow-right"></i></a>
-                                            </div>
+                                            </div> --}}
+                                            <input type="hidden" id="countmsg" value="">
                                         </div>
                                     </div>
                                 </div>

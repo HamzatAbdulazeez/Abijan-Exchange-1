@@ -138,7 +138,7 @@
                             <div class="white_card_body">
                                 <div class="row justify-content-center mb_30  ">
                                     <div class="col-12 text-center">
-                                        <h4 class="f_s_22 f_w_700 mb-0"><span class="totalbal balspan">₦0.00</span>
+                                        <h4 class="f_s_22 f_w_700 mb-0"><span class="totalbal balspan">₦{{Auth::user()->wallet->naira}}</span>
                                         </h4>
                                         <p class="f_s_11 f_w_400">Total Balance</p>
                                     </div>
@@ -148,9 +148,9 @@
                                         <span class="mediaName"> <img src="libraries/1.svg" alt=""> Bitcoin</span>
                                         <span class="earning_amount">
                                             <a href="javascript: void(0)" title="">
-                                                <h4><span class="btcbal balspan">0 BTC</span></h4>
+                                                <h4><span class="btcbal balspan">{{Auth::user()->wallet->btc}} BTC</span></h4>
                                             </a>
-                                            <p><span class="usdbal balspan">$0.00</span></p>
+                                            <p><span class="usdbal balspan">${{Auth::user()->wallet->usdt}}</span></p>
                                         </span>
                                     </div>
                                     <div class="single_media d-flex justify-content-between align-items-center">
@@ -547,7 +547,7 @@
                                     <div class="main-title">
                                         <h3 class="m-0">Recent Bitcoin Transactions</h3>
                                     </div>
-                                    <a href="wallet_transactions">
+                                    <a href="{{route('wallet_transactions')}}">
                                         <p class="viewall">View all</p>
                                     </a>
                                 </div>
@@ -556,16 +556,77 @@
                                 <div class="QA_section">
                                     <div class="QA_table mb-0 transaction-table">
                                         <!-- table-responsive -->
-                                        <div class="table-responsive">
-                                            <table class="table  ">
-                                                <tbody>
-                                                    <p>
-                                                        Your recent bitcoin transactions will appear here.
-                                                    </p>
+                                        @if ($trans->count() > 0)
+                                            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                                                <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                                                    <label><i class="ti-search"></i><input type="search" class="" placeholder="Quick Search" aria-controls="DataTables_Table_0" /></label>
+                                                </div>
+                                                <table class="table lms_table_active3 dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1140px;">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 67px;"></th>
+                                                            <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 173px;">Time</th>
+                                                            <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 308px;">Address</th>
+                                                            <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 200px;">Status</th>
+                                                            <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 240px;">Amount</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            @foreach ($trans as $item)
+                                                                <tr>
+                                                                    <tr class="odd">
+                                                                        <td>#</td>
+                                                                        <td>
+                                                                            <p class="" style="cursor: pointer;"">{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="media align-items-center">
+                                                                            <div class="media-body">
+                                                                                <p>{{$item->trf_wallet}}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="" style="cursor: pointer;"">
+                                                                                @if ($item->status == 0)
+                                                                                    <span>pending</span>
+                                                                                @endif
+                                                                                @if ($item->status == 1)
+                                                                                    <span>approved</span>
+                                                                                @endif
+                                                                                @if ($item->status == 3)
+                                                                                    <span>rejected</span>
+                                                                                @endif
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p>  {{$item->btc_amount}}</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tr>
+                                                            @endforeach
 
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                    </tbody>
+                                                </table>
+                                                {{-- <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div>
+                                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                                    <a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous"><i class="ti-arrow-left"></i></a><span></span>
+                                                    <a class="paginate_button next disabled" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" id="DataTables_Table_0_next"><i class="ti-arrow-right"></i></a>
+                                                </div> --}}
+                                                <input type="hidden" id="countmsg" value="">
+                                            </div>
+                                        @else
+                                            <div class="table-responsive">
+                                                <table class="table  ">
+                                                    <tbody>
+                                                        <p>
+                                                            Your recent bitcoin transactions will appear here.
+                                                        </p>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

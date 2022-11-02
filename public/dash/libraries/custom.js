@@ -2381,18 +2381,23 @@ $(function() {
 
             $('#send_submit').attr('disabled', 'disabled');
             $("#loadingText_send").show();
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "sendbtc",
+                url: "/dashboard/sendBtc",
                 data: $("#myBTCform").serialize(),
                 dataType: 'json',
                 success: function(result) {
                     $('#send_submit').removeAttr('disabled');
                     $("#loadingText_send").hide();
-
-                    var mystat = result.status.trim();
-                    var mymsg = result.msg.trim();
+                    console.log(result.error);
+                    var mystat = result.status;
+                    var mymsg = result.error;
+                    var mymsg2 = result.success;
 
                     if (mystat != "") {
                         if (mystat == "success") {
@@ -2400,20 +2405,34 @@ $(function() {
                             $("#bit_amount").val('')
                             swal({
                                 title: "BTC Sent",
-                                text: '' + mymsg,
+                                text: '' + mymsg2,
                                 icon: "success",
                             }).then((value) => {
                                 if (value) {
                                     location.reload();
                                 }
                             });
-                        } else if (mystat == "error") {
+                        } else if (mystat == "password_error") {
                             swal({
                                 title: "Error",
                                 text: '' + mymsg,
                                 icon: "error",
                             });
-                        } else {
+                            if (value) {
+                                location.reload();
+                            }
+                        }
+                        else if (mystat == "balance_error") {
+                            swal({
+                                title: "Error",
+                                text: '' + mymsg,
+                                icon: "error",
+                            });
+                            if (value) {
+                                location.reload();
+                            }
+                        }
+                        else {
                             swal({
                                     title: "Unknown error",
                                     text: 'Please try again',
