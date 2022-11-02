@@ -430,7 +430,7 @@
             </div>
             <div class="col-lg-6 mt-5">
                 <div class="steps-left">
-                    <img src="{{URL::asset('assets/images/mobile_wallet.png'gitg)}}" alt="">
+                    <img src="{{URL::asset('assets/images/mobile_wallet.png')}}" alt="">
                 </div>
             </div>
         </div>
