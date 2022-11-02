@@ -41,7 +41,7 @@
                                 <div class="white_card_body tab-pane fade active show" id="quickbuydiv">
                                     <div class="exchange_widget">
                                         <form id="myBuyform" class="currency_validate">
-                                            <div class="form-group buyprice">Buy 1 BTC @ ₦15,869,704.40</div>
+                                            <div class="form-group buyprice">Buy 1 BTC @ ₦{{number_format(settings()->btc_buy_rate)}}.00</div>
                                             <div class="form-group">
                                                 <label>Currency</label>
                                                 <div class="input-group ">
@@ -74,7 +74,7 @@
                                 <div class="white_card_body tab-pane fade" id="quickselldiv">
                                     <div class="exchange_widget">
 
-                                        <div class="form-group buyprice">Sell 1 BTC @ ₦15,138,862.75</div>
+                                        <div class="form-group buyprice">Sell 1 BTC @ ₦{{number_format(settings()->btc_sell_rate)}}.00</div>
                                         <div class="form-group">
                                             <label>Currency</label>
                                             <div class="input-group ">
@@ -481,4 +481,3 @@
 </div>
 <!-- [ Layout container ] End -->
 @endsection
-
