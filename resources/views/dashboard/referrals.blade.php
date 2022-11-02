@@ -132,7 +132,7 @@
                                     </h2>
                                 </div>
 
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_ex" style="">
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_ex">
                                     <div class="card-body">
                                         <p>You earn money when the person you refer buys or sells any ecurrency (or crypto).</p>
                                     </div>
