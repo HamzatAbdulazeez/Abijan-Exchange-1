@@ -379,6 +379,11 @@ class HomeController extends Controller
         return view('dashboard.wallet_transactions');
     }
     
+    public function ethereum()
+    {
+        return view('dashboard.ethereum');
+    }
+    
     // // Admin
     // public function admin_welcome()
     // {
