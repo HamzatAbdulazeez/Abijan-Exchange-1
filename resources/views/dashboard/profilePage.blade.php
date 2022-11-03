@@ -2,6 +2,15 @@
 
 @section('page-content')
 <!-- [ Layout container ] Start -->
+@php
+    $verified = \App\Models\UserBank::where('user_id', Auth::user()->id)->first();
+    if($verified == null){
+        $verify = false;
+    }
+    else{
+        $verify = true;
+    }
+@endphp
 <div class="layout-container">
     <!-- [ Layout navbar ( Header ) ] Start -->
     @includeIf('layouts.dashboard-navbar')
@@ -180,6 +189,11 @@
                                                             Bank accounts:
                                                         </td>
                                                         <td>
+                                                            @if ($verify == true)
+                                                                <p>{{Auth::user()->bank->bank_name}} *****{{substr(Auth::user()->bank->account_num, 7)}}</p>
+                                                            @else
+                                                                <p>-</p>
+                                                            @endif
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=bank"><i class="far fa-edit"></i></a>
@@ -252,16 +266,22 @@
                                                             <a class="action_btn" href="settings?type=2fa"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
+
                                                     <tr>
                                                         <td scope="row">
                                                             Bank Verification Number (BVN): <br>
                                                             <small><i>Verify your identity to prevent fraud.</i></small>
                                                         </td>
                                                         <td>
-                                                            <p>-</p>
+                                                            @if ($verify == true)
+                                                                <p>{{Auth::user()->bank->bvn}} <span class="badge badge-success"> verified </span></p>
+                                                            @else
+                                                                <p>-</p>
+                                                            @endif
+
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="verify_me"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="settings?type=verify_me"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
                                                     <tr>

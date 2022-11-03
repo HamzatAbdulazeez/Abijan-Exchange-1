@@ -79,6 +79,8 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::post('/birth/update', [App\Http\Controllers\HomeController::class, 'updateBirth'])->middleware(['verified', 'auth'])->name('user.update.birth');
     Route::post('/gender/update', [App\Http\Controllers\HomeController::class, 'updateGender'])->middleware(['verified', 'auth'])->name('user.update.gender');
     Route::post('/password/update', [App\Http\Controllers\HomeController::class, 'updatePassword'])->middleware(['verified', 'auth'])->name('user.update.password');
+    Route::post('/phone/update', [App\Http\Controllers\HomeController::class, 'updatePhone'])->middleware(['verified', 'auth'])->name('user.update.phone_no');
+    Route::post('/username/update', [App\Http\Controllers\HomeController::class, 'updateUsername'])->middleware(['verified', 'auth'])->name('user.update.username');
     Route::post('/name/update', [App\Http\Controllers\HomeController::class, 'updateProfileName'])->middleware(['verified', 'auth'])->name('user.update.profile_name');
     Route::get('/mail/trash', [App\Http\Controllers\HomeController::class, 'Trash'])->middleware(['verified', 'auth'])->name('mailbox.trash');
     Route::get('/mail/sent', [App\Http\Controllers\HomeController::class, 'Sent'])->middleware(['verified', 'auth'])->name('mailbox.sent');
@@ -91,6 +93,7 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::post('/mail/restoreMail', [App\Http\Controllers\HomeController::class, 'restoreMail'])->middleware(['verified', 'auth'])->name('mail.restoreMail');
     Route::post('/mail/achiveMail', [App\Http\Controllers\HomeController::class, 'achiveMail'])->middleware(['verified', 'auth'])->name('mail.achiveMail');
     Route::post('/mail/readMail', [App\Http\Controllers\HomeController::class, 'readMail'])->middleware(['verified', 'auth'])->name('mail.readMail');
+    Route::post('/sendBtc', [App\Http\Controllers\BtcTransController::class, 'store'])->middleware(['verified', 'auth'])->name('btc.send');
    /*  Route::get('/typebirth', [App\Http\Controllers\HomeController::class, 'typebirth'])->name('typebirth');
     Route::get('/typequestion', [App\Http\Controllers\HomeController::class, 'typequestion'])->name('typequestion');
     Route::get('/typegender', [App\Http\Controllers\HomeController::class, 'typegender'])->name('typegender');
