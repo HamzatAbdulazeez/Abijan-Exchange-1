@@ -28,6 +28,7 @@ class AdminController extends Controller
     }
 
     public function send_request(){
+
         return view('admin.send-request');
     }
 
