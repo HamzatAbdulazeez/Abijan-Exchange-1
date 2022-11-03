@@ -38,7 +38,7 @@ class AdminController extends Controller
     public function swap_request(){
         return view('admin.send-swap');
     }
-    
+
     public function adminprofile()
     {
         return view('admin.profile');
@@ -66,14 +66,14 @@ class AdminController extends Controller
 
     public function  mailbox_trash()
     {
-        return view('admin. mailbox-trash');
+        return view('admin.mailbox-trash');
     }
 
     public function   mailbox_archive()
     {
         return view('admin.mailbox_archive');
     }
-   
+
     /**
      * Show the form for creating a new resource.
      *
