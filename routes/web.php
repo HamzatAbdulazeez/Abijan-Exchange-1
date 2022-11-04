@@ -44,8 +44,8 @@ Route::get('/privacy-policy', function () {
 //Route::get('/admin', [App\Http\Controllers\HomePageController::class, 'admin'])->name('admin');
 Route::get('/admin/login', [App\Http\Controllers\HomePageController::class, 'admin_login'])->name('admin.login');
 Route::post('/admin/login', [App\Http\Controllers\HomePageController::class, 'post_admin_login'])->name('admin.post.login');
-/* Route::get('/register', [App\Http\Controllers\HomePageController::class, 'register'])->name('register');
-Route::post('/register', [App\Http\Controllers\HomePageController::class, 'post_register'])->name('post.register');
+Route::get('/register', [App\Http\Controllers\HomePageController::class, 'register'])->name('register')->middleware('CheckReferral');
+/*Route::post('/register', [App\Http\Controllers\HomePageController::class, 'post_register'])->name('post.register');
 Route::get('/verify/account/{email}', [App\Http\Controllers\HomePageController::class, 'verify_account'])->name('verify.account');
 Route::post('/email/verify/resend/{email}', [App\Http\Controllers\HomePageController::class, 'email_verify_resend'])->name('email.verify.resend');
 Route::post('/email/confirm/{token}', [App\Http\Controllers\HomePageController::class, 'registerConfirm'])->name('email.confirmation');
@@ -65,9 +65,9 @@ Route::get('/dashboard/settings', [App\Http\Controllers\HomeController::class, '
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['verified', 'auth', 'userprofile'])->name('home');
 Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->group(function () {
     Route::get('/naira', [App\Http\Controllers\HomeController::class, 'naira'])->name('naira');
-    Route::get('/deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
+    Route::get('/naira_deposit', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit');
     Route::get('/buynsell', [App\Http\Controllers\HomeController::class, 'buynsell'])->name('buynsell');
-    Route::get('/transaction', [App\Http\Controllers\HomeController::class, 'transaction'])->name('transaction');
+    Route::get('/naira_transaction', [App\Http\Controllers\HomeController::class, 'transaction'])->name('transaction');
     Route::get('/sendbtn', [App\Http\Controllers\HomeController::class, 'sendbtn'])->name('sendbtn');
     Route::get('/wallet_receive', [App\Http\Controllers\HomeController::class, 'wallet_receive'])->name('wallet_receive');
     Route::get('/wallet_transactions', [App\Http\Controllers\HomeController::class, 'wallet_transactions'])->name('wallet_transactions');
@@ -94,6 +94,9 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
     Route::post('/mail/achiveMail', [App\Http\Controllers\HomeController::class, 'achiveMail'])->middleware(['verified', 'auth'])->name('mail.achiveMail');
     Route::post('/mail/readMail', [App\Http\Controllers\HomeController::class, 'readMail'])->middleware(['verified', 'auth'])->name('mail.readMail');
     Route::post('/sendBtc', [App\Http\Controllers\BtcTransController::class, 'store'])->middleware(['verified', 'auth'])->name('btc.send');
+    Route::post('/depositnaira', [App\Http\Controllers\NairaTransactionController::class, 'deposit'])->middleware(['verified', 'auth'])->name('naira.deposit');
+    Route::post('/sendnaira', [App\Http\Controllers\NairaTransactionController::class, 'sendnaira'])->middleware(['verified', 'auth'])->name('naira.sendnaira');
+    Route::post('/getInstructions', [App\Http\Controllers\HomeController::class, 'getInstructions'])->middleware(['verified', 'auth'])->name('getInstructions');
    /*  Route::get('/typebirth', [App\Http\Controllers\HomeController::class, 'typebirth'])->name('typebirth');
     Route::get('/typequestion', [App\Http\Controllers\HomeController::class, 'typequestion'])->name('typequestion');
     Route::get('/typegender', [App\Http\Controllers\HomeController::class, 'typegender'])->name('typegender');
@@ -104,7 +107,7 @@ Route::prefix('dashboard')->middleware(['verified', 'auth', 'userprofile'])->gro
 });
 
 // Admin
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/adminwelcome', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_welcome');
     Route::get('/withdraw_request', [App\Http\Controllers\AdminController::class, 'withdraw_request'])->name('Wrequest');
     Route::get('/deposit_request', [App\Http\Controllers\AdminController::class, 'deposit_request'])->name('Drequest');
@@ -118,4 +121,14 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/profile', [App\Http\Controllers\AdminController::class, 'adminprofile'])->name('adminprofile');
     Route::get('/view_referral', [App\Http\Controllers\AdminController::class, 'view_referral'])->name('view_referral');
     Route::get('/buy_sell', [App\Http\Controllers\AdminController::class, 'buy_sell'])->name('buy_sell');
+    Route::get('/settings', [App\Http\Controllers\AdminController::class, 'settings'])->name('settings');
+    Route::get('/set_rate', [App\Http\Controllers\AdminController::class, 'setRate'])->name('set_rate');
+    Route::get('/create_admin', [App\Http\Controllers\AdminController::class, 'createUser'])->name('create_admin');
+    Route::post('/createAdmin', [App\Http\Controllers\AdminController::class, 'createAdminPost'])->name('createAdmin');
+    Route::post('/SetRate', [App\Http\Controllers\AdminController::class, 'AddRate'])->name('SetRate');
+    Route::post('/update_rate', [App\Http\Controllers\AdminController::class, 'updateRate'])->name('updateRate');
+    Route::post('/delete_rate', [App\Http\Controllers\AdminController::class, 'deleteRate'])->name('delete.rate');
+    Route::post('/updateSetting', [App\Http\Controllers\AdminController::class, 'UpdateSetting'])->name('settings.update');
+    Route::post('/updateNaira', [App\Http\Controllers\NairaTransactionController::class, 'updateNaira'])->middleware(['verified', 'auth'])->name('naira.update');
+    Route::post('/updateBTC', [App\Http\Controllers\BtcTransController::class, 'btcNaira'])->middleware(['verified', 'auth'])->name('btc.update');
 });

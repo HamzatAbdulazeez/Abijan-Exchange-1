@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
-            $table->string('e-currency');
+            $table->string('e_currency')->nullable();
             $table->BigInteger('buy_rate')->default(0);
             $table->BigInteger('sell_rate')->default(0);
             $table->timestamps();

@@ -65,7 +65,7 @@
                                             Of Naira Wallet
                                         </h1>
                                         <h6>
-                                            5000
+                                            {{$naira->count()}}
                                         </h6>
                                         <p>
                                             Users
@@ -79,7 +79,7 @@
                                             Bitcoin Wallet
                                         </h1>
                                         <h6>
-                                            1000
+                                            {{$btc->count()}}
                                         </h6>
                                         <p>
                                             Users
@@ -106,7 +106,7 @@
                                                 <th scope="col">Full Name</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Phone Number</th>
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Gender</th>
                                                 <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
@@ -114,18 +114,50 @@
                                             @if ($users->count() > 0)
                                                 @foreach ($users as $item)
                                                     <tr>
+                                                        @php
+                                                            $user = \App\Models\UserProfile::where('user_id', $item->id)->first();
+                                                            if($user == null){
+                                                                $true = false;
+                                                            }
+                                                            else{
+                                                                $true = true;
+                                                            }
+                                                        @endphp
                                                         <th scope="row">#</th>
-                                                        <td>{{$item->profile->firstname}} {{$item->profile->surname}}</td>
-                                                        <td>{{$item->email}}</td>
-                                                        <td>{{$item->profile->phone_no}}</td>
                                                         <td>
-                                                            @if ($item->profile->phone_no)
+                                                            @if ($true == true)
+                                                                {{\App\Models\UserProfile::where('user_id', $item->id)->first()->firstname}} {{\App\Models\UserProfile::where('user_id', $item->id)->first()->surname}}
+                                                            @endif
+
+                                                        </td>
+                                                        <td>{{$item->email}}</td>
+                                                        <td>
+                                                            @if ($true == true)
+                                                                {{\App\Models\UserProfile::where('user_id', $item->id)->first()->phone_no}}
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if ($true == true)
+                                                                {{\App\Models\UserProfile::where('user_id', $item->id)->first()->gender}}
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @php
+                                                                $bvn = \App\Models\UserBank::where('user_id', $item->id)->first();
+                                                                if($bvn == null){
+                                                                    $bvnver = false;
+                                                                }
+                                                                else{
+                                                                    $bvnver = true;
+                                                                }
+                                                            @endphp
+                                                            @if ($bvnver == true)
                                                                 Verified
                                                             @else
                                                                 <span style="font-size: 11px; background: red;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Not Verified</span>
                                                             @endif
                                                         </td>
-                                                        <td>Edit</td>
+
                                                     </tr>
                                                 @endforeach
                                             @else

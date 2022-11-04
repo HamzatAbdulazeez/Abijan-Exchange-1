@@ -13,18 +13,15 @@ if (! function_exists('adminUrl')) {
     }
 }
 
-if (!function_exists("getCurrentBtcNaira")) {
-    function getCurrentBtcNaira() {
+if (!function_exists("getCurrentBtcDollar")) {
+    function getCurrentBtcDollar() {
         //
-        $url='https://bitpay.com/api/rates';
+        /* $url='https://bitpay.com/api/rates';
         $json=json_decode( file_get_contents( $url ) );
-        $btc=0;
+        $btc=0; */
+        $response = \Illuminate\Support\Facades\Http::get('https://bitpay.com/api/rates/USD');
 
-        foreach( $json as $obj ){
-            if( $obj->code=='USD' )$btc=$obj->rate;
-        }
-
-        return $btc;
+        return $response->object()->rate;
     }
 }
 

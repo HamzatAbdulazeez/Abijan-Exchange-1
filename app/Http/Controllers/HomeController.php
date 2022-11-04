@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Models\UserProfile;
+use App\Models\Rate;
 use App\Models\UserBank;
 use App\Models\SecurityQuestion;
 use App\Models\BtcTrans;
+use App\Models\NairaTransaction;
 use App\Models\User;
 use Response;
 use App\Models\MailBox;
@@ -50,7 +52,8 @@ class HomeController extends Controller
     public function index()
     {
         $trans = BtcTrans::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->take(7)->get();
-        return view('dashboard.dashboard', compact('trans'));
+        $rates = Rate::all();
+        return view('dashboard.dashboard', compact('trans', 'rates'));
     }
 
     public function naira()
@@ -394,6 +397,14 @@ class HomeController extends Controller
         return response()->json(['success'=>$data]);
     }
 
+    public function getInstructions(Request $request)
+    {
+        $type = 'deposit';
+        if($request->type == $type){
+            return response()->json($type);
+        }
+    }
+
     public function deposit()
     {
         return view('dashboard.naira-deposit');
@@ -401,7 +412,8 @@ class HomeController extends Controller
 
     public function transaction()
     {
-        return view('dashboard.transaction');
+        $trans = NairaTransaction::where('user_id', Auth::user()->id)->get();
+        return view('dashboard.transaction', compact('trans'));
     }
 
     public function buynsell()

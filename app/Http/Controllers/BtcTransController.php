@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BtcTrans;
 use App\Models\UserWallet;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Auth;
 use Hash;
 
@@ -72,6 +73,13 @@ class BtcTransController extends Controller
             $trns->save();
             return response()->json(['success'=>"Your Transaction is Pending! Please wait for admin to verify", 'status'=>"success"]);
         }
+    }
+
+    public function btcNaira(Request $request)
+    {
+        BtcTrans::findOrFail($request->id)->update(["status"=>1]);
+        Alert::success('Success', 'Your Approved Transaction!');
+        return back();
     }
 
     /**

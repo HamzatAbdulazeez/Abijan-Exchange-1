@@ -38,19 +38,59 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">#</th>
-                                                <td>Hamzat Abdulazeez</td>
-                                                <td>greenmouse@gmail.com</td>
-                                                <td>09068831216</td>
-                                                <td>
-                                                    <span style="font-size: 11px; background: green;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Reffered</span>
-                                                </td>
-                                                <td><span style="font-size: 11px; background: green;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Approved</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="white-space:nowrap">No Data yet</td>
-                                            </tr>
+                                            @if ($refer->count() > 0)
+                                                @foreach ($refer as $item)
+                                                    <tr>
+                                                        @php
+                                                            $user = \App\Models\UserProfile::where('user_id', $item->id)->first();
+                                                            if($user == null){
+                                                                $true = false;
+                                                            }
+                                                            else{
+                                                                $true = true;
+                                                            }
+                                                        @endphp
+                                                        <th scope="row">#</th>
+                                                        <td>
+                                                            @if ($true == true)
+                                                                {{\App\Models\UserProfile::where('user_id', $item->id)->first()->firstname}} {{\App\Models\UserProfile::where('user_id', $item->id)->first()->surname}}
+                                                            @endif
+                                                        </td>
+                                                        <td>{{$item->email}}</td>
+                                                        <td>
+                                                            @if ($true == true)
+                                                                {{\App\Models\UserProfile::where('user_id', $item->id)->first()->phone_no}}
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <span style="font-size: 11px; background: green;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Reffered</span>
+                                                        </td>
+                                                        <td>
+                                                            @php
+                                                                $bvn = \App\Models\UserBank::where('user_id', $item->id)->first();
+                                                                if($bvn == null){
+                                                                    $bvnver = false;
+                                                                }
+                                                                else{
+                                                                    $bvnver = true;
+                                                                }
+                                                            @endphp
+                                                            @if ($bvnver == true)
+                                                            <span style="font-size: 11px; background: green;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Approved</span>
+                                                            @else
+                                                                <span style="font-size: 11px; background: red;padding: 5px;border-radius: 5px;color: #fff;font-weight: 600;text-transform: uppercase;">Not Approved</span>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+
+                                            @else
+                                                <tr>
+                                                    <td style="white-space:nowrap">No Data yet</td>
+                                                </tr>
+                                            @endif
+
+
                                         </tbody>
                                     </table>
                                 </div>

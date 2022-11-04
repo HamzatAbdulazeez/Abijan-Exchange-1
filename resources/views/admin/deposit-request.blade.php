@@ -40,92 +40,72 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>S/N</th>
-                                                <th>Withdrawer Name</th>
+                                                <th>Deposit Name</th>
                                                 <th>Email</th>
                                                 <th>Amount</th>
                                                 <th>Charges</th>
                                                 <th>Payment</th>
+                                                <th>Status</th>
                                                 <th>Date</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Hamzat Abdulazeez</td>
-                                                <td>greenmousetest@gmail.com</td>
-                                                <td>$10</td>
-                                                <td>$320,800</td>
-                                                <td>Via Bank Transfer</td>
-                                                <td>13/10/2022</td>
-                                                <td><div class="dropdown">
-                                                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Approved
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item" href="#">Enable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Disable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Suspend</a></li>
-                                                        </ul>
-                                                    </div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Hamzat Abdulazeez</td>
-                                                <td>greenmousetest@gmail.com</td>
-                                                <td>$10</td>
-                                                <td>$320,800</td>
-                                                <td>Via Bank Transfer</td>
-                                                <td>13/10/2022</td>
-                                                <td><div class="dropdown">
-                                                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Suspended
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item" href="#">Enable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Disable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Suspend</a></li>
-                                                        </ul>
-                                                    </div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Promise Abdulazeez</td>
-                                                <td>greenmousetest@gmail.com</td>
-                                                <td>$10</td>
-                                                <td>$320,800</td>
-                                                <td>Via Bank Transfer</td>
-                                                <td>13/10/2022</td>
-                                                <td><div class="dropdown">
-                                                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Approved
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item" href="#">Enable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Disable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Suspend</a></li>
-                                                        </ul>
-                                                    </div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Chukka Abdulazeez</td>
-                                                <td>greenmousetest@gmail.com</td>
-                                                <td>$10</td>
-                                                <td>$320,800</td>
-                                                <td>Via Bank Transfer</td>
-                                                <td>13/10/2022</td>
-                                                <td><div class="dropdown">
-                                                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Delete
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item" href="#">Enable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Disable</a></li>
-                                                            <li><a class="dropdown-item" href="#">Suspend</a></li>
-                                                        </ul>
-                                                    </div></td>
-                                            </tr>
+                                            @if ($naira->count() > 0)
+                                                @foreach ($naira as $item)
+                                                    <tr>
+                                                        @php
+                                                            $userP = \App\Models\UserProfile::where('user_id', $item->user_id)->first();
+                                                            $user = \App\Models\User::where('id', $item->user_id)->first();
+                                                            $userW = \App\Models\UserWallet::where('user_id', $item->user_id)->first();
+                                                            if($userP == null){
+                                                                $true = false;
+                                                            }
+                                                            else{
+                                                                $true = true;
+                                                            }
+                                                        @endphp
+                                                        <td>#</td>
+                                                        <td>
+                                                            @if ($true == true)
+                                                                {{\App\Models\UserProfile::where('user_id', $item->user_id)->first()->firstname}} {{\App\Models\UserProfile::where('user_id', $item->user_id)->first()->surname}}
+                                                            @endif
+                                                        </td>
+                                                        <td>{{$user->email}}</td>
+                                                        <td>
+                                                            ₦{{$item->trf_amount}}
+                                                        </td>
+                                                        <td>₦{{$item->deposit_fee}}</td>
+                                                        <td>Via Bank Transfer</td>
+                                                        <td>
+                                                            @if ($item->status == 0)
+                                                                Pending
+                                                            @else
+                                                                Approved
+                                                            @endif
+                                                        </td>
+                                                        <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
+                                                        <td>
+                                                            @if ($item->status == 0)
+                                                                <form action="{{route('naira.update')}}" method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden" name="id" value="{{$item->id}}">
+                                                                    <button type="submit" class="btn btn-success">Approve</button>
+                                                                </form>
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td>
+                                                        No Data Yet
+                                                    </td>
+                                                </tr>
+                                            @endif
+
                                         </tbody>
 
                                     </table>
