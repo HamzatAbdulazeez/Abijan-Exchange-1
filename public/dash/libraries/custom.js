@@ -2024,7 +2024,11 @@ $(function() {
                     }
                 });
             }
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
                 url: "getInstructions",
@@ -2583,28 +2587,36 @@ $(function() {
     $('#with_submit').click(function() {
         var wallet = $("#bank_name").val();
         var bit_amount = $("#trf_amount").val();
+        var withfee = $("#withfee").val();
+        var balspanOne = $("#balspanOne").val();
         var rep = $('#bank_name').find(':selected').data('value');
 
         if (wallet && bit_amount) {
 
             $('#with_submit').attr('disabled', 'disabled');
             $("#loadingText_with").show();
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "sendnaira",
+                url: "/dashboard/sendnaira",
                 data: {
                     trf_amount: bit_amount,
                     wallet: wallet,
-                    recipient: rep
+                    recipient: rep,
+                    withfee: withfee,
+                    balspanOne: balspanOne,
                 },
                 dataType: 'json',
                 success: function(result) {
                     $('#with_submit').removeAttr('disabled');
                     $("#loadingText_with").hide();
 
-                    var mystat = result.status.trim();
-                    var mymsg = result.msg.trim();
+                    var mystat = result.status;
+                    var mymsg = result.msg;
 
                     if (mystat !== "") {
                         if (mystat == "success") {
@@ -2661,18 +2673,22 @@ $(function() {
             function congret() {
                 $('#dep_submit').attr('disabled', 'disabled');
                 $("#loadingText_dep").show();
-
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 $.ajax({
                     type: "POST",
-                    url: "depositnaira",
+                    url: "/dashboard/depositnaira",
                     data: $("#myDepform").serialize(),
                     dataType: 'json',
                     success: function(result) {
                         $('#dep_submit').removeAttr('disabled');
                         $("#loadingText_dep").hide();
 
-                        var mystat = result.status.trim();
-                        var mymsg = result.msg.trim();
+                        var mystat = result.status;
+                        var mymsg = result.msg;
 
                         if (mystat != "") {
                             if (mystat == "success") {
@@ -2709,19 +2725,23 @@ $(function() {
                     }
                 });
             }
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "getInstructions",
+                url: "/dashboard/getInstructions",
                 data: {
                     type: 'deposit'
                 },
                 success: function(result) {
-                    great = result.trim();
+                    great = result;
                     if (great) {
 
                         var wrapper = document.createElement("span");
-                        wrapper.innerHTML = great;
+                        wrapper.innerHTML = '<h4><strong>WARNING! WARNING!!</strong><i>DO NOT INCLUDE BITCOIN OR BTC ,NO THIRD PARTY AND COMPANY PAYMENT</i></h4><p><i><strong>NOTE-</strong>PAYMENT MUST COME FROM YOUR PERSONAL NAME USED&nbsp;</i></p><p>==================================================</p><p><i><strong>NOTE</strong>-<strong>HOW CBN TRACK BITCOIN TRANSACTION &nbsp;track bitcoin transaction</strong> when you include bitcoin or btc or dollar or perfect money or USDT or any form of crypto-currency in &nbsp;ur online bank pay remark or memo or when you are paying cash or any means of &nbsp;payment.</i><br>===================================================</p><p><i><strong>&nbsp;What do i need put in my memo/remark when transferring money to us ? You can put the Trans ID OR UR user I.D on nairadirect or your name, generated for you after making the order for Naira deposit.An invoice will be generated for every order you make and you can make use of that when you are transferring</strong> money into our bank&nbsp;</i><br>====================================================</p><p><i><strong>NOTE</strong>- What if include bitcoin in my payment remark? we would NOT return your money because, we believe CBN would have noticed such a payment that carries or comes with the bitcoin as a remark and CBN is responsible for withholding the such payment</i></p>';
 
                         $('#dep_submit').removeAttr('disabled');
                         $("#loadingText_dep").hide();

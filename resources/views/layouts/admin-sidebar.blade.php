@@ -59,7 +59,7 @@
                 <!-- <li><a href="wallet_transactions">Transactions</a></li> -->
             </ul>
         </li>
-        <li>
+        {{-- <li>
             <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
                 <div class="nav_icon_small">
                     <img src="{{URL::asset('admin/libraries/2_002.svg')}}" alt="">
@@ -92,7 +92,7 @@
                     <span>Utility Bills Request</span>
                 </div>
             </a>
-        </li>
+        </li> --}}
         <li>
             <a href="{{route('view_referral')}}" class="creferral" aria-expanded="false">
                 <div class="nav_icon_small">
@@ -128,6 +128,16 @@
                 <li><a href="{{route('mailbox_trash')}}">Trash</a></li>
                 <li><a href="{{route('mailbox_archive')}}">Archived Mails</a></li>
             </ul>
+        </li>
+        <li>
+            <a class="cmailbox" href="{{route('settings')}}" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{{URL::asset('admin/libraries/General.svg')}}" alt="">
+                </div>
+                <div class="nav_title">
+                    <span>Settings </span>
+                </div>
+            </a>
         </li>
         <li>
             <a href="#" onclick="event.preventDefault();

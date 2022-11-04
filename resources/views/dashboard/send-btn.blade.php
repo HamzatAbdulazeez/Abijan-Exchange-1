@@ -37,7 +37,16 @@
                                     </div>
                                 </div>
                                 <div class="tab-content">
-                                    @if (Auth::user()->bank->bvn == null)
+                                    @php
+                                        $bvn = \App\Models\UserBank::where('user_id', Auth::user()->id)->first();
+                                        if($bvn == null){
+                                            $bvnver = false;
+                                        }
+                                        else{
+                                            $bvnver = true;
+                                        }
+                                    @endphp
+                                    @if ($bvnver == false)
                                         <div class="white_card_body tab-pane fade active show" id="bitdiv">
                                             <div class="exchange_widget">
                                                 <div class="form-group" id="walletdiv">
@@ -78,11 +87,11 @@
                                                             <p class="mb-0">Transfer Fee</p>
                                                             <h6 class="mb-0 showwithfee_btc">{{settings()->btc_trans_fee}}BTC</h6>
                                                             <input type="hidden" name="transfee_btc" id="transfee_btc"
-                                                                value="0.00003772">
+                                                                value="{{settings()->btc_trans_fee}}">
                                                             <input type="hidden" name="fee_method_btc" id="fee_method_btc"
                                                                 value="flat_rate">
-                                                            <input type="hidden" name="balbtc" id="balbtc" value="0">
-                                                            <input type="hidden" name="rateUnit" id="rateUnit" value="BTC">
+                                                            <input type="hidden" name="balbtc" id="balbtc" value="{{Auth::user()->wallet->btc}}">
+                                                            <input type="hidden" name="rateUnit" id="rateUnit" value="{{getCurrentBtcDollar()}}">
                                                             <input type="hidden" name="above_amount_btc" id="above_amount_btc"
                                                                 value="">
                                                         </div>

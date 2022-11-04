@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <!-- Required meta tags -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dashboard - Fastest and easiest way to buy and sell bitcoins - Abijan Exchange</title>
@@ -14,7 +15,7 @@
     <link rel="icon" href="{{URL::asset('admin/libraries/fav.png')}}" type="image/png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/bootstrap.css')}}">
-    
+
 
     <!-- themefy CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/themify-icons.css')}}">
@@ -53,7 +54,7 @@
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/metisMenu.css')}}">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/style.css')}}">
-    
+
     <!--  -->
     <link rel="stylesheet" href="{{URL::asset('admin/apex/css/style.css')}}">
     <!--  -->
@@ -75,6 +76,7 @@
     <!-- [ Layout wrapper ] Start -->
     <!-- Side-Nav -->
     @includeIf('layouts.admin-sidebar')
+    @include('sweetalert::alert')
             <!-- Side-Nav Ends -->
     <section class="main_content adminboard_part large_header_bg">
         @yield('page-content')
@@ -170,7 +172,59 @@
 
     <script src="{{URL::asset('admin/apex/js/app.js')}}"></script>
     <script src="{{URL::asset('admin/apex/js/bootstrap.min.js')}}"></script>
+    <script>
+        $(function(){
+            $('#editRate').click(function(){
+                var id = ($(this).data("id"));
+                var currency = ($(this).data("currency"));
+                var sell_rate = ($(this).data("sell_rate"));
+                var buy_rate = ($(this).data("buy_rate"));
+                var fee = ($(this).data("fee"));
+                $('#edit_id').val(id);
+                $('#edit_currency').val(currency);
+                $('#edit_sell_rate').val(sell_rate);
+                $('#edit_buy_rate').val(buy_rate);
+                $('#edit_fee').val(fee);
+                $('#editRateModal').modal('show')
 
+            })
+            $('#deleteRate').click(function(){
+                var id = ($(this).data("id"));
+                Swal.fire({
+                title: 'Are you sure you want to delete this currency?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "POST",
+                        url: "{{route('delete.rate')}}",
+                        data: {
+                            id: id
+                        },
+                        success: function(result) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Rate deleted.',
+                                'success'
+                            )
+                            location.reload();
+                        }
+                    });
+
+                })
+
+            })
+        })
+    </script>
 </body>
 
 </html>

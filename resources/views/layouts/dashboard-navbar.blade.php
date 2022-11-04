@@ -83,7 +83,16 @@
                                         </div>
                                     </div>
                                 @else
-                                    @if (Auth::user()->bank->bvn != null)
+                                    @php
+                                        $bvn = \App\Models\UserBank::where('user_id', Auth::user()->id)->first();
+                                        if($bvn == null){
+                                            $bvnver = false;
+                                        }
+                                        else{
+                                            $bvnver = true;
+                                        }
+                                    @endphp
+                                    @if ($bvnver == true)
                                         <div class="author_name">
                                             <h4 class="f_s_15 f_w_500 mb-0">{{$fullname}}</h4>
                                             <p class="f_s_12 f_w_400">Verified</p>

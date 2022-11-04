@@ -59,7 +59,7 @@
                     <li><a href="{{route('wallet_transactions')}}">Transactions</a></li>
                 </ul>
             </li>
-            <li>
+            {{-- <li>
                 <a class="has-arrow cbitwallet" href="#" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="{{URL::asset('dash/libraries/ethereum.png')}}" alt="">
@@ -113,7 +113,7 @@
                         <span>Utility Bill</span>
                     </div>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{route('referrals')}}" class="creferral" aria-expanded="false">
                     <div class="nav_icon_small">
