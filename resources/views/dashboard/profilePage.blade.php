@@ -196,7 +196,7 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="settings?type=bank"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="settings?type=verify_me"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
 
@@ -260,7 +260,13 @@
                                                             <small><i>Protect your account with an extra layer of security.</i></small>
                                                         </td>
                                                         <td>
-                                                            <p>Disabled</p>
+                                                            <p>
+                                                                @if (! auth()->user()->two_factor_secret)
+                                                                    Disabled
+                                                                @else
+                                                                    Enabled
+                                                                @endif
+                                                            </p>
                                                         </td>
                                                         <td>
                                                             <a class="action_btn" href="settings?type=2fa"><i class="far fa-edit"></i></a>
@@ -293,7 +299,7 @@
                                                             <p>-</p>
                                                         </td>
                                                         <td>
-                                                            <a class="action_btn" href="verify_me"><i class="far fa-edit"></i></a>
+                                                            <a class="action_btn" href="#"><i class="far fa-edit"></i></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>

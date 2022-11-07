@@ -75,7 +75,7 @@
                                 <div class="QA_table">
                                     <!-- table-responsive -->
                                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
-                                        <form method="POST" action="{{ route('settings.update') }}">
+                                        <form method="POST" action="{{ route('settings.update') }}" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -153,6 +153,70 @@
                                                     <div class="common_input mb_20">
                                                         <label>Memo</label>
                                                         <input name="memo" id="charges" type="text" value="{{settings()->memo}}" maxlength="100"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>BTC Wallet</label>
+                                                        <input name="btc_wallet" id="btc_wallet" type="text" value="{{settings()->btc_wallet}}" maxlength="100"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>Ethereum Wallet</label>
+                                                        <input name="eth_wallet" id="eth_wallet" type="text" value="{{settings()->eth_wallet}}" maxlength="100"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>Receive BTC Wallet</label>
+                                                        <input name="receive_btc_wallet" id="receive_btc_wallet" type="text" value="{{settings()->receive_btc_wallet}}" maxlength="100"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>Receive BTC Wallet QrCode</label>
+                                                        <input name="btc_r_qr_code" id="btc_r_qr_code" type="file" accept="image/*" value=""
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>Bicoin Cash Wallet</label>
+                                                        <input name="bch_wallet" id="bch_wallet" type="text" value="{{settings()->bch_wallet}}" maxlength="100"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>USDT TRC20 Wallet</label>
+                                                        <input name="usdt_wallet" id="usdt_wallet" type="text" value="{{settings()->usdt_wallet}}" maxlength="100"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>Perfect Money Account Name</label>
+                                                        <input name="pm_name" id="pm_name" type="text" value="{{settings()->pm_name}}" maxlength="100"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_20">
+                                                        <label>Perfect Money Account Number</label>
+                                                        <input name="pm_number" id="pm_number" type="text" value="{{settings()->pm_number}}" maxlength="100"
                                                             class="form-control">
                                                     </div>
                                                 </div>

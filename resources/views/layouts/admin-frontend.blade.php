@@ -12,7 +12,7 @@
 
     <!-- css files -->
     <script src="https://kit.fontawesome.com/997b229808.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="{{URL::asset('admin/libraries/fav.png')}}" type="image/png">
+    <link rel="icon" href="{{URL::asset('admin/libraries/logo.png')}}" type="image/png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{URL::asset('admin/libraries/bootstrap.css')}}">
 
@@ -179,10 +179,12 @@
                 var currency = ($(this).data("currency"));
                 var sell_rate = ($(this).data("sell_rate"));
                 var buy_rate = ($(this).data("buy_rate"));
+                var port_short = ($(this).data("port_short"));
                 var fee = ($(this).data("fee"));
                 $('#edit_id').val(id);
                 $('#edit_currency').val(currency);
                 $('#edit_sell_rate').val(sell_rate);
+                $('#edit_port_short').val(port_short);
                 $('#edit_buy_rate').val(buy_rate);
                 $('#edit_fee').val(fee);
                 $('#editRateModal').modal('show')

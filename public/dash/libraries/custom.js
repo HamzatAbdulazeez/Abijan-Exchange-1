@@ -695,6 +695,11 @@ $(function() {
         readMsg(rep);
     });
 
+    $(".readMsgFnAdmin").click(function() {
+        var rep = $(this).attr("data-value");
+        readMsg2(rep);
+    });
+
     $(".readNoticeMe").click(function() {
         var rep = $(this).attr("data-value");
         readNotice(rep);
@@ -704,6 +709,79 @@ $(function() {
         readNoticeAll();
     });
 
+    function readMsg2(prett) {
+
+        if (prett != "") {
+            //Open the loading modal
+            $('.loadingModalCenter').modal('show');
+            setTimeout(function() {
+                $('.loadingModalCenter').modal('hide');
+            }, 1000);
+            //Get msg from the database and place it into the modal
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "/dashboard/mail/readMail",
+                data: {
+                    msg: prett
+                },
+                dataType: 'json',
+                success: function(result) {
+                    console.log(result.success.id)
+                    var msgid = result.success.id;
+                    var msgbody = result.success.message;
+                    var msgtime = result.success.created_at_date;
+                    var msgdate = result.success.created_at_time;
+                    var msgcategory = result.success.category;
+                    var msgsubject = result.success.subject;
+                    var msgcount = result.success.status;
+                    var msgtype = result.success.type;
+                    var msgoriginal = result.success;
+
+                    if (msgid != "") {
+                        $('#datereadMsg').html(msgdate);
+                        $('#timereadMsg').html(msgtime);
+                        $('#categoryreadMsg').html(msgcategory);
+                        if (msgsubject) {
+                            $('.subjectBox').show();
+                            $('#subjectreadMsg').html(msgsubject);
+                        } else {
+                            $('.subjectBox').hide();
+                        }
+                        $('#memoreadMsg').html(msgbody);
+                        $('#idreadMsg').val(prett);
+                        $('#typereadMsg').val(msgtype);
+                        if (msgtype != "inbox") {
+                            $('#replybtnMsg').hide();
+                        }
+                        if (msgoriginal == "inbox") {
+                            $('.messageSupport').html('Message from Support');
+                        } else {
+                            $('.messageSupport').html('Message sent to Support');
+                        }
+                        $('.' + msgid).removeClass('unreadmsgText');
+                        if (msgcount == 0) {
+                            if ($('.round_badge').hasClass('count' + msgtype)) {
+                                $('.count' + msgtype).removeClass('round_badge');
+                                $('.count' + msgtype).html('');
+                            }
+                        } else {
+                            $('.count' + msgtype).html(msgcount);
+                        }
+
+                        //Open the modal
+                        $('#readMsgModalCenter').modal('show');
+                    } else {
+                        window.location.href = window.location.href.split('#')[0];
+                    }
+                }
+            });
+        }
+    }
 
     function readMsg(prett) {
 
@@ -1155,6 +1233,7 @@ $(function() {
                 var usd_value = parseFloat(s / sellprice).toFixed(2);
                 if (currency == "Bitcoin") {
                     var btcworth = getrate('live', null);
+                    console.log(btcworth)
                     var btc_value = parseFloat(usd_value / btcworth).toFixed(8);
 
                     if (btc_value == 0 || btc_value == "NaN") {
@@ -1187,6 +1266,7 @@ $(function() {
             case 'BTC':
                 if (currency == "Bitcoin") {
                     var btcworth = getrate('live', null);
+                    console.log(btcworth)
                     var btc_value = parseFloat(s).toFixed(8);
                     var usd_value = parseFloat(btc_value * btcworth).toFixed(2);
                     var ngn_value = parseFloat(usd_value * sellprice).toFixed(2);
@@ -1856,18 +1936,22 @@ $(function() {
         function proceed(top) {
             $('#sellNowbtn').attr('disabled', 'disabled');
             $(".loadingText").show();
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "quicksell",
+                url: "/dashboard/quicksell",
                 data: top,
                 dataType: 'json',
                 success: function(result) {
                     $('#sellNowbtn').removeAttr('disabled');
                     $(".loadingText").hide();
 
-                    var mystat = result.status.trim();
-                    var mymsg = result.msg.trim();
+                    var mystat = result.status;
+                    var mymsg = result.msg;
 
                     if (mystat != "") {
                         if (mystat == "success") {
@@ -1881,16 +1965,16 @@ $(function() {
                                 }
                             });
                         } else if (mystat === "pm-auto") {
-                            var pst = result.acctnamesell.trim();
-                            var divs = result.div.trim();
+                            /* var pst = result.acctnamesell.trim();
+                            var divs = result.div.trim(); */
                             $("#currency_sell").before(divs);
                             $(pst).submit();
                         } else if (mystat == "error") {
 
-                            var rez = result.acctnamesell.trim();
+                            /* var rez = result.acctnamesell.trim();
                             if (rez) {
                                 $(".acctInfodiv").show();
-                            }
+                            } */
                             swal({
                                 title: "Error",
                                 text: '' + mymsg,
@@ -1973,17 +2057,22 @@ $(function() {
             $("#loadingText_buy").show();
 
             function congreat(send) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 $.ajax({
                     type: "POST",
-                    url: "quickbuy",
+                    url: "/dashboard/quickbuy",
                     data: send,
                     dataType: 'json',
                     success: function(result) {
                         $('#buyNowbtn').removeAttr('disabled');
                         $("#loadingText_buy").hide();
 
-                        var mystat = result.status.trim();
-                        var mymsg = result.msg.trim();
+                        var mystat = result.status;
+                        var mymsg = result.msg;
 
                         if (mystat != "") {
                             if (mystat == "success") {
@@ -1998,10 +2087,10 @@ $(function() {
                                 });
                             } else if (mystat == "error") {
 
-                                var rez = result.acctnamebuy.trim();
+                                /* var rez = result.acctnamebuy.trim();
                                 if (rez) {
                                     $(".acctInfodivbuy").show();
-                                }
+                                } */
                                 swal({
                                     title: "Error",
                                     text: '' + mymsg,
@@ -2031,7 +2120,7 @@ $(function() {
             });
             $.ajax({
                 type: "POST",
-                url: "getInstructions",
+                url: "/dashboard/getInstructions",
                 data: {
                     type: 'deposit'
                 },
@@ -2040,7 +2129,7 @@ $(function() {
                     if (great && buy_from != "Naira Wallet") {
 
                         var wrapper = document.createElement("span");
-                        wrapper.innerHTML = great;
+                        wrapper.innerHTML = '<h4><strong>WARNING! WARNING!!</strong><i>DO NOT INCLUDE BITCOIN OR BTC ,NO THIRD PARTY AND COMPANY PAYMENT</i></h4><p><i><strong>NOTE-</strong>PAYMENT MUST COME FROM YOUR PERSONAL NAME USED&nbsp;</i></p><p>==================================================</p><p><i><strong>NOTE</strong>-<strong>HOW CBN TRACK BITCOIN TRANSACTION &nbsp;track bitcoin transaction</strong> when you include bitcoin or btc or dollar or perfect money or USDT or any form of crypto-currency in &nbsp;ur online bank pay remark or memo or when you are paying cash or any means of &nbsp;payment.</i><br>===================================================</p><p><i><strong>&nbsp;What do i need put in my memo/remark when transferring money to us ? You can put the Trans ID OR UR user I.D on nairadirect or your name, generated for you after making the order for Naira deposit.An invoice will be generated for every order you make and you can make use of that when you are transferring</strong> money into our bank&nbsp;</i><br>====================================================</p><p><i><strong>NOTE</strong>- What if include bitcoin in my payment remark? we would NOT return your money because, we believe CBN would have noticed such a payment that carries or comes with the bitcoin as a remark and CBN is responsible for withholding the such payment</i></p>';
 
                         swal({
                             title: 'Warning Notice!',
@@ -2081,9 +2170,14 @@ $(function() {
             })
             .then((willDelete) => {
                 if (willDelete) {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
                     $.ajax({
                         type: "POST",
-                        url: "cancel_sell",
+                        url: "/dashboard/cancel_sell",
                         data: {
                             inv: inv
                         },
@@ -2109,25 +2203,29 @@ $(function() {
 
         var inv = $(this).attr("data-value");
 
-        window.location.href = "sendnotice?i=" + inv;
+        window.location.href = "/dashboard/sendnotice?i=" + inv;
         return false;
     });
     $(".submitNotice").click(function() {
 
         $('.submitNotice').attr('disabled', 'disabled');
         $(".loadingText").show();
-
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             type: "POST",
-            url: "palertz_sell",
+            url: "/dashboard/palertz_sell",
             data: $("#notice-form").serialize(),
             dataType: 'json',
             success: function(result) {
                 $('.submitNotice').removeAttr('disabled');
                 $(".loadingText").hide();
 
-                var mystat = result.status.trim();
-                var mymsg = result.msg.trim();
+                var mystat = result.status;
+                var mymsg = result.msg;
 
                 if (mystat !== "") {
                     if (mystat === "success") {
@@ -3256,11 +3354,14 @@ $(function() {
                 var $process = "application/x-www-form-urlencoded";
                 var $false = true;
             }
-
-
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
                 type: "POST",
-                url: "submitsettings",
+                url: "/dashboard/changePhoto",
                 data: fd,
                 processData: $false,
                 contentType: $process,
@@ -3269,8 +3370,8 @@ $(function() {
                     $('#sett_submit').removeAttr('disabled');
                     $("#loadingText_sett").hide();
 
-                    var mystat = result.status.trim();
-                    var mymsg = result.msg.trim();
+                    var mystat = result.status;
+                    var mymsg = result.msg;
                     $('#time').removeClass('stop');
                     $('#time').addClass('start');
 

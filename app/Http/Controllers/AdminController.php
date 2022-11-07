@@ -10,9 +10,15 @@ use App\Models\Setting;
 use App\Models\BtcTrans;
 use App\Models\Rate;
 use App\Models\UserWallet;
+use App\Models\MailBox;
+use App\Models\Order;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Carbon\Carbon;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -23,24 +29,25 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::where('is_admin', 0)->orderBy('id', 'desc')->get();
+        $users = User::where('is_admin', 0)->orderBy('id', 'desc')->paginate(10);
         $naira = UserWallet::where('naira', '>' ,'0.00')->orderBy('id', 'desc')->get();
         $btc = UserWallet::where('btc', '>' ,'0')->orderBy('id', 'desc')->get();
-        return view('admin.admin-welcome', compact('users','btc', 'naira'));
+        $inv = Invoice::orderBy('id', 'desc')->paginate(8);
+        return view('admin.admin-welcome', compact('users','btc', 'naira', 'inv'));
     }
 
     public function withdraw_request(){
-        $naira = NairaTransaction::where('deposit_method', 'Withdraw Naira')->get();
+        $naira = NairaTransaction::where('deposit_method', 'Withdraw Naira')->paginate(10);
         return view('admin.withdraw-request', compact('naira'));
     }
 
     public function deposit_request(){
-        $naira = NairaTransaction::where('deposit_method', 'Bank Transfer')->get();
+        $naira = NairaTransaction::where('deposit_method', 'Bank Transfer')->paginate(10);
         return view('admin.deposit-request', compact('naira'));
     }
 
     public function send_request(){
-        $btc = BtcTrans::where('fee_method', 'flat_rate')->get();
+        $btc = BtcTrans::where('fee_method', 'flat_rate')->paginate(10);
         return view('admin.send-request', compact('btc'));
     }
 
@@ -57,6 +64,17 @@ class AdminController extends Controller
         return view('admin.profile');
     }
 
+    public function UpdateName(Request $request)
+    {
+        $user = UserProfile::where('user_id', Auth::user()->id)->first();
+        $user->firstname = $request->firstname;
+        $user->middlename = $request->middlename;
+        $user->surname = $request->surname;
+        $user->update();
+        Alert::success('Success', 'Name Updated Successfully!');
+        return back();
+    }
+
     public function UpdateSetting(Request $request)
     {
         $set = Setting::findOrFail(1);
@@ -70,6 +88,15 @@ class AdminController extends Controller
         $set->acct_name = $request->acct_name;
         $set->acct_num = $request->acct_num;
         $set->memo = $request->memo;
+        $set->btc_wallet = $request->btc_wallet;
+        $set->eth_wallet = $request->eth_wallet;
+        $set->receive_btc_wallet = $request->receive_btc_wallet;
+        $set->bch_wallet = $request->bch_wallet;
+        $set->usdt_wallet = $request->usdt_wallet;
+        $set->pm_name = $request->pm_name;
+        $set->pm_number = $request->pm_number;
+        $response = cloudinary()->upload($request->file('btc_r_qr_code')->getRealPath())->getSecurePath();
+        $set->btc_r_qr_code = $response;
         $set->update();
 
         Alert::success('Success', 'Settings Updated Successfully!');
@@ -84,12 +111,41 @@ class AdminController extends Controller
 
     public function  buy_sell()
     {
-        return view('admin.buy-sell');
+        $buy = Order::where('type', 'Buy')->paginate(5);
+        $sell = Order::where('type', 'sell')->paginate(5);
+        $inv = Invoice::orderBy('id', 'desc')->paginate(5);
+        return view('admin.buy-sell', compact('buy', 'sell', 'inv'));
     }
 
     public function  message_center()
     {
-        return view('admin.message-center');
+        $msg = MailBox::orderBy('id', 'desc')->get();
+        return view('admin.message-center', compact('msg'));
+    }
+
+    public function readMail(Request $request)
+    {
+        $ids = $request->msg;
+        $data = MailBox::findOrFail($ids);
+        $data->admin_status = 1;
+        $data->update();
+
+        $new_data = (object) [
+            "id" => $data->id,
+            "message" => $data->message,
+            "category" => $data->category,
+            "type" => $data->type,
+            "status" => $data->status,
+            "from" => User::where('id', $data->user_id)->first()->email,
+            "user_id" => 4,
+            "created_at_date" => Carbon::parse($data->created_at)->format('d-m-Y'),
+            "created_at_time" =>  Carbon::parse($data->created_at)->format('H:m:s'),
+            "subject" => $data->subject
+            ];
+
+        //$mail = MailBox::whereIn('id',explode(",",$ids))->where('user_id', Auth::user()->id)->update(['type' => 0]);
+        //dd($data);
+        return response()->json(['success'=>$new_data]);
     }
 
     public function sent_mails()
@@ -151,6 +207,8 @@ class AdminController extends Controller
     {
         Rate::create([
             'e_currency' => $request->currency,
+            'port_short' => $request->port_short,
+            'port_type' => 'crypto',
             'buy_rate' => $request->buy_rate,
             'sell_rate' => $request->sell_rate,
             'fee' => $request->charges,
@@ -165,9 +223,28 @@ class AdminController extends Controller
         $rate->e_currency = $request->currency;
         $rate->buy_rate = $request->buy_rate;
         $rate->sell_rate = $request->sell_rate;
+        $rate->port_short = $request->port_short;
         $rate->fee = $request->charges;
         $rate->save();
         Alert::success('Success', 'Rate Updated Successfully!');
+        return back();
+    }
+
+    public function UpdatePassword(Request $request)
+    {
+        $request->validate([
+            'curr_password_sett' => 'required',
+            'pwrd' => 'required',
+        ]);
+
+        if(!Hash::check($request->curr_password_sett, Auth::user()->password)){
+            Alert::error('Error', 'Current Password Doesn\'t match!');
+            return back();
+        }
+        User::whereId(Auth::user()->id)->update([
+            'password' => Hash::make($request->pwrd)
+        ]);
+        Alert::success('Status', 'Password changed successfully!');
         return back();
     }
 
@@ -219,6 +296,8 @@ class AdminController extends Controller
     {
         //
     }
+
+
 
     /**
      * Update the specified resource in storage.

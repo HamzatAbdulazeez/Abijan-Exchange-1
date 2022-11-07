@@ -50,14 +50,20 @@
                                 </div>
                             </div>
                             <div class="white_card_body">
-                                <div class="QA_section">
+                                <div class="QA_section transaction-table ">
                                     <div class="QA_table mb_30">
                                         <!-- table-responsive -->
                                         <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
                                             <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                                <label><i class="ti-search"></i><input type="search" class="" placeholder="Quick Search" aria-controls="DataTables_Table_0" /></label>
+                                                <label>
+                                                    <i class="ti-search"></i>
+                                                    <input type="search" class=""placeholder="Quick Search"
+                                                        aria-controls="DataTables_Table_0">
+                                                </label>
                                             </div>
-                                            <table class="table lms_table_active3 dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1140px;">
+                                            <table class="table lms_table_active3 dataTable no-footer dtr-inline"
+                                                id="DataTables_Table_0" role="grid"
+                                                aria-describedby="DataTables_Table_0_info" style="width: 980px;">
                                                 <thead>
                                                     <tr role="row">
                                                         <th scope="col" class="sorting_disabled" rowspan="1" colspan="1" style="width: 67px;"></th>
@@ -70,7 +76,6 @@
                                                 <tbody>
                                                     @if ($trans->count() > 0)
                                                         @foreach ($trans as $item)
-                                                            <tr>
                                                                 <tr class="odd">
                                                                     <td>#</td>
                                                                     <td>
@@ -100,7 +105,6 @@
                                                                         <p>  {{$item->btc_amount}}</p>
                                                                     </td>
                                                                 </tr>
-                                                            </tr>
                                                         @endforeach
                                                     @else
                                                         <tr class="odd">
@@ -117,7 +121,6 @@
                                                 <a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous"><i class="ti-arrow-left"></i></a><span></span>
                                                 <a class="paginate_button next disabled" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" id="DataTables_Table_0_next"><i class="ti-arrow-right"></i></a>
                                             </div> --}}
-                                            <input type="hidden" id="countmsg" value="">
                                         </div>
                                     </div>
                                 </div>

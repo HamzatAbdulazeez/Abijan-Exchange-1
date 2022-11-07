@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
+                                <div class="table-responsive pb-5">
                                     <table class="table mb-0">
                                         <thead>
                                             <tr>
@@ -168,123 +168,112 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                {{ $users->links() }}
                             </div>
+
                         </div>
                     </div>
-                    <div class="col-xxl-12 mb-30">
-                        <div class="card card-statistics h-100 mb-0">
-                            <div class="card-header d-flex justify-content-between">
-                                <div class="card-heading">
-                                    <h4 class="card-title">Trade History</h4>
-                                </div>
-                                <div class="dropdown">
-                                    <a class="p-2" href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="ti ti-more-alt"></i>
-                                    </a>
-                                    <div class="dropdown-menu custom-dropdown dropdown-menu-right p-4">
-                                        <h6 class="mb-1">Export</h6>
-                                        <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-file-pdf-o pr-2"></i>Export to PDF</a>
-                                        <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-file-excel-o pr-2"></i>Export to CSV</a>
+                    <div class="row">
+                        <div class="col-xxl-12 mb-30">
+                            <div class="card card-statistics h-100 mb-0">
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading">
+                                        <h4 class="card-title">Invoices</h4>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a class="p-2" href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i class="ti ti-more-alt"></i>
+                                        </a>
+                                        <div class="dropdown-menu custom-dropdown dropdown-menu-right p-4">
+                                            <h6 class="mb-1">Export</h6>
+                                            <a class="dropdown-item" href="#!"><i
+                                                    class="fa-fw fa fa-file-pdf-o pr-2"></i>Export to PDF</a>
+                                            <a class="dropdown-item" href="#!"><i
+                                                    class="fa-fw fa fa-file-excel-o pr-2"></i>Export to CSV</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-body pt-0">
-                                <div class="tab nav-border-bottom">
-                                    <ul class="nav nav-tabs nav-fill" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active show" id="home-01-tab" data-toggle="tab" href="#home-01" role="tab" aria-controls="home-01" aria-selected="true">
-                                                <b>Buying</b> </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="profile-01-tab" data-toggle="tab" href="#profile-01" role="tab" aria-controls="profile-01" aria-selected="false"><b>Selling</b> </a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane table-responsive fade active show" id="home-01" role="tabpanel" aria-labelledby="home-01-tab">
-                                            <table class="table table-borderless crypto-table mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Price per Coin</th>
-                                                        <th scope="col">Amount</th>
-                                                        <th scope="col">Date</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>$4948.89 </td>
-                                                        <td>0.123</td>
-                                                        <td>12/01/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$1562.45 </td>
-                                                        <td>1.45</td>
-                                                        <td>11/02/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$7856.23 </td>
-                                                        <td>0.12</td>
-                                                        <td>16/03/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$6592.36 </td>
-                                                        <td>1.44</td>
-                                                        <td>20/04/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$5894.35 </td>
-                                                        <td>5.12</td>
-                                                        <td>26/08/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$6598.89 </td>
-                                                        <td>6.22</td>
-                                                        <td>12/12/2023</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane table-responsive fade" id="profile-01" role="tabpanel" aria-labelledby="profile-01-tab">
-                                            <table class="table table-borderless crypto-table mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Price per Coin</th>
-                                                        <th scope="col">Amount</th>
-                                                        <th scope="col">Date</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>$2248.89 </td>
-                                                        <td>0.143</td>
-                                                        <td>12/02/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$3562.45 </td>
-                                                        <td>1.75</td>
-                                                        <td>11/02/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$2856.23 </td>
-                                                        <td>0.42</td>
-                                                        <td>14/02/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$3592.36 </td>
-                                                        <td>1.84</td>
-                                                        <td>20/02/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$1894.35 </td>
-                                                        <td>3.12</td>
-                                                        <td>26/02/2023</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>$4598.89 </td>
-                                                        <td>4.22</td>
-                                                        <td>28/02/2023</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                <div class="card-body pt-0">
+                                    <div class="tab nav-border-bottom">
+                                        <div class="tab-content">
+                                            <div class="tab-pane table-responsive fade active show pb-3" id="home-01"
+                                                role="tabpanel" aria-labelledby="home-01-tab">
+                                                <table class="table table-borderless crypto-table mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Invoice Id</th>
+                                                            <th scope="col">email</th>
+                                                            <th scope="col">Amount</th>
+                                                            <th scope="col">Currency</th>
+                                                            <th scope="col">Fund Method</th>
+                                                            <th scope="col">Fund Amount</th>
+                                                            <th scope="col">Date</th>
+                                                            <th scope="col">Fund Date</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($inv->count() > 0)
+                                                            @foreach ($inv as $item)
+                                                                <tr>
+                                                                    <td>#{{$item->invoice_id}} </td>
+                                                                    <td>
+                                                                        {{ \App\Models\User::where('id', $item->user_id)->first()->email }}
+                                                                    </td>
+                                                                    <td>{{$item->order_amount}} {{$item->unit}}</td>
+                                                                    <td>{{$item->currency}}</td>
+                                                                    <td>{{$item->fund_method}}</td>
+                                                                    <td>{{$item->amount_sent}}</td>
+                                                                    <td>{{$item->created_at->format('d/M/Y')}}</td>
+                                                                    <td>{{$item->fund_date}}</td>
+                                                                    <td>
+                                                                        @if ($item->status == 0)
+                                                                            <form action="{{ route('invoice.update') }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id"
+                                                                                    value="{{ $item->id }}">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-success">Approve</button>
+                                                                            </form>
+                                                                        @endif
+                                                                        @if ($item->status == 2)
+                                                                            <form action="{{ route('invoice.update') }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id"
+                                                                                    value="{{ $item->id }}">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-success">Approve</button>
+                                                                            </form>
+                                                                        @endif
+                                                                        @if ($item->status == 1)
+                                                                            <span
+                                                                                style="font-size: 11px; background: #95ff95;padding: 5px;border-radius: 5px;color: #599d2a;font-weight: 600;text-transform: capitalize;">
+                                                                                Order Approved
+                                                                            </span>
+                                                                        @endif
+
+                                                                        @if ($item->status == 3)
+                                                                            <span
+                                                                                style="font-size: 11px; background: #fbabab;padding: 5px;border-radius: 5px;color: #e15d5d;font-weight: 600;text-transform: capitalize;">
+                                                                                Order Cancelled
+                                                                            </span>
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @else
+
+                                                        @endif
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+                                            {{ $inv->links() }}
                                         </div>
                                     </div>
                                 </div>

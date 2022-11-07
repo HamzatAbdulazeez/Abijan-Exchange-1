@@ -11,7 +11,7 @@
 
 
     <!-- css files -->
-    <link rel="icon" href="{{URL::asset('dash/libraries/fav.png')}}" type="image/png">
+    <link rel="icon" href="{{URL::asset('dash/libraries/logo.png')}}" type="image/png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{URL::asset('dash/libraries/bootstrap.css')}}">
 
@@ -163,8 +163,8 @@
         var txn_ngn_upto = "0";
 
         function getrate(unit, buy = null) {
-            var btc_in_usd = "19290.12";
-            var fiat_conversion_table = [{ "port_short": "BTC", "port_type": "crypto", "port_sell": "725", "port_buy": "760" }, { "port_short": "PM", "port_type": "ecurrency", "port_sell": "720", "port_buy": "760" }, { "port_short": "ETH", "port_type": "crypto", "port_sell": "640", "port_buy": "770" }, { "port_short": "TRC20", "port_type": "crypto", "port_sell": "725", "port_buy": "760" }, { "port_short": "BCH", "port_type": "crypto", "port_sell": "640", "port_buy": "770" }];
+            var btc_in_usd = {{getCurrentBtcDollar()}};
+            var fiat_conversion_table = [{ "port_short": "{{rates()[0]['port_short']}}", "port_type": "crypto", "port_sell": "{{rates()[0]['sell_rate']}}", "port_buy": "{{rates()[0]['buy_rate']}}" }, { "port_short": "{{rates()[1]['port_short']}}", "port_type": "ecurrency", "port_sell": "{{rates()[1]['sell_rate']}}", "port_buy": "{{rates()[1]['buy_rate']}}" }, { "port_short": "{{rates()[2]['port_short']}}", "port_type": "crypto", "port_sell": "{{rates()[2]['sell_rate']}}", "port_buy": "{{rates()[2]['buy_rate']}}" }, { "port_short": "{{rates()[3]['port_short']}}", "port_type": "crypto", "port_sell": "{{rates()[3]['sell_rate']}}", "port_buy": "{{rates()[3]['buy_rate']}}" }, { "port_short": "{{rates()[4]['port_short']}}", "port_type": "crypto", "port_sell": "{{rates()[4]['sell_rate']}}", "port_buy": "{{rates()[4]['buy_rate']}}" }];
             let counterfiat = 0;
             for (const obj of fiat_conversion_table) {
                 var cname = (obj.port_short).toLowerCase();
@@ -193,6 +193,58 @@
             }
             return answer;
         }
+    </script>
+    <script>
+        $(".cancel_me_sell").click(function(e) {
+        e.preventDefault();
+
+        var inv = $(this).attr("data-value");
+
+        swal({
+                title: "Are you sure?",
+                text: "Once cancelled, you will not be able to continue with this order#" + inv + "!",
+                icon: "warning",
+                buttons: ["Oh no!", "Yes, Cancel!"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "POST",
+                        url: "/dashboard/cancel_sell",
+                        data: {
+                            inv: inv
+                        },
+                        success: function(result) {
+                            swal("Poof! Your order #" + inv + " has been cancelled!", {
+                                    icon: "success",
+                                })
+                                .then((value) => {
+                                    if (value) {
+                                        location.reload();
+                                    }
+                                });
+                        }
+                    });
+                } else {
+                    swal("Your order is still active!");
+                }
+            });
+        return false;
+    });
+    $(".invoice_me").click(function(e) {
+        e.preventDefault();
+
+        var inv = $(this).attr("data-value");
+
+        window.location.href = "/dashboard/sendnotice?i=" + inv;
+        return false;
+    });
     </script>
     <script src="{{URL::asset('dash/libraries/custom.js')}}"></script>
 

@@ -13,6 +13,7 @@ use App\Models\UserProfile;
 use App\Models\Rate;
 use App\Models\UserBank;
 use App\Models\SecurityQuestion;
+use App\Models\Order;
 use App\Models\BtcTrans;
 use App\Models\NairaTransaction;
 use App\Models\User;
@@ -21,6 +22,7 @@ use App\Models\MailBox;
 use App\Models\UserSecurityQuestion;
 use RealRashid\SweetAlert\Facades\Alert;
 use \Carbon\Carbon;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class HomeController extends Controller
 {
@@ -52,8 +54,9 @@ class HomeController extends Controller
     public function index()
     {
         $trans = BtcTrans::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->take(7)->get();
+        $order = Order::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->take(5)->get();
         $rates = Rate::all();
-        return view('dashboard.dashboard', compact('trans', 'rates'));
+        return view('dashboard.dashboard', compact('trans', 'rates', 'order'));
     }
 
     public function naira()
@@ -112,8 +115,15 @@ class HomeController extends Controller
             $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->inRandomOrder()->first();
             return view('dashboard.type-username', compact('question'));
         }
+        if ($type == '2fa') {
+            $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->inRandomOrder()->first();
+            return view('dashboard.2fa', compact('question'));
+        }
 
-
+        if ($type == 'photo') {
+            $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->inRandomOrder()->first();
+            return view('dashboard.change-photo', compact('question'));
+        }
     }
 
     public function updateProfile(Request $request){
@@ -161,6 +171,28 @@ class HomeController extends Controller
         else{
             Alert::error('Error', 'Security question answer does not match your security answer');
             return back();
+        }
+    }
+
+    public function changePhoto(Request $request)
+    {
+        $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->where('id', $request->question_id)->first();
+        if($question->answer == $request->answer1){
+            $user = UserProfile::findOrFail(Auth::user()->profile->id);
+            $response = cloudinary()->upload($request->file('photo_sett')->getRealPath())->getSecurePath();
+            $user->photo = $response;
+            if($user->save()){
+                return response()->json([
+                    "status"=>"success",
+                    "msg"=>"User Picture Updated Sucessfully!"
+                ]);
+            }
+        }
+        else{
+            return response()->json([
+                "status"=>"error",
+                "msg"=>"Security question answer does not match your security answer"
+            ]);
         }
     }
 

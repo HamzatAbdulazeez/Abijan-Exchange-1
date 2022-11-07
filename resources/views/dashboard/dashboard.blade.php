@@ -31,7 +31,7 @@
                                             Navigation
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Buy & Sell</a>
+                                            <a class="dropdown-item" href="{{route('buynsell')}}">Buy & Sell</a>
                                             <a class="dropdown-item" href="{{ route('deposit') }}">Deposit Naira</a>
                                             <a class="dropdown-item" href="{{ route('naira') }}">Withdraw Naira</a>
                                             <a class="dropdown-item" href="/dashboard/send-btn">Send Bitcoin</a>
@@ -39,7 +39,13 @@
                                             <a class="dropdown-item" href="#goTopriceList">Price List</a>
                                         </div>
                                     </div>
-                                    <a href="logout" class="white_btn mb_10 red_btn">Log Out</a>
+                                    <a href="#"  class="white_btn mb_10 red_btn" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" aria-expanded="false">
+                                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                        </form>
+                                        Log Out
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -100,26 +106,114 @@
                                         <div class="main-title">
                                             <h3 class="m-0">Order History</h3>
                                         </div>
-                                        <a href="orders">
+                                        <a href="{{route('orders')}}">
                                             <p>View all</p>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="white_card_body pt-0">
                                     <div class="QA_section">
-                                        <div class="QA_table mb-0 transaction-table">
-                                            <!-- table-responsive -->
-                                            <div class="table-responsive">
-                                                <table class="table  ">
-                                                    <tbody>
-                                                        <p>
-                                                            Your recent order history will appear here.
-                                                        </p>
-
-                                                    </tbody>
-                                                </table>
+                                        @if ($order->count() > 0)
+                                            @foreach ($order as $item)
+                                            <div class="QA_table mb-0 transaction-table">
+                                                <!-- table-responsive -->
+                                                <div class="table-responsive">
+                                                    <table class="table  ">
+                                                        <tbody>
+                                                            <tr>
+                                                                @if ($item->type == 'Sell')
+                                                                    <td scope="row">
+                                                                        <span class="sold-thumb"><i class="ti-arrow-down"></i></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-danger">{{$item->type}}</span>
+                                                                    </td>
+                                                                @endif
+                                                                @if ($item->type == 'Buy')
+                                                                    <td scope="row">
+                                                                        <span class="buy-thumb"><i class="ti-arrow-up"></i></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="badge badge-success">{{$item->type}}</span>
+                                                                    </td>
+                                                                @endif
+                                                                <td>
+                                                                    <span>
+                                                                        @php
+                                                                            $in = App\Models\Invoice::where('user_id', Auth::user()->id)->where('order_id', $item->id)->first();
+                                                                            if($in != null){
+                                                                                $ins = true;
+                                                                            }
+                                                                            else{
+                                                                                $ins = false;
+                                                                            }
+                                                                        @endphp
+                                                                        @if ($in == true AND $in->status == 0)
+                                                                            <a href="#" data-value="{{$in->invoice_id}}" class="invoice_me" title="Send Notice">Send Notice</a>
+                                                                            OR
+                                                                        @endif
+                                                                        @if ($item->status == 3)
+                                                                            <a href="#" class="status_btn cancel_btn" title="Order Canceled">Order Cancelled</a>
+                                                                        @endif
+                                                                        @if ($item->status == 0)
+                                                                            <a href="#" class="status_btn cancel_btn cancel_me_sell" data-value="{{$item->id}}" title="Click here to cancel this order">Cancel Order</a>
+                                                                        @endif
+                                                                        @if ($item->status == 1)
+                                                                            <a href="#" class="status_btn success_btn" title="Order Succeeded">Order Succeeded</a>
+                                                                        @endif
+                                                                        @if ($item->status == 2)
+                                                                                <a href="#"
+                                                                                    class="status_btn success_btn"
+                                                                                    title="Order Succeeded">In-Process</a>
+                                                                        @endif
+                                                                    </span>
+                                                                </td>
+                                                                <td><span title="Order Placed on 06/Nov/2022 09:11 AM">-</span></td>
+                                                                <td>
+                                                                    <span title="{{$item->amount}} {{$item->unit}}">
+                                                                        @if ($item->unit == "USD")
+                                                                            {{$item->amount}} USD
+                                                                        @endif
+                                                                        @if ($item->unit == "NGN" AND $item->currency == "Bitcoin")
+                                                                            {{$item->amount*rates()[0]['buy_rate']}} USD
+                                                                        @endif
+                                                                        @if ($item->unit == "NGN" AND $item->currency == "Perfect Money")
+                                                                            {{$item->amount*rates()[1]['buy_rate']}} USD
+                                                                        @endif
+                                                                        @if ($item->unit == "NGN" AND $item->currency == "Ethereum")
+                                                                            {{$item->amount*rates()[2]['buy_rate']}} USD
+                                                                        @endif
+                                                                        @if ($item->unit == "NGN" AND $item->currency == "USDT TRC20")
+                                                                            {{$item->amount*rates()[3]['buy_rate']}} USD
+                                                                        @endif
+                                                                        @if ($item->unit == "NGN" AND $item->currency == "Bitcoin Cash")
+                                                                            {{$item->amount*rates()[4]['buy_rate']}} USD
+                                                                        @endif
+                                                                    </span>
+                                                                </td>
+                                                                <td><span title="Order number: 11068998"><img class="small_img" src="../images/pm.png" alt=""> {{$item->currency}}</span></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
-                                        </div>
+                                            @endforeach
+                                        @else
+                                            <div class="QA_table mb-0 transaction-table">
+                                                <!-- table-responsive -->
+                                                <div class="table-responsive">
+                                                    <table class="table  ">
+                                                        <tbody>
+                                                            <p>
+                                                                Your recent order history will appear here.
+                                                            </p>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -213,14 +307,16 @@
                                                         </tr>
                                                     </thead>
                                                         <input type="hidden" id="typepr">
-                                                        <tr>
-                                                        </tr>
+
                                                         @if ($rates->count() > 0)
                                                             @foreach ($rates as $item)
-                                                            <td scope="row"> <img class="small_img"
-                                                                src="" alt=""> {{$item->e_currency}}</td>
-                                                            <td class="buypricediv1" style="color:#77c454">₦ {{$item->buy_rate}}</td>
-                                                            <td class="sellpricediv1" style="color:#ff788e">₦ {{$item->sell_rate}}</td>
+                                                            <tr>
+                                                                <td scope="row"> <img class="small_img"
+                                                                    src="" alt=""> {{$item->e_currency}}</td>
+                                                                <td class="buypricediv1" style="color:#77c454">₦ {{$item->buy_rate}}</td>
+                                                                <td class="sellpricediv1" style="color:#ff788e">₦ {{$item->sell_rate}}</td>
+                                                            </tr>
+
                                                             @endforeach
                                                         @else
 

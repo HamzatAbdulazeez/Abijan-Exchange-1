@@ -34,4 +34,12 @@ if (!function_exists("settings")) {
     }
 }
 
+if (!function_exists("rates")) {
+    function rates() {
+        //
+        $rates = \App\Models\Rate::all();
+        return $rates;
+    }
+}
+
 ?>

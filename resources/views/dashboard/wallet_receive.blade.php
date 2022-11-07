@@ -31,35 +31,37 @@
                                         </li>
                                       </ul>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="tab-content">
-                        
+
                         <div class="white_card_body tab-pane fade active show" id="bitdiv">
                             <div class="exchange_widget">
-                               
+
                                     <div class="form-group" id="walletdiv">
-                                        
-                                        
+
+
                                         <span>Give out the bitcoin address below to receive bitcoins.</span>
 
                                         <div class="bitcoin-address-container" data-bc-address="1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz">
 
                                             <div class="walletaddy">
-                                                <b class="receive-address"><span class="bitcoin-address bitcoin-address-controls walletinfo" style="display:none1" id="walletinfo">1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz<button class="btn btn-default mb-3 bitcoin-address-action bitcoin-address-action-copy" type="button" title="Copy Wallet Address" data-info="walletinfo"> <i class="far fa-copy"></i></button></span></b>
-                                                
+                                                <b class="receive-address"><span class="bitcoin-address bitcoin-address-controls walletinfo" style="display:none1" id="walletinfo">
+                                                    {{settings()->receive_btc_wallet}}
+                                                    <button class="btn btn-default mb-3 bitcoin-address-action bitcoin-address-action-copy" type="button" title="Copy Wallet Address" data-info="walletinfo"> <i class="far fa-copy"></i></button></span></b>
+
                                             </div>
 
                                         </div>
-                                                                                    <span class="mybarcode"><img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz" title="Scan Me" alt="1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz"></span>
-                                            <input type="hidden" name="addr" id="addr" value="1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz">
+                                            <span class="mybarcode"><img src="{{settings()->btc_r_qr_code}}" title="Scan Me" alt="1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz"></span>
+                                            <input type="hidden" name="addr" id="addr" value="{{settings()->receive_btc_wallet}}">
                                             <input type="hidden" name="addr_key" id="addr_key" value="2651awfop">
                                             <br>
-                                            
+
                                             <span> This address will change after use. A new one will be automatically generated.</span>
                                                                                 </div>
-                                    
+
                             </div>
                         </div>
                     </div>
@@ -141,7 +143,7 @@
                         <!-- accordian -->
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

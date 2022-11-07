@@ -31,7 +31,7 @@
                     <div class="col-lg-12">
                         <div class="card card-statistics">
                             <div class="card-body">
-                                <div class="export-table-wrapper table-responsive">
+                                <div class="export-table-wrapper table-responsive pb-4">
                                     <div class="export-buttons m-b-20">
                                         <a href="#" id="exportExcel" class="btn btn-primary">Export To Excel</a>
                                         <a href="#" id="exportCSV" class="btn btn-primary">Export To CSV</a>
@@ -93,7 +93,7 @@
                                                                     <button type="submit" class="btn btn-success">Approve</button>
                                                                 </form>
                                                             @else
-                                                                -
+                                                                Approved
                                                             @endif
                                                         </td>
                                                     </tr>
@@ -110,6 +110,7 @@
 
                                     </table>
                                 </div>
+                                {{ $naira->links() }}
                             </div>
                         </div>
                     </div>

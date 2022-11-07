@@ -7,6 +7,7 @@ use App\Models\UserWallet;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Auth;
+use Mail;
 
 class NairaTransactionController extends Controller
 {
@@ -72,6 +73,7 @@ class NairaTransactionController extends Controller
         $d->fee_method = $request->fee_method;
         $d->user_id = Auth::user()->id;
         $d->save();
+        Mail::to(Auth::user()->email)->send(new \App\Mail\depositNara($d));
         return response()->json(["status"=>"success",
             "msg"=>"Deposit instruction will be sent to your email shortly!"
         ]);

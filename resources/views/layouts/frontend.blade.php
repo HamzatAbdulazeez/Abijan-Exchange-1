@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}">
-    <link rel="shortcut icon" href="{{URL::asset('assets/images/fav.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{URL::asset('assets/images/logo.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{URL::asset('assets/css/remix.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/stick.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/all.css')}}">
@@ -360,14 +360,14 @@
     <!-- Header -->
         @yield('header')
     <!-- Header Ends -->
-        
+
     <!-- Page-Content -->
         @yield('page-content')
     <!-- Page-Content Ends -->
 
     <!-- Footer -->
         @yield('footer')
-    <!-- Footer Ends -->   
+    <!-- Footer Ends -->
 
     <!-- MODAL -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
