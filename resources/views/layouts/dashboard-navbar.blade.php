@@ -49,9 +49,6 @@
 
                             </div>
                             <div class="profile_info d-flex align-items-center">
-                                <div class="profile_thumb mr_20">
-                                    <img src="{{URL::asset('dash/libraries/sample_pic.png')}}" alt="#">
-                                </div>
                                 @php
                                     $user = \App\Models\UserProfile::where('user_id', Auth::user()->id)->first();
                                     if($user == null){
@@ -67,6 +64,15 @@
                                         }
                                     }
                                 @endphp
+                                <div class="profile_thumb mr_20">
+                                    @if ($verify == true AND auth()->user()->profile->photo != null)
+                                        <img src="{{auth()->user()->profile->photo}}" alt="#">
+                                    @else
+                                        <img src="{{URL::asset('dash/libraries/sample_pic.png')}}" alt="#">
+                                    @endif
+
+                                </div>
+
                                 @if ($verify == false)
                                     <div class="author_name">
                                         <p class="f_s_12 f_w_400">Not Verified</p>

@@ -29,22 +29,26 @@
                             <div class="tab-content">
                                 <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                     <div class="exchange_widget">
-                                        <form name="mySettform" id="mySettform" onsubmit="event.preventDefault();" class="currency_validate" autocomplete="off">
-
+                                        <form action="{{route('admin.update.name')}}" method="POST" class="currency_validate" autocomplete="off">
+                                            @csrf
 
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text"  name="firstname" autocomplete="off" class="form-control" >
+                                                <input type="text"  name="firstname" value="{{Auth::user()->profile->firstname}}" autocomplete="off" class="form-control" >
                                             </div>
                                             <div class="form-group">
-                                                <label>Last Name</label>
-                                                <input type="text" name="lastname" class="form-control pwrds" >
+                                                <label>Middlename</label>
+                                                <input type="text" name="middlename" value="{{Auth::user()->profile->middlename}}" class="form-control pwrds" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Surname</label>
+                                                <input type="text" name="surname" value="{{Auth::user()->profile->surname}}" class="form-control pwrds" >
                                             </div>
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="eamil" name="eamil" class="form-control pwrds">
+                                                <input type="email" readonly value="{{Auth::user()->email}}" name="eamil" class="form-control pwrds">
                                             </div>
-                                            <button type="button" name="sett_submit" id="sett_submit" class="btn_1 w-100 ">Update Profile <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="password">
+                                            <button type="submit" name="sett_submit" id="" class="btn_1 w-100 ">Update Profile <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="password">
                                         </form>
                                     </div>
                                 </div>
@@ -64,7 +68,8 @@
                             <div class="tab-content">
                                 <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                     <div class="exchange_widget">
-                                        <form name="mySettform" id="mySettform" onsubmit="event.preventDefault();" class="currency_validate" autocomplete="off">
+                                        <form method="POST" action="{{route('admin.update.password')}}" class="currency_validate" autocomplete="off">
+                                            @csrf
                                             <div class="form-group">
                                                 <label>Current Password</label>
                                                 <input type="password" name="curr_password_sett" autocomplete="off" class="form-control" id="curr_password_sett">
@@ -93,7 +98,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" name="sett_submit" id="sett_submit" class="btn_1 w-100 ">Update Password <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="password">
+                                            <button type="submit" name="sett_submit" id="" class="btn_1 w-100 ">Update Password <span class="loadingText fa fa-spinner fa-spin fa-2x" style="display:none;float:right;" id="loadingText_sett"></span></button><input type="hidden" id="prof" name="prof" value="password">
                                         </form>
                                     </div>
                                 </div>

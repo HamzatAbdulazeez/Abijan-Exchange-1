@@ -119,7 +119,7 @@
                                                             </td>
                                                             <td>
                                                                 <p class="" style="cursor: pointer;">
-                                                                    {{ $item->e_currency }}
+                                                                    {{ $item->e_currency }} ({{$item->port_short}})
                                                                 </p>
                                                             </td>
                                                             <td>
@@ -139,9 +139,10 @@
                                                             <td>
                                                                 <p class="" style="cursor: pointer;">
                                                                     <button data-toggle="tooltip" data-id="{{ $item->id }}" data-currency="{{ $item->e_currency }}"
-                                                                        data-sell_rate="{{ $item->buy_rate }}"
-                                                                        data-buy_rate="{{ $item->sell_rate }}"
+                                                                        data-sell_rate="{{ $item->sell_rate }}"
+                                                                        data-buy_rate="{{ $item->buy_rate }}"
                                                                         data-fee="{{ $item->fee }}"
+                                                                        data-port_short="{{ $item->port_short }}"
                                                                         data-placement="top"
                                                                         title="Edit Rate"
                                                                         id="editRate"
@@ -196,6 +197,13 @@
                                 <div class="common_input mb_20">
                                     <label>E-Currency</label>
                                     <input name="currency" id="currency" type="text" maxlength="100"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="common_input mb_20">
+                                    <label>E-Currency Short</label>
+                                    <input name="port_short" id="port_short" type="text" maxlength="100"
                                         class="form-control">
                                 </div>
                             </div>
@@ -274,6 +282,13 @@
                                         value=""
                                         type="text"
                                         maxlength="100"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="common_input mb_20">
+                                    <label>E-Currency Short</label>
+                                    <input name="port_short" id="edit_port_short" type="text" maxlength="100"
                                         class="form-control">
                                 </div>
                             </div>

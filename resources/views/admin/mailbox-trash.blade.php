@@ -40,25 +40,25 @@
                                         class="ti-plus"></i>COMPOSE</button>
                                 <ul class="text-left mt-2">
                                     <li>
-                                        <a href="{{ 'message_center' }}">
+                                        <a href="{{ route('message_center') }}">
                                             <i class="ti-user"></i> <span> <span>Inbox</span> </span>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="{{ 'sent_mails' }}">
+                                        <a href="{{ route('sent_mails') }}">
                                             <i class="ti-announcement"></i> <span> <span>Sent Mails</span></span>
                                         </a>
                                     </li>
 
                                     <li class="active">
-                                        <a href="{{ 'mailbox_trash' }}">
+                                        <a href="{{ route('mailbox_trash') }}">
                                             <i class="ti-trash"></i> <span> <span>Trash</span> </span>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="{{ 'mailbox_archive' }}">
+                                        <a href="{{ route('mailbox_archive') }}">
                                             <i class="ti-briefcase"></i> <span> <span>Archive</span> </span>
                                         </a>
                                     </li>

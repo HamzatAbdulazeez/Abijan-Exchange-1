@@ -7,6 +7,8 @@
     "require": {
         "php": "^8.0.2",
         "anhskohbo/no-captcha": "^3.4",
+        "cloudinary-labs/cloudinary-laravel": "^2.0",
+        "denpa/laravel-bitcoinrpc": "^1.3",
         "doctrine/dbal": "^3.5",
         "flutterwavedev/flutterwave-v3": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
