@@ -258,7 +258,7 @@ class OrderController extends Controller
                 "msg"=>"The bitcoin you want to buy must be up to $5"
             ]);
         }
-        if($request->currency_option == "Bitcoin" AND $request->unit == "BTC" AND $request->sell_from == "Bitcoin Balance" AND $request->amount < Auth::user->wallet->btc){
+        if($request->currency_option == "Bitcoin" AND $request->unit == "BTC" AND $request->sell_from == "Bitcoin Balance" AND $request->amount < Auth::user()->wallet->btc){
             return response()->json([
                 "status"=>"error",
                 "msg"=>"You have insufficient bitcoin balance to sell Bitcoin"
@@ -402,6 +402,35 @@ class OrderController extends Controller
 
     public function buyUpdate(Request $request)
     {
+        
+        if($request->type == "btc" AND $request->unit == "USD"){
+            $btc = getCurrentBtcDollar();
+            $user = UserWallet::where('user_id', $request->user_id)->first();
+            $total = $request->amount/$btc;
+            $round = number_format($total, 7);
+            $usercurr = $user->btc;
+            $user->btc = $usercurr + $round;
+            $user->update();
+        }
+        if($request->type == "btc" AND $request->unit == "BTC"){
+            $btc = getCurrentBtcDollar();
+            $user = UserWallet::where('user_id', $request->user_id)->first();
+            $usercurr = $user->btc;
+            $user->btc = $usercurr + $request->amount;
+            $user->update();
+        }
+        if($request->type == "btc" AND $request->unit == "NGN"){
+            //dd($request->unit, $request->type);
+            $btc = getCurrentBtcDollar();
+            $rate = rates()[0]['buy_rate'];
+            $pr = $btc*$rate;
+            $sp = $request->amount/$pr;
+            $round = number_format($sp, 7);
+            $user = UserWallet::where('user_id', $request->user_id)->first();
+            $usercurr = $user->btc;
+            $user->btc = $usercurr + $round;
+            $user->update();
+        }
         Order::findOrFail($request->id)->update(["status"=>1]);
         Alert::success('Success', 'Your Approved Transaction!');
         return back();

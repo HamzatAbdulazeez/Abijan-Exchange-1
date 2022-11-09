@@ -112,7 +112,7 @@
                                                                         {{ $item->eth_wallet }}
                                                                     @endif
                                                                     @if ($item->currency == 'Bitcoin')
-                                                                        {{ $item->btc_wallet }}
+                                                                        BTC Wallet
                                                                     @endif
                                                                     @if ($item->currency == 'Perfect Money')
                                                                         {{ $item->btc_wallet }}
@@ -131,24 +131,63 @@
                                                                 </td>
                                                                 <td>
                                                                     @if ($item->status == 0)
-                                                                        <form action="{{ route('buy.update') }}"
+                                                                        @if ($item->currency == 'Bitcoin')
+                                                                            <form action="{{ route('buy.update') }}"
                                                                             method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="id"
+                                                                                @csrf
+                                                                                <input type="hidden" name="id"
                                                                                 value="{{ $item->id }}">
-                                                                            <button type="submit"
-                                                                                class="btn btn-success">Approve</button>
-                                                                        </form>
+                                                                                <input type="hidden" name="user_id"
+                                                                                value="{{ $item->user_id }}">
+                                                                                <input type="hidden" name="type"
+                                                                                value="btc">
+                                                                                <input type="hidden" name="unit"
+                                                                                value="{{ $item->unit }}">
+                                                                                <input type="hidden" name="amount"
+                                                                                value="{{ $item->amount }}">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-success">Approve</button>
+                                                                            </form>
+                                                                        @else
+                                                                            <form action="{{ route('buy.update') }}"
+                                                                            method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id"
+                                                                                value="{{ $item->id }}">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-success">Approve</button>
+                                                                            </form>
+                                                                        @endif
+                                                                        
                                                                     @endif
                                                                     @if ($item->status == 2)
-                                                                        <form action="{{ route('buy.update') }}"
+                                                                         @if ($item->currency == 'Bitcoin')
+                                                                            <form action="{{ route('buy.update') }}"
                                                                             method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="id"
+                                                                                @csrf
+                                                                                <input type="hidden" name="id"
                                                                                 value="{{ $item->id }}">
-                                                                            <button type="submit"
-                                                                                class="btn btn-success">Approve</button>
-                                                                        </form>
+                                                                                <input type="hidden" name="user_id"
+                                                                                value="{{ $item->user_id }}">
+                                                                                <input type="hidden" name="amount"
+                                                                                value="{{ $item->amount }}">
+                                                                                <input type="hidden" name="type"
+                                                                                value="btc">
+                                                                                <input type="hidden" name="unit"
+                                                                                value="{{ $item->unit }}">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-success">Approve</button>
+                                                                            </form>
+                                                                        @else
+                                                                            <form action="{{ route('buy.update') }}"
+                                                                            method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id"
+                                                                                value="{{ $item->id }}">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-success">Approve</button>
+                                                                            </form>
+                                                                        @endif
                                                                     @endif
                                                                     @if ($item->status == 1)
                                                                         <span
@@ -219,7 +258,7 @@
                                                                 <td>{{ \App\Models\User::where('id', $item->user_id)->first()->email }}
                                                                 </td>
                                                                 <td>
-                                                                    #{{ \App\Models\Invoice::where('order_id', $item->id)->first()->invoice_id }}
+                                                                    #{{ \App\Models\Invoice::where('order_id', $item->id)->first()->invoice_id ?? '' }}
                                                                 </td>
                                                                 <td>{{ $item->pay_with }}</td>
                                                                 <td>{{ $item->amount }} {{ $item->unit }}</td>
@@ -329,38 +368,51 @@
                                                                         <td>{{$item->created_at->format('d/M/Y')}}</td>
                                                                         <td>{{$item->fund_date}}</td>
                                                                         <td>
-                                                                            @if ($item->status == 0)
-                                                                                <form action="{{ route('invoice.update') }}"
-                                                                                    method="POST">
-                                                                                    @csrf
-                                                                                    <input type="hidden" name="id"
-                                                                                        value="{{ $item->id }}">
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-success">Approve</button>
-                                                                                </form>
-                                                                            @endif
-                                                                            @if ($item->status == 2)
-                                                                                <form action="{{ route('invoice.update') }}"
-                                                                                    method="POST">
-                                                                                    @csrf
-                                                                                    <input type="hidden" name="id"
-                                                                                        value="{{ $item->id }}">
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-success">Approve</button>
-                                                                                </form>
-                                                                            @endif
-                                                                            @if ($item->status == 1)
-                                                                                <span
-                                                                                    style="font-size: 11px; background: #95ff95;padding: 5px;border-radius: 5px;color: #599d2a;font-weight: 600;text-transform: capitalize;">
-                                                                                    Order Approved
-                                                                                </span>
-                                                                            @endif
-
-                                                                            @if ($item->status == 3)
-                                                                                <span
-                                                                                    style="font-size: 11px; background: #fbabab;padding: 5px;border-radius: 5px;color: #e15d5d;font-weight: 600;text-transform: capitalize;">
-                                                                                    Order Cancelled
-                                                                                </span>
+                                                                            @if($item->amount_sent == null)
+                                                                                @if ($item->status == 0)
+                                                                                    <span style="color: orange">Awaiting Fund</span>
+                                                                                @endif
+                                                                                
+                                                                                @if ($item->status == 3)
+                                                                                    <span
+                                                                                        style="font-size: 11px; background: #fbabab;padding: 5px;border-radius: 5px;color: #e15d5d;font-weight: 600;text-transform: capitalize;">
+                                                                                        Order Cancelled
+                                                                                    </span>
+                                                                                @endif
+                                                                            @else
+                                                                                @if ($item->status == 0)
+                                                                                    <form action="{{ route('invoice.update') }}"
+                                                                                        method="POST">
+                                                                                        @csrf
+                                                                                        <input type="hidden" name="id"
+                                                                                            value="{{ $item->id }}">
+                                                                                        <button type="submit"
+                                                                                            class="btn btn-success">Approve</button>
+                                                                                    </form>
+                                                                                @endif
+                                                                                @if ($item->status == 2)
+                                                                                    <form action="{{ route('invoice.update') }}"
+                                                                                        method="POST">
+                                                                                        @csrf
+                                                                                        <input type="hidden" name="id"
+                                                                                            value="{{ $item->id }}">
+                                                                                        <button type="submit"
+                                                                                            class="btn btn-success">Approve</button>
+                                                                                    </form>
+                                                                                @endif
+                                                                                @if ($item->status == 1)
+                                                                                    <span
+                                                                                        style="font-size: 11px; background: #95ff95;padding: 5px;border-radius: 5px;color: #599d2a;font-weight: 600;text-transform: capitalize;">
+                                                                                        Order Approved
+                                                                                    </span>
+                                                                                @endif
+    
+                                                                                @if ($item->status == 3)
+                                                                                    <span
+                                                                                        style="font-size: 11px; background: #fbabab;padding: 5px;border-radius: 5px;color: #e15d5d;font-weight: 600;text-transform: capitalize;">
+                                                                                        Order Cancelled
+                                                                                    </span>
+                                                                                @endif
                                                                             @endif
                                                                         </td>
                                                                     </tr>

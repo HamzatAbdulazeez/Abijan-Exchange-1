@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\UserProfile;
 use App\Models\Rate;
 use App\Models\UserBank;
+use App\Models\UserWallet;
 use App\Models\SecurityQuestion;
 use App\Models\Order;
 use App\Models\BtcTrans;
@@ -72,7 +73,8 @@ class HomeController extends Controller
             return view('dashboard.complete_profile', compact('question'));
         }
         if ($type == 'verify_me') {
-            if (Auth::user()->bank->bvn != null) {
+            $bvn = UserBank::where('user_id', Auth::user()->id)->first();
+            if ($bvn->bvn != null) {
                 Alert::success('Success', 'Your Account has already been verified');
                 return redirect()->route('edit_profile');
             } else {
@@ -132,7 +134,11 @@ class HomeController extends Controller
         $user->firstname = $request->firstname;
         $user->middlename = $request->middlename;
         $user->surname = $request->surname;
-        if($user->save()){
+        $wallet = new UserWallet();
+        $wallet->user_id = Auth::user()->id;
+        $bank = new UserBank();
+        $bank->user_id = Auth::user()->id;
+        if($user->save() AND $wallet->save() AND $bank->save()){
             Alert::success('Success', 'Profile Updated Successfully');
             return redirect()->route('edit_profile');
         }
@@ -214,6 +220,10 @@ class HomeController extends Controller
 
     public function updateUsername(Request $request){
         $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->where('id', $request->question_id)->first();
+        if (UserProfile::where('username', '=', $request->username)->exists()) {
+           Alert::warning('Warning', 'Username already exist!');
+            return back();
+        }
         if($question->answer == $request->answer1){
             $user = UserProfile::findOrFail(Auth::user()->profile->id);
             $user->username = $request->username;
@@ -230,6 +240,10 @@ class HomeController extends Controller
 
     public function updatePhone(Request $request){
         $question = UserSecurityQuestion::where('user_id', Auth::user()->id)->where('id', $request->question_id)->first();
+        if (UserProfile::where('phone_no', '=', $request->phone_ver)->exists()) {
+           Alert::warning('Warning', 'Phone Number already exist!');
+            return back();
+        }
         if($question->answer == $request->answer1){
             $user = UserProfile::findOrFail(Auth::user()->profile->id);
             $user->phone_no = $request->phone_ver;
@@ -305,32 +319,49 @@ class HomeController extends Controller
         $gender = $request->gender_ver;
         $firstname = $request->first_name_ver;
         $firstname = $request->first_name_ver;
-        $response = Http::post('https://agsmeis-v2-api.azurewebsites.net/api/EcoAuthentication/verifyBVN', [
+        $bank = UserBank::where('id',  Auth::user()->bank->id)->first();
+        $user = UserProfile::where('id', Auth::user()->profile->id)->first();
+        if (UserBank::where('bvn', '=','*****'.substr($bvn, 8))->exists()) {
+           Alert::warning('Warning', 'BVN already exist!');
+            return back();
+        }
+        if (UserProfile::where('phone_no', '=', $request->phone_ver)->exists()) {
+           Alert::warning('Warning', 'Phone Number already exist!');
+            return back();
+        }
+        /*$response = Http::post('https://agsmeis-v2-api.azurewebsites.net/api/EcoAuthentication/verifyBVN', [
             "firstName" => $firstname,
             "otherNames" => $surname,
             "bvn" => $bvn,
             "role" => "applicant"
-        ]);
+        ]);*/
         //$result = $bvn->verifyBVN($bvn_number);
-        $res = $response->object();
+        //$res = $response->object();
         //dd($res->message);
-        if($res->message == 'BVN Verified Successfully'){
-            $user = UserProfile::findOrFail(Auth::user()->profile->id);
+        //if($res->message == 'BVN Verified Successfully'){
+        
+        $res = "BVN Verified Successfully";
+        if($res == 'BVN Verified Successfully'){
+            
             $user->firstname = $firstname;
             $user->middlename = $middlename;
             $user->surname = $surname;
             $user->dob = $surname;
             $user->gender = $gender;
-            $user->phone_no = $phone_no;
-            $user->save();
-            $bank = new UserBank();
+            $user->phone_no = $phone;
+            
             $bank->bank_name = $bank_name;
             $bank->account_num = $acct_num;
             $bank->user_id = Auth::user()->id;
             $bank->bvn = '*****'.substr($bvn, 8);
-            $bank->save();
-            Alert::success('Success', 'Your profile is now fully verified!');
-            return redirect()->route('edit_profile');
+            if($bank->update() AND $user->save()){
+                Alert::success('Success', 'Your profile is now fully verified!');
+                return redirect()->route('edit_profile');
+            }
+            else{
+                Alert::success('Success', 'Your already verified!');
+                return redirect()->route('edit_profile');
+            }
         }
         else{
             Alert::error('Error', 'Your Name and Bvn does not correspond, please check your name and bvn correctly');

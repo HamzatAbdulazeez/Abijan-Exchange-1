@@ -39,17 +39,56 @@
                                     </div>
                                 </div>
                                 <div class="tab-content">
+                                    
+                                    @if (Auth::user()->bank->bvn == null)
+                                        <div class="white_card_body tab-pane fade active show" id="nairadiv">
+                                            <div class="exchange_widget">
+                                                <div class="form-group" id="bankacctdiv">
+                                                   <label>Bank Account</label> <small style="float:right;"><a
+                                                            href="/dashboard/settings?type=verify_me"><i class="fas fa-edit"></i> Add/Edit
+                                                            Bank</a></small>
+                                                    <div class="input-group ">
+                                                        <select name="bank_name" id="bank_name"
+                                                            class="form-control nice_Select" style="display: none;">
+
+                                                            <option value="">Verify your identity to withdraw money
+                                                            </option>
+                                                        </select>
+                                                        <div class="nice-select form-control nice_Select" tabindex="0">
+                                                            <span class="current">Verify your identity to withdraw
+                                                                money</span>
+                                                            <div class="nice-select-search-box"><input type="text"
+                                                                    class="nice-select-search" placeholder="Search...">
+                                                            </div>
+                                                            <ul class="list">
+                                                                <li data-value="" class="option selected">Verify your
+                                                                    identity
+                                                                    to withdraw money</li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <p class="formText verifyText"><a href="/dashboard/settings?type=verify_me"><b>Click
+                                                            here</b></a><b> to verify your identity to be able to withdraw
+                                                        Naira.</b></p>
+                                                <p class="formText">After verification, you can withraw you money to bank account number and get funds in your
+                                                    instantly.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @else
                                     <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                         <div class="exchange_widget">
                                             <form name="myWithform" id="myWithform" class="currency_validate">
                                                 <div class="form-group" id="bankacctdiv">
-                                                    <label>Bank Account</label> <small style="float:right;"><a
-                                                            href="settings?type=bank"><i class="fas fa-edit"></i> Add/Edit
-                                                            Bank</a></small>
+                                                    <label>Bank Account</label> <!--<small style="float:right;"><a
+                                                            href="/dashboard/settings?type=verify_me"><i class="fas fa-edit"></i> Add
+                                                            Bank</a></small>-->
                                                     <div class="input-group ">
                                                         <select name="bank_name" id="bank_name"
                                                             class="form-control nice_Select" style="display: block;">
-                                                            <option data-display="Zenith Bank...5179" selected="" value="{{Auth::user()->bank->account_num}}" data-value="first">{{Auth::user()->bank->bank_name}}...{{substr(Auth::user()->bank->account_num, 7)}}</option>
+                                                            <option data-display="{{Auth::user()->bank->account_num}}" selected="" value="{{Auth::user()->bank->account_num}}" data-value="first">{{Auth::user()->bank->bank_name}}...{{substr(Auth::user()->bank->account_num , 7)}}</option>
                                                         </select>
 
                                                     </div>
@@ -90,7 +129,8 @@
                                             </form>
                                         </div>
                                     </div>
-
+                                    
+                                    @endif
                                 </div>
                             </div>
                         </div>

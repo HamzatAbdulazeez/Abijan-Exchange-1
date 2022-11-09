@@ -158,20 +158,11 @@
                                                                         @if ($i->unit == 'USD')
                                                                             {{ number_format($i->amount, 2) }}
                                                                         @endif
-                                                                        @if ($i->unit == 'NGN' and $i->currency == 'Bitcoin')
-                                                                            {{ number_format($i->amount * rates()[0]['buy_rate'], 2) }}
+                                                                        @if ($item->unit == "NGN")
+                                                                            {{$i->amount}} NGN
                                                                         @endif
-                                                                        @if ($i->unit == 'NGN' and $i->currency == 'Perfect Money')
-                                                                            {{ number_format($i->amount * rates()[1]['buy_rate'], 2) }}
-                                                                        @endif
-                                                                        @if ($i->unit == 'NGN' and $i->currency == 'Ethereum')
-                                                                            {{ number_format($i->amount * rates()[2]['buy_rate'], 2) }}
-                                                                        @endif
-                                                                        @if ($i->unit == 'NGN' and $i->currency == 'USDT TRC20')
-                                                                            {{ number_format($i->amount * rates()[3]['buy_rate'], 2) }}
-                                                                        @endif
-                                                                        @if ($i->unit == 'NGN' and $i->currency == 'Bitcoin Cash')
-                                                                            {{ number_format($i->amount * rates()[4]['buy_rate'], 2) }}
+                                                                        @if ($item->unit == "BTC")
+                                                                            {{number_format($i->amount, 7)}} BTC
                                                                         @endif
                                                                     </td>
                                                                     {{-- <td><a href="/dashboard/orderinfo?i={{ $i->id }}"><button

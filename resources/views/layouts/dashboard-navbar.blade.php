@@ -11,11 +11,11 @@
                         </div>
                         <div class="header_right d-flex justify-content-between align-items-center">
                             <div class="header_notification_warp d-flex align-items-center">
-                                <li>
+                                <!--<li>
                                     <a class="CHATBOX_open nav-link-notify1" href="javascript: void(0)">
                                         <img src="{{URL::asset('dash/libraries/msg.svg')}}" title="You have no unread messages">
                                     </a>
-                                </li>
+                                </li>-->
                                 <li>
                                     <a class="bell_notification_clicker nav-link-notify1" href="javascript: void(0)">
                                         <img src="{{URL::asset('dash/libraries/bell.svg')}}" class="clickimage"
@@ -79,8 +79,8 @@
                                     </div>
                                     <div class="profile_info_iner">
                                         <div class="profile_info_details">
-                                            <a href="settings?type=verify_me">Verify Me</a>
-                                            <a href="profile">My Profile</a>
+                                            <a href="/dashboard/settings?type=verify_me">Verify Me</a>
+                                            <a href="/dashboard/profile">My Profile</a>
                                             <a onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();" href="#">Log Out </a>
                                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -89,16 +89,7 @@
                                         </div>
                                     </div>
                                 @else
-                                    @php
-                                        $bvn = \App\Models\UserBank::where('user_id', Auth::user()->id)->first();
-                                        if($bvn == null){
-                                            $bvnver = false;
-                                        }
-                                        else{
-                                            $bvnver = true;
-                                        }
-                                    @endphp
-                                    @if ($bvnver == true)
+                                    @if (Auth::user()->bank->bvn != null)
                                         <div class="author_name">
                                             <h4 class="f_s_15 f_w_500 mb-0">{{$fullname}}</h4>
                                             <p class="f_s_12 f_w_400">Verified</p>
@@ -115,7 +106,8 @@
                                             <h5>{{$fullname}}</h5>
                                         </div>
                                         <div class="profile_info_details">
-                                            <a href="settings?type=verify_me">Verify Me</a> <a href="profile">My Profile</a>
+                                            <a href="/dashboard/settings?type=verify_me">Verify Me</a> 
+                                            <a href="/dashboard/profile">My Profile</a>
                                             <a onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();" href="#">Log Out </a>
                                             <form id="logout-form" method="POST" action="{{ route('logout') }}">

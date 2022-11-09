@@ -96,21 +96,37 @@ class NairaTransactionController extends Controller
         $d->deposit_fee = $request->withfee;
         $d->fee_method = 'Bank Transfer';
         $d->user_id = Auth::user()->id;
-
-        $user = UserWallet::where('user_id', Auth::user()->id)->first();
-        $user->naira = $naira - $new_fee;
-        $user->update();
         $d->save();
         return response()->json(["status"=>"success",
             "msg"=>"Yow will get you withdraw in your account once it's been approved!"
         ]);
     }
 
-    public function updateNaira(Request $request)
+    public function updateDepositNaira(Request $request)
     {
-        NairaTransaction::findOrFail($request->id)->update(["status"=>1]);
-        Alert::success('Success', 'Your Approved Transaction!');
-        return back();
+        $naira = NairaTransaction::where('id', $request->id)->first();
+        $naira->status = 1;
+        $user = UserWallet::where('user_id', $request->user_id)->first();
+        $camount = $user->naira;
+        $user->naira = $camount + ($request->amount - $request->charges);
+        if($naira->update() AND $user->update()){
+            Alert::success('Success', 'Your Approved Transaction!');
+            return back();
+        }
+        
+    }
+    public function updateWithdrawNaira(Request $request)
+    {
+        $naira_withdraw = NairaTransaction::where('id', $request->id)->first();
+        $naira_withdraw->status = 1;
+        $user = UserWallet::where('user_id', $request->user_id)->first();
+        $naira = $user->naira;
+        $new_fee = $request->amount + $request->charges;
+        $user->naira = $naira - $new_fee;
+        if($naira_withdraw->update() AND $user->update()){
+            Alert::success('Success', 'Your Approved Transaction!');
+            return back();
+        }
     }
     /**
      * Update the specified resource in storage.

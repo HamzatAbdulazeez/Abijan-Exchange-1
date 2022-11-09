@@ -178,9 +178,9 @@
                                             I have read and agree with the <a href="/terms-conditions"> Terms &amp; Conditions</a>
                                         </label>
                                     </div>
-                                    <button class="btn btn-primary text-uppercase fw-bold rounded-1 w-100 mt-4"> Buy
+                                    <a href="/login" class="btn btn-primary text-uppercase fw-bold rounded-1 w-100 mt-4"> Buy
                                         Now
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <!-- SELL CONTENT -->
@@ -246,9 +246,9 @@
                                             I have read and agree with the <a href="/terms-conditions"> Terms &amp; Conditions</a>
                                         </label>
                                     </div>
-                                    <button class="btn btn-primary text-uppercase fw-bold rounded-1 w-100 mt-4">
+                                    <a href="/login" class="btn btn-primary text-uppercase fw-bold rounded-1 w-100 mt-4">
                                         Sell Now
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -491,8 +491,8 @@
         <div class="mx-auto" style="max-width: 460px;">
             <h2 class="text-light text-center pt-sm-2 fw-bold mb-3">Subscribe to our newsletter</h2>
             <p class="text-light text-center mb-grid-gutter mb-5">To get latest updates from us</p>
-            <form class="input-group mb-4">
-                <input class="form-control shadow-none" type="email" placeholder="Enter your email address" required="">
+            <form action="https://facebook.us20.list-manage.com/subscribe/post?u=3e271affbd0840470e2d612ff&amp;id=2602f8aff0&amp;f_id=00f02de4f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate class="validate input-group mb-4">
+                <input class="form-control shadow-none required email" type="email"  name="EMAIL" id="mce-EMAIL" required placeholder="Enter your email address" required="">
                 <button style="border-radius: 0 10px 10px 0 !important;" class="btn btn-primary" type="submit"><i class="ri-send-plane-fill"></i></button>
             </form>
         </div>
@@ -519,7 +519,7 @@
                         <p class="mb-0 text-dark fs-sm">Cick here to join our community and
                             get updates on our product </p>
                     </div>
-                    <a class="btn btn-primary" href="signup" "="">Proceed</a>
+                    <a class="btn btn-primary" href="/register" "="">Proceed</a>
                     </div>
                 </div>
             </div>

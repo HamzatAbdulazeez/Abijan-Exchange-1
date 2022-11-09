@@ -53,10 +53,14 @@
                 <li><a href="/privacy-policy">Privacy policy</a></li>
             </ul>
             <ul class="box input-box">
-                <form></form>
+               
                 <li class="link_name">Subscribe</li>
-                <li><input type="text" required placeholder="Enter your email"></li>
-                <li><input type="button" value="Subscribe"></li>
+                 <form action="https://facebook.us20.list-manage.com/subscribe/post?u=3e271affbd0840470e2d612ff&amp;id=2602f8aff0&amp;f_id=00f02de4f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate class="validate input-group mb-4">
+                    
+                
+                <li><input class="form-control shadow-none required email" type="email"  name="EMAIL" id="mce-EMAIL" required placeholder="Enter your email address" required=""></li>
+                <li><input type="submit" value="Subscribe"></li>
+                </form>
             </ul>
         </div>
     </div>

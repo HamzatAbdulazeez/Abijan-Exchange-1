@@ -37,16 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-content">
-                                    @php
-                                        $bvn = \App\Models\UserBank::where('user_id', Auth::user()->id)->first();
-                                        if($bvn == null){
-                                            $bvnver = false;
-                                        }
-                                        else{
-                                            $bvnver = true;
-                                        }
-                                    @endphp
-                                    @if ($bvnver == false)
+                                    @if (Auth::user()->bank->bvn == null)
                                         <div class="white_card_body tab-pane fade active show" id="bitdiv">
                                             <div class="exchange_widget">
                                                 <div class="form-group" id="walletdiv">
