@@ -189,7 +189,7 @@
                                                             Bank accounts:
                                                         </td>
                                                         <td>
-                                                            @if ($verify == true)
+                                                            @if (Auth::user()->bank->bank_name != null)
                                                                 <p>{{Auth::user()->bank->bank_name}} *****{{substr(Auth::user()->bank->account_num, 7)}}</p>
                                                             @else
                                                                 <p>-</p>
@@ -279,7 +279,7 @@
                                                             <small><i>Verify your identity to prevent fraud.</i></small>
                                                         </td>
                                                         <td>
-                                                            @if ($verify == true)
+                                                            @if (Auth::user()->bank->bvn != null)
                                                                 <p>{{Auth::user()->bank->bvn}} <span class="badge badge-success"> verified </span></p>
                                                             @else
                                                                 <p>-</p>

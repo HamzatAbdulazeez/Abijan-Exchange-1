@@ -148,10 +148,10 @@
                                                                         id="editRate"
                                                                         style="border: 0;background: transparent;color: #373063;"><i
                                                                             class=" ti-pencil-alt "></i></button>
-                                                                    <button data-id="{{ $item->id }}" id="deleteRate" data-toggle="tooltip" data-placement="top"
+                                                                    <!--<button data-id="{{ $item->id }}" id="deleteRate" data-toggle="tooltip" data-placement="top"
                                                                         title="Delete Rate"
                                                                         style="background: transparent;color: red;border: 0;"><i
-                                                                            class="ti-trash"></i></button>
+                                                                            class="ti-trash"></i></button>-->
                                                                 </p>
                                                             </td>
                                                         </tr>

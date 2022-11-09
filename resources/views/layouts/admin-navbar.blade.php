@@ -10,44 +10,7 @@
                             <img src="{{URL::asset('admin/libraries/line_img.png')}}" alt="">
                         </div>
                         <div class="header_right d-flex justify-content-between align-items-center">
-                            <div class="header_notification_warp d-flex align-items-center">
-                                <li>
-                                    <a class="CHATBOX_open nav-link-notify1" href="javascript: void(0)">
-                                        <img src="{{URL::asset('admin/libraries/msg.svg')}}" title="You have no unread messages">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="bell_notification_clicker nav-link-notify1" href="javascript: void(0)">
-                                        <img src="{{URL::asset('admin/libraries/bell.svg')}}" class="clickimage"
-                                            title="You have no unread notifications">
-                                        <!-- <span>2</span> -->
-                                    </a>
-                                    <!-- Menu_NOtification_Wrap  -->
-                                    <div class="Menu_NOtification_Wrap">
-                                        <div class="notification_Header">
-                                            <h4>Notifications</h4>
-                                        </div>
-                                        <div class="Notification_body">
-                                            <style>
-                                                .Menu_NOtification_Wrap .Notification_body {
-                                                    height: auto;
-                                                }
-                                            </style>
-                                            <div class="single_notify d-flex align-items-center">
-
-                                                <div class="notify_content">
-                                                    <!-- <a href="#"><h5>Cool Marketing </h5></a> -->
-                                                    <p>You have no unread notifications</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <!--/ Menu_NOtification_Wrap  -->
-                                </li>
-
-                            </div>
+                            
                             <div class="profile_info d-flex align-items-center">
                                 <div class="profile_thumb mr_20">
                                     <img src="{{URL::asset('admin/libraries/sample_pic.png')}}" alt="#">
@@ -73,8 +36,7 @@
                                     </div>
                                     <div class="profile_info_iner">
                                         <div class="profile_info_details">
-                                            <a href="#">Verify Me</a>
-                                            <a href="profile">My Profile</a>
+                                            <a href="/admin/profile">My Profile</a>
                                             <a onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();" href="#">Log Out </a>
                                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
@@ -92,7 +54,7 @@
                                             <h5>{{$fullname}}</h5>
                                         </div>
                                         <div class="profile_info_details">
-                                            <a href="verify_me">Verify Me</a> <a href="profile">My Profile</a>
+                                            <a href="/admin/profile">My Profile</a>
                                             <a onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();" href="#">Log Out </a>
                                             <form id="logout-form" method="POST" action="{{ route('logout') }}">

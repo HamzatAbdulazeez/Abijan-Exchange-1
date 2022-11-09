@@ -80,12 +80,23 @@
                             an office location where our staff provides worldclass support for you to be able to buy
                             and sell crypto/e-currencies with ease and at anytime.
                         </p>
-                        <form action="" method="POST" class="contact-form">
+                        @if(Session::has('success'))
+                            <span class="alert alert-success">
+                                {{Session::get('success')}}
+                            </span>
+                        @endif
+                        <form action="{{ route('contact.store') }}" method="POST" class="contact-form">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <input class="form-control" id="name" name="name" placeholder="Name" type="text">
-                                        <span class="alert-error"></span>
+                                        
+                                        @if ($errors->has('name'))
+                                            <span class="alert alert-error">
+                                                {{ $errors->first('name') }}
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -93,28 +104,53 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input class="form-control" id="email" name="email" placeholder="Email*" type="email">
-                                        <span class="alert-error"></span>
+                                        @if ($errors->has('email'))
+                                            <span class="alert alert-error">
+                                                {{ $errors->first('email') }}
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
-                                        <span class="alert-error"></span>
+                                        @if ($errors->has('phone'))
+                                            <span class="alert alert-error">
+                                                {{ $errors->first('phone') }}
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input class="form-control" id="subject" name="subject" placeholder="Subject" type="text">
+                                        
+                                        @if ($errors->has('subject'))
+                                            <span class="alert alert-error">
+                                                {{ $errors->first('subject') }}
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group comments">
-                                        <textarea class="form-control" id="comments" name="comments" placeholder="Tell Us About Project *"></textarea>
+                                        <textarea class="form-control" id="message" name="message" placeholder="Tell Us How we can Help You *"></textarea>
+                                        @if ($errors->has('message'))
+                                            <span class="alert alert-error">
+                                                {{ $errors->first('message') }}
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <button type="submit" class="btn btn-primary text-light">
-                                        Send Message
-                                    </button>
+                                    <input type="submit" value="Send Message" class="btn btn-primary text-light">
+                                        
                                 </div>
                             </div>
                             <!-- Alert Message -->

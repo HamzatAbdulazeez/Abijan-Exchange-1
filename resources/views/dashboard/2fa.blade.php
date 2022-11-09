@@ -81,7 +81,7 @@
                                             </form>
                                             @endif
 
-                                            @if (auth()->user()->two_factor_secret)
+                                            @if (session('status') == 'two-factor-authentication-enabled')
                                                 <p class="mt-4 mb-4" style="text-align: center;">You have now enabled 2fa, please scan the following QR
                                                     code into you phone authenticator application
                                                 </p>

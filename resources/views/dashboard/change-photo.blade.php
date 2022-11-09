@@ -45,9 +45,9 @@
 
                                                 <div class="form-group">
                                                     <label>Profile Photo</label>
-                                                        <small style="float:right; color:red;"><a
+                                                        <!--<small style="float:right; color:red;"><a
                                                             href="#remove" id="removepic"><i class="fas fa-trash"></i> Click
-                                                            here to remove profile photo</a></small>
+                                                            here to remove profile photo</a></small>-->
                                                     <input type="file" name="photo_sett" class="form-control"
                                                         id="photo_sett">
                                                 </div>

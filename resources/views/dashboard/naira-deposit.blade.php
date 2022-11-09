@@ -41,15 +41,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-content">
-                                    @php
-                                        $bvn = \App\Models\UserBank::where('user_id', Auth::user()->id)->first();
-                                        if ($bvn == null) {
-                                            $bvnver = false;
-                                        } else {
-                                            $bvnver = true;
-                                        }
-                                    @endphp
-                                    @if ($bvnver == false)
+                                    @if (Auth::user()->bank->bvn == null)
                                         <div class="white_card_body tab-pane fade active show" id="nairadiv">
                                             <div class="exchange_widget">
                                                 <div class="form-group" id="bankacctdiv">
@@ -76,7 +68,7 @@
 
                                                     </div>
                                                 </div>
-                                                <p class="formText verifyText"><a href="verify_me?type=identity"><b>Click
+                                                <p class="formText verifyText"><a href="/dashboard/settings?type=verify_me"><b>Click
                                                             here</b></a><b> to verify your identity to be able to deposit
                                                         Naira.</b></p>
                                                 <p class="formText">After verification, you can transfer money to Abijan

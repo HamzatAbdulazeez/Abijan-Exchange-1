@@ -34,7 +34,7 @@
                                             <a class="dropdown-item" href="{{route('buynsell')}}">Buy & Sell</a>
                                             <a class="dropdown-item" href="{{ route('deposit') }}">Deposit Naira</a>
                                             <a class="dropdown-item" href="{{ route('naira') }}">Withdraw Naira</a>
-                                            <a class="dropdown-item" href="/dashboard/send-btn">Send Bitcoin</a>
+                                            <a class="dropdown-item" href="/dashboard/sendbtn">Send Bitcoin</a>
                                             <a class="dropdown-item" href="/dashboard/wallet_receive">Receive Bitcoin</a>
                                             <a class="dropdown-item" href="#goTopriceList">Price List</a>
                                         </div>
@@ -174,20 +174,11 @@
                                                                         @if ($item->unit == "USD")
                                                                             {{$item->amount}} USD
                                                                         @endif
-                                                                        @if ($item->unit == "NGN" AND $item->currency == "Bitcoin")
-                                                                            {{$item->amount*rates()[0]['buy_rate']}} USD
+                                                                        @if ($item->unit == "NGN")
+                                                                            {{$item->amount}} NGN
                                                                         @endif
-                                                                        @if ($item->unit == "NGN" AND $item->currency == "Perfect Money")
-                                                                            {{$item->amount*rates()[1]['buy_rate']}} USD
-                                                                        @endif
-                                                                        @if ($item->unit == "NGN" AND $item->currency == "Ethereum")
-                                                                            {{$item->amount*rates()[2]['buy_rate']}} USD
-                                                                        @endif
-                                                                        @if ($item->unit == "NGN" AND $item->currency == "USDT TRC20")
-                                                                            {{$item->amount*rates()[3]['buy_rate']}} USD
-                                                                        @endif
-                                                                        @if ($item->unit == "NGN" AND $item->currency == "Bitcoin Cash")
-                                                                            {{$item->amount*rates()[4]['buy_rate']}} USD
+                                                                        @if ($item->unit == "BTC")
+                                                                            {{$item->amount}} BTC
                                                                         @endif
                                                                     </span>
                                                                 </td>
@@ -235,7 +226,7 @@
                                     <div class="row justify-content-center mb_30  ">
                                         <div class="col-12 text-center">
                                             <h4 class="f_s_22 f_w_700 mb-0"><span
-                                                    class="totalbal balspan">₦{{ Auth::user()->wallet->naira }}</span>
+                                                    class="totalbal balspan">₦{{ number_format(Auth::user()->wallet->naira, 2) ?? '0.00' }}</span>
                                             </h4>
                                             <p class="f_s_11 f_w_400">Total Balance</p>
                                         </div>
@@ -246,10 +237,10 @@
                                                 Bitcoin</span>
                                             <span class="earning_amount">
                                                 <a href="javascript: void(0)" title="">
-                                                    <h4><span class="btcbal balspan">{{ Auth::user()->wallet->btc }}
+                                                    <h4><span class="btcbal balspan">{{ Auth::user()->wallet->btc ?? '0.00'}}
                                                             BTC</span></h4>
                                                 </a>
-                                                <p><span class="usdbal balspan">${{ round((Auth::user()->wallet->btc * getCurrentBtcDollar()), 2) }}</span>
+                                                <p><span class="usdbal balspan">${{ round((Auth::user()->wallet->btc * getCurrentBtcDollar()), 2) ?? '0.00' }}</span>
                                                 </p>
                                             </span>
                                         </div>
@@ -258,7 +249,7 @@
                                                 Naira</span>
                                             <span class="earning_amount">
                                                 <a href="javascript: void(0)" title="">
-                                                    <h4><span class="ngnbal balspan">₦0.00</span></h4>
+                                                    <h4><span class="ngnbal balspan">₦{{ number_format(Auth::user()->wallet->naira, 2) ?? '0.00' }}</span></h4>
                                                 </a>
                                             </span>
                                         </div>

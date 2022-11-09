@@ -73,7 +73,6 @@
                                                 <tbody>
                                                     @if ($trans->count() > 0)
                                                         @foreach ($trans as $item)
-                                                            <tr>
                                                                 <tr class="odd">
                                                                     <td>#</td>
                                                                     <td>
@@ -81,8 +80,8 @@
                                                                     </td>
                                                                     <td>
                                                                         <div class="media align-items-center">
-                                                                        <div class="media-body">
-                                                                            <p>{{$item->deposit_method}}</p>
+                                                                            <div class="media-body">
+                                                                                <p>{{$item->deposit_method}}</p>
                                                                             </div>
                                                                         </div>
                                                                     </td>
@@ -113,7 +112,6 @@
                                                                         </p>
                                                                     </td>
                                                                 </tr>
-                                                            </tr>
                                                         @endforeach
                                                     @else
                                                         <tr class="odd">

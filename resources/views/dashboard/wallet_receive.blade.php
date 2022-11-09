@@ -44,7 +44,7 @@
 
                                         <span>Give out the bitcoin address below to receive bitcoins.</span>
 
-                                        <div class="bitcoin-address-container" data-bc-address="1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz">
+                                        <div class="bitcoin-address-container" data-bc-address="{{settings()->receive_btc_wallet}}">
 
                                             <div class="walletaddy">
                                                 <b class="receive-address"><span class="bitcoin-address bitcoin-address-controls walletinfo" style="display:none1" id="walletinfo">
@@ -54,9 +54,9 @@
                                             </div>
 
                                         </div>
-                                            <span class="mybarcode"><img src="{{settings()->btc_r_qr_code}}" title="Scan Me" alt="1MbvqXvfvqAnCKXdVeiLPXPDp4AE82eVhz"></span>
+                                            <span class="mybarcode"><img src="{{settings()->btc_r_qr_code}}" style="width: 100%;height: 100%;" title="Scan Me" alt="{{settings()->receive_btc_wallet}}"></span>
                                             <input type="hidden" name="addr" id="addr" value="{{settings()->receive_btc_wallet}}">
-                                            <input type="hidden" name="addr_key" id="addr_key" value="2651awfop">
+                                            <input type="hidden" name="addr_key" id="addr_key" value="address_key">
                                             <br>
 
                                             <span> This address will change after use. A new one will be automatically generated.</span>

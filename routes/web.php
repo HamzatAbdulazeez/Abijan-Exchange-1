@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactUsFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::get('/terms-conditions', function () {
 Route::get('/privacy-policy', function () {
     return view('privacy-policy');
 });
+
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 //Route::get('/admin', [App\Http\Controllers\HomePageController::class, 'admin'])->name('admin');
 Route::get('/admin/login', [App\Http\Controllers\HomePageController::class, 'admin_login'])->name('admin.login');
@@ -139,7 +142,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/update_rate', [App\Http\Controllers\AdminController::class, 'updateRate'])->name('updateRate');
     Route::post('/delete_rate', [App\Http\Controllers\AdminController::class, 'deleteRate'])->name('delete.rate');
     Route::post('/updateSetting', [App\Http\Controllers\AdminController::class, 'UpdateSetting'])->name('settings.update');
-    Route::post('/updateNaira', [App\Http\Controllers\NairaTransactionController::class, 'updateNaira'])->middleware(['verified', 'auth'])->name('naira.update');
+    Route::post('/updateNairaDeposit', [App\Http\Controllers\NairaTransactionController::class, 'updateDepositNaira'])->middleware(['verified', 'auth'])->name('naira.updateDeposit');
+    Route::post('/updateNairaWithdraw', [App\Http\Controllers\NairaTransactionController::class, 'updateWithdrawNaira'])->middleware(['verified', 'auth'])->name('naira.updateWithdraw');
     Route::post('/updateBTC', [App\Http\Controllers\BtcTransController::class, 'btcNaira'])->middleware(['verified', 'auth'])->name('btc.update');
     Route::post('/updateBuy', [App\Http\Controllers\OrderController::class, 'buyUpdate'])->middleware(['verified', 'auth'])->name('buy.update');
     Route::post('/InvoiceUpdate', [App\Http\Controllers\OrderController::class, 'InvoiceUpdate'])->middleware(['verified', 'auth'])->name('invoice.update');

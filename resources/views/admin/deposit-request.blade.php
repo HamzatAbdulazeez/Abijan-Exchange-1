@@ -87,9 +87,12 @@
                                                         <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
                                                         <td>
                                                             @if ($item->status == 0)
-                                                                <form action="{{route('naira.update')}}" method="POST">
+                                                                <form action="{{route('naira.updateDeposit')}}" method="POST">
                                                                     @csrf
                                                                     <input type="hidden" name="id" value="{{$item->id}}">
+                                                                    <input type="hidden" name="amount" value="{{$item->trf_amount}}">
+                                                                    <input type="hidden" name="charges" value="{{$item->deposit_fee}}">
+                                                                    <input type="hidden" name="user_id" value="{{$item->user_id}}">
                                                                     <button type="submit" class="btn btn-success">Approve</button>
                                                                 </form>
                                                             @else
