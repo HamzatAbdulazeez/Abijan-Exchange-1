@@ -751,7 +751,7 @@
                                                 <div class="row justify-content-center testimonialDiv">
                                                     <div class="col-md-1">
                                                         <div class="testimonialImg">
-                                                            <img src="{{URL::asset('assets/images/icon.png')}}" draggable="false">
+                                                            <img src="{{URL::asset('assets/images/Frame 487.png')}}" draggable="false">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -780,7 +780,7 @@
                                                 <div class="row justify-content-center testimonialDiv">
                                                     <div class="col-md-1">
                                                         <div class="testimonialImg">
-                                                            <img src="{{URL::asset('assets/images/testimonial1.png')}}" draggable="false">
+                                                            <img src="{{URL::asset('assets/images/Frame 488.png')}}" draggable="false">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -810,7 +810,7 @@
                                                 <div class="row justify-content-center testimonialDiv">
                                                     <div class="col-md-1">
                                                         <div class="testimonialImg">
-                                                            <img src="{{URL::asset('assets/images/slider-ghana.png')}}" draggable="false">
+                                                            <img src="{{URL::asset('assets/images/Frame 489.png')}}" draggable="false">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -838,7 +838,7 @@
                                                 <div class="row justify-content-center testimonialDiv">
                                                     <div class="col-md-1">
                                                         <div class="testimonialImg">
-                                                            <img src="{{URL::asset('assets/images/slider-kenya.png')}}" draggable="false">
+                                                            <img src="{{URL::asset('assets/images/Frame 490.png')}}" draggable="false">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -864,7 +864,7 @@
                                                 <div class="row justify-content-center testimonialDiv">
                                                     <div class="col-md-1">
                                                         <div class="testimonialImg">
-                                                            <img src="{{URL::asset('assets/images/slider-nigeria.png')}}" draggable="false">
+                                                            <img src="{{URL::asset('assets/images/Frame 491.png')}}" draggable="false">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

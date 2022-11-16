@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{URL::asset('assets/css/remix.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/stick.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/all.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/select.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('assets/css/movie.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('assets/css/select.scss')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/btn.css')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/party.css')}}">

@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
                     <div class="position-relative bg-gradient-primary h-100 m-3 px-5 border-radius-lg d-flex flex-column justify-content-center overflow-hidden">
-                        <div class="container"><a href="https://abijan-website.netlify.app/" target="_blank" rel="noopener noreferrer"><img src="/static/media/logo.89ab20edece446e181e1.png" alt="Logo" width="200"></a>
+                        <div class="container"><a href="{{route('home')}}" target="_blank" rel="noopener noreferrer"><img src="{{URL::asset('assets/images/logoo.png')}}" alt="Logo" width="200"></a>
                             <h4 class="mt-5 text-white position-relative mb-5">The Most Trusted E-currency Exchange and Bills Payment Platform</h4>
                         </div>
                     </div>
