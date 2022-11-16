@@ -408,6 +408,19 @@
                             </d>
                         </div>
 
+                        <div class="col-3 fw-bold fs-sm">₦860/$</div>
+                        <div class="col-3 fw-bold fs-sm">₦700/$</div>
+
+                    </div>
+                    <div class="row mt-4">
+
+                        <div class="col-6">
+                            <d class="flex align-items-center">
+                                <img width="30" src="images/pm.png" alt="">
+                                <span class="ps-2 fs-sm "> Bitcoin </span>
+                            </d>
+                        </div>
+
                         <div class="col-3 fw-bold fs-sm">₦615/$</div>
                         <div class="col-3 fw-bold fs-sm">₦595/$</div>
 

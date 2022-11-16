@@ -260,7 +260,7 @@
     </div><!-- end container -->
 </section>
 <!-- END BANNER -->
-<div class="bg-black marquee" style="box-shadow:0px 5px 5px grey">
+<div class="bg-black marquee">
     <div class="TickerNews" id="T1">
         <div class="ti_wrapper">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
