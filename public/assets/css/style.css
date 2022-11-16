@@ -185,10 +185,13 @@ header .btn-primary {
 }
 
 /* NAVBAR */
-
+.left{
+    position: absolute;
+    left: 30px;
+}
 header {
-    background-color:#030638 !important;
-    /* background-color: rgba(0, 0, 0, 0.59); */
+    /* background-color:#030638 !important; */
+    background-color: rgba(0, 0, 0, 0.21);
 }
 
 .fixed {

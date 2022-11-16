@@ -126,23 +126,23 @@
                                         <div class="col-5">
                                             <div class="dropdown" id="dropdown">
                                                 <div href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                    <span id="options-display">Select Option</span>
+                                                    <span id="options-display" data-value="BTC"> <li class="left" data-value="BTC"><a href="javascript:void(0)"><img src="{{URL::asset('assets/images/bitcoin.png')}}" alt=""> BTC </a></li></span>
                                                     <b class="caret"></b>
                                                 </div>
                                                 <ul class="dropdown-menu" id="options">
-                                                    <li data-value="BTC"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/coin-icon/bitcoin.png" alt=""> BTC </a></li>
-                                                    <li data-value="ETH"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/eth.png" alt="">
-                                                            ETH</a></li>
-                                                    <li data-value="TRON"><a href="javascript:void(0)"><img src="https://cdn.freebiesupply.com/logos/large/2x/tron-logo-png-transparent.png" alt=""> TRON</a></li>
-                                                    <li data-value="PM"><a href="javascript:void(0)"><img src="https://Abijan Exchange.com/images/pm.png" alt="">
+                                                    <li data-value="BTC"><a href="javascript:void(0)"><img src="{{URL::asset('assets/images/bitcoin.png')}}" alt=""> BTC </a></li>
+                                                    <li data-value="PM"><a href="javascript:void(0)"><img src="{{URL::asset('assets/images/pm.png')}}" alt="">
                                                             PM</a></li>
+                                                    <li data-value="ETH"><a href="javascript:void(0)"><img src="{{URL::asset('assets/images/eth.png')}}" alt="">
+                                                            ETH</a></li>
                                                     <li data-value="USDT"><a href="javascript:void(0)"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt=""> TRC20</a></li>
-                                                    <li data-value="BTC Cash"><a href="javascript:void(0)"> <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png" alt=""> BCH</a></li>
+                                                    <li data-value="BTC Cash"><a href="javascript:void(0)"> <img src="https://nairadirect.com/images/bitcoin_cash69.jpg" alt=""> BCH</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <p class=" text-dark fw-bold d-flex justify-content-end my-0 crypo_exchange">
-                                            23,630.26 USD/BTC
+                                            16835.02 USD /
+                                            BTC
                                         </p>
                                     </div>
                                     <!-- Second ROW -->
@@ -152,12 +152,13 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
-                                                <img src="https://Abijan Exchange.com/images/coin-icon/nigeria.png">
+                                                <img src="{{URL::asset('assets/images/nigeria.png')}}">
                                                 <input type="text" class="form-control" placeholder="NGN" readonly="">
                                             </div>
                                         </div>
                                         <p class="text-dark fw-bold d-flex justify-content-end mt-1 mb-3 crypo_exchange">
-                                            1 USD = 639 NGN
+                                            1USD =
+                                            860NGN
                                         </p>
                                     </div>
                                     <!-- Third ROW -->
@@ -167,7 +168,7 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
-                                                <img src="https://Abijan Exchange.com/images/coin-icon/united%20states.png">
+                                                <img src="{{URL::asset('assets/images/united states.png')}}">
                                                 <input type="text" class="form-control" placeholder="USD" readonly="">
                                             </div>
                                         </div>
@@ -259,6 +260,166 @@
     </div><!-- end container -->
 </section>
 <!-- END BANNER -->
+<div class="bg-black marquee" style="box-shadow:0px 5px 5px grey">
+    <div class="TickerNews" id="T1">
+        <div class="ti_wrapper">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="ti_slide carousel-item active" data-bs-interval="10000">
+                        <div class="ti_content" style="width: 3129px; margin-left: -2940.27px;">
+                            <div class="ti_news"><a href="#"><img src="images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+                        </div>
+                        <div class="ti_content ti_clone" style="width: 3129px; margin-left: 0px;">
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <!-- <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div> -->
+
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+                        </div>
+                        <div class="ti_content ti_clone" style="width: 3129px; margin-left: 0px;">
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/paypal2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Paypal:
+                                    </span><span>PP</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/bitcoin.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin:
+                                    </span><span>BTC</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/BCH.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Bitcoin
+                                        Cash: </span><span>BCH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Ethereum.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Ethereum:
+                                    </span><span>ETH</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/TRC20.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>TRC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/Tether.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>ERC20:
+                                    </span><span>USDT</span></a></div>
+                            <div class="ti_news"><a href="#"><img src="https://nairadirect.com/images/coin-icon/PM2.png" alt="Sell bitcoin in Nigeria quickly with easy steps" title="Sell bitcoin in Nigeria quickly with easy steps"><span>Perfect
+                                        Money: </span><span>PM</span></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="section about my-5" id="about">
     <!-- start container -->
@@ -271,10 +432,10 @@
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <h2 class="fw-bold mb-4">About Us</h2>
-                        <p class="fs-sm">Abijan Exchange  is a leading cryptocurrency exchange and your most reliable
+                        <p class="fs-sm">Abijan Exchange is a leading cryptocurrency exchange and your most reliable
                             source for
                             fast e-currency funding, we provide the safest and easy-to-use digital currency trading
-                            platform. Abijan Exchange  is a Nigeria biggest E-currency Exchange Company sine 2012.
+                            platform. Abijan Exchange is a Nigeria biggest E-currency Exchange Company sine 2012.
                         </p>
                         <p class="fs-sm">We solve the incessant problem of getting into the crypto market at the
                             right price. We have reduced the unbearable margin between Buying and Selling.</p>
@@ -459,7 +620,7 @@
                             </div>
                             <span class="badge bg-dark py-1 px-3 rounded-custom">
                                 BEST EXCHANGE RATES</span>
-                            <p class="mt-3 mb-0"> You want the best rate? Abijan Exchange  is the right place. We
+                            <p class="mt-3 mb-0"> You want the best rate? Abijan Exchange is the right place. We
                                 always provide you with the best exchange rates. </p>
                         </li>
                         <li class="setup-process-item py-4 px-2" data-aos="fade-up">
@@ -475,7 +636,7 @@
                                 <i class="ri-exchange-dollar-fill text-primary ri-3x"></i>
                             </div>
                             <span class="badge bg-dark py-1 px-3 rounded-custom">MORE CURRENCY OPTION</span>
-                            <p class="mt-3 mb-0">At Abijan Exchange  you have the options to choose from many currency
+                            <p class="mt-3 mb-0">At Abijan Exchange you have the options to choose from many currency
                                 pairs. Just make a wish, your currency is in your wallet.</p>
                         </li>
                     </ul>
@@ -492,7 +653,7 @@
             <h2 class="text-light text-center pt-sm-2 fw-bold mb-3">Subscribe to our newsletter</h2>
             <p class="text-light text-center mb-grid-gutter mb-5">To get latest updates from us</p>
             <form action="https://facebook.us20.list-manage.com/subscribe/post?u=3e271affbd0840470e2d612ff&amp;id=2602f8aff0&amp;f_id=00f02de4f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate class="validate input-group mb-4">
-                <input class="form-control shadow-none required email" type="email"  name="EMAIL" id="mce-EMAIL" required placeholder="Enter your email address" required="">
+                <input class="form-control shadow-none required email" type="email" name="EMAIL" id="mce-EMAIL" required placeholder="Enter your email address" required="">
                 <button style="border-radius: 0 10px 10px 0 !important;" class="btn btn-primary" type="submit"><i class="ri-send-plane-fill"></i></button>
             </form>
         </div>
@@ -501,25 +662,25 @@
 
 <!-- JOIN THE COMMUNITY -->
 <div class="join_community my-5 py-5">
-<section class="container position-relative zindex-5 mt-2 mt-md-5" id="tickets">
-    <div class="row justify-content-center">
-        <div class="col-lg-10 col-md-11">
-            <div class="bg_light rounded-3 pt-5 px-3 pb-4 p-sm-5">
-                <div class="join_margin d-sm-flex justify-content-between align-items-center text-center text-sm-start">
-                    <div class="join_community_hero">
-                        <img class="up_down" src="{{URL::asset('assets/images/join_community.png')}}" alt="">
-                    </div>
-                    <div class=""></div>
-                    <div class=""></div>
-                    <div class=""></div>
-                    <div class=""></div>
-                    <div class="me-sm-3 mb-4 mb-sm-0">
-                        <h4 class="mb-2 text-dark fw-bold">Join the <span style="color: #0B2A6B;">
-                                Community</span> </h4>
-                        <p class="mb-0 text-dark fs-sm">Cick here to join our community and
-                            get updates on our product </p>
-                    </div>
-                    <a class="btn btn-primary" href="/register" "="">Proceed</a>
+    <section class="container position-relative zindex-5 mt-2 mt-md-5" id="tickets">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-11">
+                <div class="bg_light rounded-3 pt-5 px-3 pb-4 p-sm-5">
+                    <div class="join_margin d-sm-flex justify-content-between align-items-center text-center text-sm-start">
+                        <div class="join_community_hero">
+                            <img class="up_down" src="{{URL::asset('assets/images/join_community.png')}}" alt="">
+                        </div>
+                        <div class=""></div>
+                        <div class=""></div>
+                        <div class=""></div>
+                        <div class=""></div>
+                        <div class="me-sm-3 mb-4 mb-sm-0">
+                            <h4 class="mb-2 text-dark fw-bold">Join the <span style="color: #0B2A6B;">
+                                    Community</span> </h4>
+                            <p class="mb-0 text-dark fs-sm">Cick here to join our community and
+                                get updates on our product </p>
+                        </div>
+                        <a class="btn btn-primary" href="/register" "="">Proceed</a>
                     </div>
                 </div>
             </div>
@@ -529,222 +690,222 @@
 <!-- Steps Area -->
 <!-- DOWLOAD AREA -->
 <div class=" container mt-5">
-    <div class="download_area p-5">
+                            <div class="download_area p-5">
 
-        <div class="row">
+                                <div class="row">
 
-            <div class="col-lg-6">
+                                    <div class="col-lg-6">
 
-                <h2 class="fw-bold mb-3">Also available on IOS and Google Play</h2>
-                <p>Download our ANDROID and IOS apps today and start trading on your mobile
-                    phone</p>
+                                        <h2 class="fw-bold mb-3">Also available on IOS and Google Play</h2>
+                                        <p>Download our ANDROID and IOS apps today and start trading on your mobile
+                                            phone</p>
 
-                <div class="mt-4">
+                                        <div class="mt-4">
 
-                    <a class="btn-market btn-apple me-2 me-md-3" href="javascript:void(0)" role="button">
-                        <span class="btn-market-subtitle">Download on the</span>
-                        <span class="btn-market-title">App Store</span>
-                    </a>
+                                            <a class="btn-market btn-apple me-2 me-md-3" href="javascript:void(0)" role="button">
+                                                <span class="btn-market-subtitle">Download on the</span>
+                                                <span class="btn-market-title">App Store</span>
+                                            </a>
 
-                    <a class="btn-market btn-google mx-2" href="javascript:void(0)" role="button">
-                        <span class="btn-market-subtitle">Download on the</span>
-                        <span class="btn-market-title">Google Play</span>
-                    </a>
+                                            <a class="btn-market btn-google mx-2" href="javascript:void(0)" role="button">
+                                                <span class="btn-market-subtitle">Download on the</span>
+                                                <span class="btn-market-title">Google Play</span>
+                                            </a>
 
-                </div>
+                                        </div>
 
-            </div>
+                                    </div>
 
-            <div class="col-lg-5 offset-lg-1 download_image">
-                <img class="d-block mx-auto" src="assets/images/iphone.png" alt="Mobile App">
-            </div>
+                                    <div class="col-lg-5 offset-lg-1 download_image">
+                                        <img class="d-block mx-auto" src="assets/images/iphone.png" alt="Mobile App">
+                                    </div>
 
-        </div>
+                                </div>
 
-    </div>
-</div>
-<!-- DOWNLOAD AREA END -->
-<!--Testimonial-->
-<section class="testimonial">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 text-center mb-4">
-                <div class="textHead">
-                    <p class="subhead"></p>
-                    <h2>Our Customers Feedback</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div id="carouselExampleIndicators" class="carousel slide testimonialSlider" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            </div>
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row justify-content-center testimonialDiv">
-                                <div class="col-md-1">
-                                    <div class="testimonialImg">
-                                        <img src="{{URL::asset('assets/images/icon.png')}}" draggable="false">
+                    <!-- DOWNLOAD AREA END -->
+                    <!--Testimonial-->
+                    <section class="testimonial">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 text-center mb-4">
+                                    <div class="textHead">
+                                        <p class="subhead"></p>
+                                        <h2>Our Customers Feedback</h2>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="testimonialBox">
-                                        <div class="mainShape">
-                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
-                                            <p>“ I enjoy doing business with you guys, because
-                                                you don't
-                                                delay
-                                                processing transactions as soon as payments are
-                                                made.
-                                                Thanks and
-                                                keep it up
-                                                ”
-                                            </p>
-                                            <h5>John Chukwudi</h5>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">
+                                    <div id="carouselExampleIndicators" class="carousel slide testimonialSlider" data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
                                         </div>
-                                        <div class="shape1"></div>
-                                        <div class="shape2"></div>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="row justify-content-center testimonialDiv">
+                                                    <div class="col-md-1">
+                                                        <div class="testimonialImg">
+                                                            <img src="{{URL::asset('assets/images/icon.png')}}" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="testimonialBox">
+                                                            <div class="mainShape">
+                                                                <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                                                <p>“ I enjoy doing business with you guys, because
+                                                                    you don't
+                                                                    delay
+                                                                    processing transactions as soon as payments are
+                                                                    made.
+                                                                    Thanks and
+                                                                    keep it up
+                                                                    ”
+                                                                </p>
+                                                                <h5>John Chukwudi</h5>
+                                                            </div>
+                                                            <div class="shape1"></div>
+                                                            <div class="shape2"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row justify-content-center testimonialDiv">
+                                                    <div class="col-md-1">
+                                                        <div class="testimonialImg">
+                                                            <img src="{{URL::asset('assets/images/testimonial1.png')}}" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="testimonialBox">
+                                                            <div class="mainShape">
+                                                                <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                                                <p>
+                                                                    “Abijan Exchange is an amazing e-currency
+                                                                    exchanger.
+                                                                    Their
+                                                                    services is fast and very relaible. Looking
+                                                                    forward to
+                                                                    doing
+                                                                    more business with you guys.
+                                                                    ”
+                                                                </p>
+                                                                <h5>Sunny Adike</h5>
+                                                            </div>
+                                                            <div class="shape1"></div>
+                                                            <div class="shape2"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row justify-content-center testimonialDiv">
+                                                    <div class="col-md-1">
+                                                        <div class="testimonialImg">
+                                                            <img src="{{URL::asset('assets/images/slider-ghana.png')}}" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="testimonialBox">
+                                                            <div class="mainShape">
+                                                                <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                                                <p>
+                                                                    “I enjoy doing business with you guys, because you don't
+                                                                    delay
+                                                                    processing transactions as soon as payments are made.
+                                                                    Thanks and
+                                                                    keep it up
+                                                                    ”
+                                                                </p>
+                                                                <h5>Hamzat</h5>
+                                                            </div>
+                                                            <div class="shape1"></div>
+                                                            <div class="shape2"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row justify-content-center testimonialDiv">
+                                                    <div class="col-md-1">
+                                                        <div class="testimonialImg">
+                                                            <img src="{{URL::asset('assets/images/slider-kenya.png')}}" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="testimonialBox">
+                                                            <div class="mainShape">
+                                                                <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                                                <p>
+                                                                    “Trust and integrity are such in your organisation.
+                                                                    Please keep
+                                                                    it up. May God bless you all
+                                                                    ”
+                                                                </p>
+                                                                <h5>Abdul</h5>
+                                                            </div>
+                                                            <div class="shape1"></div>
+                                                            <div class="shape2"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row justify-content-center testimonialDiv">
+                                                    <div class="col-md-1">
+                                                        <div class="testimonialImg">
+                                                            <img src="{{URL::asset('assets/images/slider-nigeria.png')}}" draggable="false">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="testimonialBox">
+                                                            <div class="mainShape">
+                                                                <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
+                                                                <p>
+                                                                    “ Abijan Exchange is an amazing e-currency exchanger.
+                                                                    Their
+                                                                    services is fast and very relaible. Looking forward to
+                                                                    doing
+                                                                    more business with you guys.
+                                                                    ”
+                                                                </p>
+                                                                <h5>Adeleke</h5>
+                                                            </div>
+                                                            <div class="shape1"></div>
+                                                            <div class="shape2"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                            <i class="bi bi-arrow-left"></i>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                            <i class="bi bi-arrow-right"></i>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-md-1"></div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="row justify-content-center testimonialDiv">
-                                <div class="col-md-1">
-                                    <div class="testimonialImg">
-                                        <img src="{{URL::asset('assets/images/testimonial1.png')}}" draggable="false">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="testimonialBox">
-                                        <div class="mainShape">
-                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
-                                            <p>
-                                                “Abijan Exchange  is an amazing e-currency
-                                                exchanger.
-                                                Their
-                                                services is fast and very relaible. Looking
-                                                forward to
-                                                doing
-                                                more business with you guys.
-                                                ”
-                                            </p>
-                                            <h5>Sunny Adike</h5>
-                                        </div>
-                                        <div class="shape1"></div>
-                                        <div class="shape2"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row justify-content-center testimonialDiv">
-                                <div class="col-md-1">
-                                    <div class="testimonialImg">
-                                        <img src="{{URL::asset('assets/images/slider-ghana.png')}}" draggable="false">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="testimonialBox">
-                                        <div class="mainShape">
-                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
-                                            <p>
-                                                “I enjoy doing business with you guys, because you don't
-                                                delay
-                                                processing transactions as soon as payments are made.
-                                                Thanks and
-                                                keep it up
-                                                        ”
-                                            </p>
-                                            <h5>Hamzat</h5>
-                                        </div>
-                                        <div class="shape1"></div>
-                                        <div class="shape2"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row justify-content-center testimonialDiv">
-                                <div class="col-md-1">
-                                    <div class="testimonialImg">
-                                        <img src="{{URL::asset('assets/images/slider-kenya.png')}}" draggable="false">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="testimonialBox">
-                                        <div class="mainShape">
-                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
-                                            <p>
-                                                “Trust and integrity are such in your organisation.
-                                                Please keep
-                                                it up. May God bless you all
-                                                        ”
-                                            </p>
-                                            <h5>Abdul</h5>
-                                        </div>
-                                        <div class="shape1"></div>
-                                        <div class="shape2"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row justify-content-center testimonialDiv">
-                                <div class="col-md-1">
-                                    <div class="testimonialImg">
-                                        <img src="{{URL::asset('assets/images/slider-nigeria.png')}}" draggable="false">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="testimonialBox">
-                                        <div class="mainShape">
-                                            <img class="quote" src="{{URL::asset('assets/images/quote.png')}}" draggable="false">
-                                            <p>
-                                                “ Abijan Exchange  is an amazing e-currency exchanger.
-                                                Their
-                                                services is fast and very relaible. Looking forward to
-                                                doing
-                                                more business with you guys.
-                                                        ”
-                                            </p>
-                                            <h5>Adeleke</h5>
-                                        </div>
-                                        <div class="shape1"></div>
-                                        <div class="shape2"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <i class="bi bi-arrow-left"></i>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <i class="bi bi-arrow-right"></i>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Testimonial Ends-->
+                    </section>
+                    <!--Testimonial Ends-->
 
-<!-- Steps Are End -->
-<!-- <section class="feedback-area content-bg position-relative overflow-hidden py-5">
+                    <!-- Steps Are End -->
+                    <!-- <section class="feedback-area content-bg position-relative overflow-hidden py-5">
     <img src="{{URL::asset('ssets/images/dark-mode-gradient.svg')}}" alt="shape"
         style="user-select: none !important; z-index: -4 !important;;"
         class="position-absolute center-shape">
@@ -1110,58 +1271,58 @@
     </div>
 </section> -->
 
-<!-- FAQ's -->
-<div class="content sec-content mt-5">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-lg-5 order-2 order-lg-0">
-                <div class="info">
-                    <div class="section-head style-4 mb-5">
-                        <h2 class="fw-bold"> Frequently asked questions </h2>
-                    </div>
-                    <div class="faq style-3 style-4">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">How is
-                                        the price calculated?</button></h2>
-                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">The price of Bitcoin and other
-                                        digital currencies are determined by supply and demand:
-                                        the buyers who want a certain currency and the sellers
-                                        who have that currency. Abijan Exchange  does not set the
-                                        price of Bitcoin or any digital currency.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Why is
-                                        the Bitcoin price different on Google?</button></h2>
-                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">There is no global Bitcoin
-                                        price, it isn't pegged to any currency, country or
-                                        Bitcoin platform. When you see the price on Google, it
-                                        is simply showing an estimated, international price
+                    <!-- FAQ's -->
+                    <div class="content sec-content mt-5">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-lg-5 order-2 order-lg-0">
+                                    <div class="info">
+                                        <div class="section-head style-4 mb-5">
+                                            <h2 class="fw-bold"> Frequently asked questions </h2>
+                                        </div>
+                                        <div class="faq style-3 style-4">
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="heading1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">How is
+                                                            the price calculated?</button></h2>
+                                                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">The price of Bitcoin and other
+                                                            digital currencies are determined by supply and demand:
+                                                            the buyers who want a certain currency and the sellers
+                                                            who have that currency. Abijan Exchange does not set the
+                                                            price of Bitcoin or any digital currency.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="heading2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Why is
+                                                            the Bitcoin price different on Google?</button></h2>
+                                                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">There is no global Bitcoin
+                                                            price, it isn't pegged to any currency, country or
+                                                            Bitcoin platform. When you see the price on Google, it
+                                                            is simply showing an estimated, international price
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="heading3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Do I
+                                                            need to buy a whole Bitcoin?</button></h2>
+                                                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">No. Bitcoin, Ethereum and most
+                                                            other digital currencies are divisible. You can spend a
+                                                            small amount of money and buy or sell very small amounts
+                                                            over time.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Do I
-                                        need to buy a whole Bitcoin?</button></h2>
-                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">No. Bitcoin, Ethereum and most
-                                        other digital currencies are divisible. You can spend a
-                                        small amount of money and buy or sell very small amounts
-                                        over time.
-                                    </div>
+                                <div class="col-lg-6 order-0 order-lg-2">
+                                    <div class="img mb-30 mb-lg-0"><img src="/assets/images/faq.png" alt=""></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-6 order-0 order-lg-2">
-                <div class="img mb-30 mb-lg-0"><img src="/assets/images/faq.png" alt=""></div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+                    @endsection
