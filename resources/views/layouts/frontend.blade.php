@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="{{URL::asset('assets/css/party.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-    <div class="elfsight-app-c59500cb-d1db-4ed8-a5ab-4a3d80fd542b"></div>
+    <div class="elfsight-app-c6270b09-80d5-400b-9c3a-55622bfadb28"></div>
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-6f64cf03-5f75-4125-89ba-f0b4bbd328c8"></div>
     {!! NoCaptcha::renderJs() !!}
     <title> {{config('app.name')}} </title>
     <style type="text/css">
@@ -339,10 +341,6 @@
             border-right: 1px solid hsla(0, 0%, 7%, .1)
         }
     </style>
-    <link href="https://apps.elfsight.com" rel="preconnect" crossorigin="">
-    <link href="https://static.elfsight.com" rel="preconnect" crossorigin="">
-    <link href="https://service-reviews-ultimate.elfsight.com" rel="preconnect" crossorigin="">
-    <link href="https://storage.elfsight.com" rel="preconnect" crossorigin="">
     <script>
         window.setTimeout(function() {
             $(".alert-timeout").fadeTo(500, 0).slideUp(1000, function() {
@@ -353,6 +351,7 @@
 </head>
 
 <body cz-shortcut-listen="true" style="padding-top: 0px;">
+
     <div id='loader'>
         <div class="loader-inner">
             <div class="loading-content"></div>
@@ -470,10 +469,10 @@
         </div>
     </div>
     <!-- END MODAL -->
+    <script src="//code.tidio.co/f6xeuwwuzfupgmmdthyenwaj4ys1zray.js" async></script>
 
     <script src="{{URL::asset('assets/js/platform.js')}}"></script>
     <script src="{{URL::asset('assets/js/tick.js')}}"></script>
-    <!-- <div class="elfsight-app-659d6c3a-e491-45a4-95a3-647fa0e14e83"></div> -->
     <script src="{{URL::asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{URL::asset('assets/js/jquery.js')}}"></script>
     <script src="{{URL::asset('assets/js/bootstrap.bundle.min.js')}}"></script>
